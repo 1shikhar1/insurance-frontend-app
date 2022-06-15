@@ -1,0 +1,62 @@
+<div>
+    <h2 class="text-center">{{title}}</h2>
+    <p class="text-center">Kindly enter the credentials</p>
+  </div>
+  <div class="container">
+    <form (ngSubmit)="onSubmit()">
+      <table class="table table-bordered">
+        <tbody>
+          <tr>
+            <td scope="col"><strong>Agent Name:</strong></td>
+            <td scope="col"><input type="text" name="agentname" class="form-control"
+                 [(ngModel)]="emp_name"></td>
+          </tr>
+          <tr>
+            <td scope="col"><strong>Agent Code:</strong></td>
+            <td><input type="number" name="agent_code" class="form-control"  value="" 
+                [(ngModel)]="emp_code" /></td>
+          </tr>
+          <tr>
+            <td scope="col"><strong>Password:</strong></td>
+            <td><input type="password" class="form-control" name="password" value="" 
+                [(ngModel)]="password" /></td>
+          </tr>
+          <tr>
+            <td scope="col"><strong>Confirm Password:</strong></td>
+            <td><input type="password" class="form-control" name="confirmPassword" [(ngModel)]="confirmPassword"
+                 value="" /></td>
+          </tr>
+          <tr>
+            <td scope="col"><strong>Agent Address:</strong></td>
+            <td><textarea class="form-control" name="address" [(ngModel)]="address"></textarea></td>
+          </tr>
+          <tr>
+            <td scope="col"><strong>Email ID:</strong></td>
+            <td><input type="email" class="form-control" name="email" [(ngModel)]="email"></td>
+          </tr>
+          <tr>
+            <td scope="col"><strong>Qualification:</strong></td>
+            <td><select name="state" class="form-control"  
+                [(ngModel)]="qualification">
+                <option value="">Select</option>
+                <option value="Intermediate">Intermediate</option>
+                <option value="Graduate">Graduate</option>
+              </select></td>
+          </tr>
+          <tr>
+            <td scope="col"><strong>Status:</strong></td>
+            <td><select name="status" class="form-control"  [(ngModel)]="status">
+                <option value="">Select</option>
+                <option value="active">Active</option>
+                <option value="inactive">Inactive</option>
+              </select></td>
+          </tr>
+          <tr>
+            <td colspan="2"><button type="submit" class="btn btn-primary">Submit</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </form>
+  </div>
+
+

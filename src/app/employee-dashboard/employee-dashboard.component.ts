@@ -7,20 +7,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EmployeeDashboardComponent implements OnInit {
   username:string="employee";
-  agentRecords:number=4;
-  employeeRecords:number=3;
-  customerRecords:number=4;
-  customerDocRecords:number=4;
-  insuranceTypeRecords:number=5;
-  insurancePlanRecords:number=8;
-  insuranceAccountRecords:number=8;
-  policyPaymentRecords:number=17;
-  policyClaimRecords:number=2;
-  commissionRecords:number=8;
-  queryRecords:number=1;
-  stateRecords:number=4;
-  insuranceSchemeRecords:number=11;
-  cityRecords:number=5;
+  agentRecords:number=0;
+  employeeRecords:number=0;
+  customerRecords:number=0;
+  customerDocRecords:number=0;
+  insuranceTypeRecords:number=0;
+  insurancePlanRecords:number=0;
+  insuranceAccountRecords:number=0;
+  policyPaymentRecords:number=0;
+  policyClaimRecords:number=0;
+  commissionRecords:number=0;
+  queryRecords:number=0;
+  stateRecords:number=0;
+  insuranceSchemeRecords:number=0;
+  cityRecords:number=0;
 
   constructor() { }
 

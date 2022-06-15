@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { AgentService } from '../services/services/agent.service';
-
+import { AgentLoginService } from '../services/services/agent-login.service';
 
 
 @Component({
@@ -14,7 +13,7 @@ credentials={
   username:'',
   password:''
 }
-  constructor(private loginService: AgentService) { }
+  constructor(private loginService: AgentLoginService) { }
 
   ngOnInit(): void {
   }
@@ -36,7 +35,7 @@ credentials={
     // }else{
     //   alert("**Please Fill both Username and Password");
     // }
-    if(this.credentials.username=="vineet" && this.credentials.password=="vineet"){
+    if(this.credentials.username=="agent" && this.credentials.password=="agent"){
       window.location.href="/agent-dashboard"
       // this. router. navigate(['/customer-dashboard']); 
     }else{

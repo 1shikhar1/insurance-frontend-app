@@ -5,22 +5,11 @@ import { Router } from '@angular/router';
 @Injectable({
   providedIn: 'root'
 })
-export class AdminService {
+export class AdminLoginService {
 
    url="http://localhost:8080";
 
   constructor(private http:HttpClient, private router: Router) { }
-
-  getAllCustomers(){
-    let url = "http://localhost:8080/api/v1/customer"
-    return this.http.get<any[]>(url)
-  }
-
-  getAllAgents(){
-    let url = "http://localhost:8080/api/v1/agent"
-    return this.http.get<any[]>(url)
-  }
-
 
 generateToken(credentials:any){
 return this.http.post(`${this.url}`,credentials)

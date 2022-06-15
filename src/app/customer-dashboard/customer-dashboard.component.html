@@ -6,7 +6,7 @@
 
                     <li class="nav-brand">
                         <a class="nav-link active" style="color: white;" aria-current="page" routerLink="app-Home">
-                        <img src="assets/homelogo.jpg" width="150" height="50"/></a>
+                        <img src="assets/homelogo.jpg"  id="image" width="150" height="50"/></a>
                     </li>
 
                     <li class="nav-item">
@@ -31,7 +31,7 @@
                         </a>
                         <ul class="dropdown-menu" ngbDropdownMenu aria-labelledby="navbarScrollingDropdown">
                             <li ngbDropdownItem><a class="dropdown-item" href="#">Protection Plans</a></li>
-                            <li ngbDropdownItem><a class="dropdown-item" href="#">Child Plans</a></li>
+                            <li ngbDropdownItem><a class="dropdown-item" routerLink="/child-plan">Child Plans</a></li>
                             <!-- <li ngbDropdownItem><hr class="dropdown-divider"></li> -->
                             <li ngbDropdownItem><a class="dropdown-item" href="#">Saving Plans</a></li>
                             <li ngbDropdownItem><a class="dropdown-item" href="#">Growth Plans</a></li>
@@ -43,10 +43,12 @@
                         <a class="nav-link active" href="view-insurance-account-detail" style="color: white;">Insurance Account</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" routerLink="#" style="color: white;">Queries</a>
+                        <a class="nav-link active" routerLink="/customerQueries" style="color: white;">Queries</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav- " >
+                        <!-- <button class="btn btn-danger"> -->
                         <a class="nav-link active" routerLink="#" style="color: white;">Logout</a>
+                        <!-- </button> -->
                     </li>
                 </ul>
             </div>

@@ -5,7 +5,7 @@ import { Router } from '@angular/router';
 @Injectable({
   providedIn: 'root'
 })
-export class EmployeeService {
+export class EmployeeLoginService {
 
   url="http://localhost:8080";
 

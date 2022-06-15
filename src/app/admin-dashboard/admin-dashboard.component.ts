@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
-import { AdminService } from '../services/services/admin.service';
 
 @Component({
   selector: 'admin-dashboard',
@@ -9,6 +7,7 @@ import { AdminService } from '../services/services/admin.service';
 })
 export class AdminDashboardComponent implements OnInit {
 
+  constructor() { }
   username:string="admin";
   agentRecords:number=0;
   employeeRecords:number=0;
@@ -24,29 +23,8 @@ export class AdminDashboardComponent implements OnInit {
   stateRecords:number=0;
   insuranceSchemeRecords:number=0;
   cityRecords:number=0;
-
-
-  constructor(private adminService: AdminService) {
-    this.getAllCustomersCount()
-    this.getAllAgentCount()
-   }
-
-   getAllCustomersCount(){
-    this.adminService.getAllCustomers().subscribe((result)=>{
-      this.customerRecords = result.length
-    })
-   }
-
-   getAllAgentCount(){
-    this.adminService.getAllAgents().subscribe((result)=>{
-      this.agentRecords = result.length
-    })
-   }
-
-
   
   ngOnInit(): void {
   }
-
 
 }

@@ -5,7 +5,7 @@ import { Router } from '@angular/router';
 @Injectable({
   providedIn: 'root'
 })
-export class AgentService {
+export class AgentLoginService {
 
   url="http://localhost:8080";
 

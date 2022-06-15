@@ -1,0 +1,33 @@
+<br><br><br>
+<body>
+    <h2 class="text-center">{{title}}</h2>
+    <div class="container">
+        <form>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Agent Name</th>
+                        <th>Agent Code</th>
+                        <th>Address</th>
+                        <th>Email-id</th>
+                        <th>Qualification</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td [(ngModel)]="agentName"></td>
+                        <td [(ngModel)]="agentCode"></td>
+                        <td [(ngModel)]="address"></td>
+                        <td [(ngModel)]="email_id"></td>
+                        <td [(ngModel)]="qualification"></td>
+                        <td [(ngModel)]="status"></td>
+                        <td [(ngModel)]="action"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </form>
+    </div>
+</body>
+

@@ -4,11 +4,12 @@
             <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
-                    <li class="nav-brand">
-                        <a class="nav-link active" style="color: white;" aria-current="page" routerLink="app-Home">
-                        <img src="assets/homelogo.jpg" width="150" height="50"/></a>
+                    <li class="nav-brand" >
+                        <a class="nav-link active" style="color: white;" aria-current="page"
+                         routerLink="app-Home">
+                        <img src="assets/homelogo.jpg" id="image" width="150" height="50"/></a>
                     </li>
-
+                    
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" routerLink="/agent-dashboard" style="color: white;">Agent Account</a>
                     </li>
@@ -25,7 +26,7 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#" style="color: white;">Marketing</a>
+                        <a class="nav-link active" aria-current="page" href="marketingAgent" style="color: white;">Marketing</a>
                     </li>
 
                     <li class="nav-item dropdown" ngbDropdown>
@@ -54,8 +55,10 @@
                         </ul>
                     </li>
                  
-                    <li class="nav-item">
+                    <li class="nav- ">
+                        <!-- <button class="btn btn-danger"> -->
                         <a class="nav-link active" routerLink="#" style="color: white;">Logout</a>
+                        <!-- </button> -->
                     </li>
                 </ul>
             </div>
@@ -64,7 +67,7 @@
     
     <div  style="text-align: center; ; ">
         <h1 style="margin-top:20px ; color:black;">Welcome {{username}}</h1>
-        <!-- <h3 style="color: black;"></h3> -->
+        <!-- <h3 style="color: black;">{{username}}</h3> -->
 
         <div class="card" style="width: 18rem; margin: 10px; display: inline-block;">
             <a class="card-block stretched-link text-decoration-none" routerLink="/admin-login">
@@ -76,7 +79,7 @@
         </div>
 
         <div class="card" style="width: 18em; margin: 10px; display: inline-block;">
-            <a class="card-block stretched-link text-decoration-none" routerLink="/admin-login">
+            <a class="card-block stretched-link text-decoration-none" href="marketingAgent">
                 <img class="card-img-top" src="assets/marketing.png" alt="Card image cap">
                 <div class="card-body">
                     <h5 class="card-title">Marketing</h5>
@@ -95,7 +98,7 @@
         </div>
         <br>
         <div class="card" style="width: 18rem; margin: 10px; display: inline-block;">
-            <a class="card-block stretched-link text-decoration-none" routerLink="/admin-login">
+            <a class="card-block stretched-link text-decoration-none" href="InsuranceAccountForAgent">
                 <img class="card-img-top" src="assets/insuranceAccount.png" alt="Card image cap">
                 <div class="card-body">
                     <h5 class="card-title">Insurance Account</h5>

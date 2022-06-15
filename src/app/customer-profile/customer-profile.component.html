@@ -1,0 +1,48 @@
+<body style="background-color: cornsilk;">
+<div class="container text-center" style="margin: 10px;">
+    <h2 class="text-center">{{title}}</h2>
+    <img class="img-fluid" src="assets/admin.jpg" style="width: 100px;" />
+</div>
+<div class="container">
+    <form>
+        <table class="table table-bordered">
+            <tbody>
+                <tr>
+                    <td scope="col"><strong>Name:</strong></td>
+                    <td scope="col"><input type="text" name="custname" class="form-control" [(ngModel)]="cust_name"></td>
+                </tr>
+                <tr>
+                    <td scope="col"><strong>Date of Birth.:</strong></td>
+                    <td><input type="text" name="dob" class="form-control" value="" [(ngModel)]="dob"/></td>
+                </tr>
+                <tr>
+                    <td scope="col"><strong>Address:</strong></td>
+                    <td><textarea class="form-control" name="address" [(ngModel)]="address"></textarea></td>
+                </tr>
+                <tr>
+                    <td scope="col"><strong>Email ID:</strong></td>
+                    <td><input type="text" class="form-control" name="email" [(ngModel)]="email"></td>
+                </tr>
+                <tr>
+                    <td scope="col"><strong>State:</strong></td>
+                    <td><input type="text" class="form-control" name="state" [(ngModel)]="state"></td>
+                </tr>
+                <tr>
+                    <td scope="col"><strong>City:</strong></td>
+                    <td><input type="text" class="form-control" name="city" [(ngModel)]="city"></td>
+                </tr>
+                <tr>
+                    <td scope="col"><strong>Mobile No:</strong></td>
+                    <td><input type="text" class="form-control" name="email" [(ngModel)]="mobile"></td>
+                </tr>
+                <tr>
+                    <td scope="col"><strong>Nominee:</strong></td>
+                    <td><input type="text" class="form-control" name="nominee" [(ngModel)]="nominee"></td>
+                </tr>
+                <tr>
+                    <td scope="col"><strong>Nominee Relation:</strong></td>
+                    <td><input type="text" class="form-control" name="nomineeRelation" [(ngModel)]="nomineeRelation"></td>
+            </tbody>
+        </table>
+    </form>
+</div>

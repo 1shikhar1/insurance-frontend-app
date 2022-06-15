@@ -1,0 +1,81 @@
+<div>
+  <h2 class="text-center">{{title}}</h2>
+  <p class="text-center">Kindly enter the credentials</p>
+</div>
+<div class="container">
+  <form (ngSubmit)="onSubmit()">
+    <table class="table table-bordered">
+      <tbody>
+        <tr>
+          <td scope="col"><strong>Name:</strong></td>
+          <td scope="col"><input type="text" name="custname" class="form-control" [(ngModel)]="cust_name"></td>
+        </tr>
+        <tr>
+          <td scope="col"><strong>Date of Birth.:</strong></td>
+          <td><input type="date" name="dob" class="form-control" max="2004-06-11" value="" [(ngModel)]="dob" /></td>
+        </tr>
+        <tr>
+          <td scope="col"><strong>Login ID:</strong></td>
+          <td><input type="text" name="loginid" class="form-control" value="" [(ngModel)]="loginId" /></td>
+        </tr>
+        <tr>
+          <td scope="col"><strong>Password:</strong></td>
+          <td><input type="password" class="form-control" name="password" value="" [(ngModel)]="password" /></td>
+        </tr>
+        <tr>
+          <td scope="col"><strong>Confirm Password:</strong></td>
+          <td><input type="password" class="form-control" name="cnfpassword" value="" /></td>
+        </tr>
+        <tr>
+          <td scope="col"><strong>Address:</strong></td>
+          <td><textarea class="form-control" name="address" [(ngModel)]="address"></textarea></td>
+        </tr>
+        <tr>
+          <td scope="col"><strong>Email ID:</strong></td>
+          <td><input type="email" class="form-control" name="email" [(ngModel)]="email"></td>
+        </tr>
+        <tr>
+          <td scope="col"><strong>State:</strong></td>
+          <td><select name="state" class="form-control" onchange="loadcity(this.value)" [(ngModel)]="state">
+              <option value="">Select</option>
+              <option value="Others">Others</option>
+            </select></td>
+        </tr>
+        <tr>
+          <td scope="col"><strong>City:</strong></td>
+          <td><select name="state" class="form-control" onchange="loadcity(this.value)" [(ngModel)]="city">
+              <option value="">Select</option>
+              <option value="Others">Others</option>
+            </select></td>
+        </tr>
+        <tr>
+          <td scope="col"><strong>Mobile No:</strong></td>
+          <td><input type="text" class="form-control" name="email" [(ngModel)]="mobile"></td>
+        </tr>
+        <tr>
+          <td scope="col"><strong>Nominee:</strong></td>
+          <td><input type="text" class="form-control" name="email" [(ngModel)]="nominee"></td>
+        </tr>
+        <tr>
+          <td scope="col"><strong>Nominee Relation:</strong></td>
+          <td><select name="nomineerelation" class="form-control" [(ngModel)]="nomineeRelation">
+              <option value="">Select</option>
+              <option value='Father'>Father</option>
+              <option value='Mother'>Mother</option>
+              <option value='Brother'>Brother</option>
+              <option value='Sister'>Sister</option>
+              <option value='Brother-in-law'>Brother-in-law</option>
+              <option value='Sister-in-law'>Sister-in-law</option>
+              <option value='Wife'>Wife</option>
+              <option value='Husband'>Husband</option>
+              <option value='Uncle'>Uncle</option>
+              <option value='Aunt'>Aunt</option>
+            </select></td>
+        </tr>
+        <tr>
+          <td colspan="2"><button type="submit" class="btn btn-primary">Submit</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </form>
+</div>

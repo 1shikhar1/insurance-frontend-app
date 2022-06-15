@@ -1,0 +1,36 @@
+<br><br><br>
+<body>
+    <h2 class="text-center">{{title}}</h2>
+    <div class="container">
+        <form>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Customer Name</th>
+                        <th>DOB</th>
+                        <th>Login Id</th>
+                        <th>Address</th>
+                        <th>Mobile No.</th>
+                        <th>Nominee</th>
+                        <th>Nominee Relation</th>
+                        <th>status</th>
+                        <th>Documents</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td [(ngModel)]="customerName"></td>
+                        <td [(ngModel)]="DOB"></td>
+                        <td [(ngModel)]="LoginId"></td>
+                        <td [(ngModel)]="Address"></td>
+                        <td [(ngModel)]="mobileNo"></td>
+                        <td [(ngModel)]="nominee"></td>
+                        <td [(ngModel)]="nomineeRelation"></td>
+                        <td [(ngModel)]="status"></td>
+                        <td><a href="viewCustomerDocument">View Documents</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </form>
+    </div>
+</body>

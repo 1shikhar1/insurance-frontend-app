@@ -1,0 +1,115 @@
+<nav class="navbar navbar-expand-lg fixed-top navbar-light" style="background-color:#1d4e9e;">
+    <div class="container-fluid">
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-brand">
+                    <a class="nav-link active" style="color: white;" aria-current="page" routerLink="app-Home">
+                    <img src="assets/homelogo.jpg" width="150" height="50"/></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" style="color: white;" aria-current="page" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" style="color: white;" href="#">about us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" style="color: white;"  href="#">Service</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" style="color: white;" routerLink="customer-login">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" style="color: white;" routerLink="customer-registration">Register</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" style="color: white;" routerLink="agent-login">Agent Login</a>
+                </li>
+                <li class="nav-item dropdown" ngbDropdown>
+                    <a class="nav-link dropdown-toggle active" style="color: white;" id="navbarScrollingDropdown"
+                     role="button" data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
+                      Insurance Plans
+                    </a>
+                    <ul class="dropdown-menu"  ngbDropdownMenu aria-labelledby="navbarScrollingDropdown">
+                      <li ngbDropdownItem><a class="dropdown-item"   routerLink="protection-plan">Cancer Plans</a></li>
+                      <li ngbDropdownItem><a class="dropdown-item"  routerLink="child-plan">Education Plans</a></li>
+                      <!-- <li ngbDropdownItem><hr class="dropdown-divider"></li> -->
+                      <!-- <li ngbDropdownItem><a class="dropdown-item"  href="#">Saving Plans</a></li>
+                      <li ngbDropdownItem><a class="dropdown-item"  href="#">Growth Plans</a></li>
+                      <li ngbDropdownItem><a class="dropdown-item"  href="#">Group Plans</a></li> -->
+                    </ul>
+                  </li>
+                <li class="nav-item">
+                    <a class="nav-link active" style="color: white;" href="#">Contact Us</a>
+                </li>
+            </ul>
+            <!-- <form class="d-flex input-group w-auto">
+                <input type="search" type="search" class="form-control rounded" placeholder="Search"
+                    aria-label="Search" />
+                <span class="input-group-text border-0" id="search-addon">
+                    <i class="fa fa-search"></i>
+                </span>
+            </form> -->
+        </div>
+    </div>
+</nav>
+
+
+<ngb-carousel #carousel [interval]="2800" [pauseOnHover]="pauseOnHover" [pauseOnFocus]="pauseOnFocus" (slide)="onSlide($event)" >
+    <ng-template ngbSlide *ngFor="let img of images; index as i">
+      <div class="carousel-caption">
+        <h2 style="color:#1d4e9e ; background-color: white; height: 45px;">जिंदगी के साथ भी, जिंदगी के बाद भी</h2>
+      </div>
+      <!-- <a href="https://www.google.fr/?q=Number+{{i+1}}" target="_blank" rel="nofollow noopener noreferrer"> -->
+        <div class="picsum-img-wrapper">
+          <img [src]="img" alt="My image {{i + 1}} description" style="height: 520px; width: 1080px;">
+          
+        </div>
+      <!-- </a> -->
+    </ng-template>
+  </ngb-carousel>
+
+
+
+
+<footer class="bg-dark text-center text-white">
+    <!-- Grid container -->
+    <div class="container p-4 pb-0">
+        <!-- Section: Social media -->
+        <section class="mb-4">
+            <!-- Facebook -->
+            <a mdbRipple class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i
+                    class="fa fa-facebook-f"></i></a>
+
+            <!-- Twitter -->
+            <a mdbRipple class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i
+                    class="fa fa-twitter"></i></a>
+
+            <!-- Google -->
+            <a mdbRipple class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i
+                    class="fa fa-google"></i></a>
+
+            <!-- Instagram -->
+            <a mdbRipple class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i
+                    class="fa fa-instagram"></i></a>
+
+            <!-- Linkedin -->
+            <a mdbRipple class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i
+                    class="fa fa-linkedin"></i></a>
+
+            <!-- Github -->
+            <a mdbRipple class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i
+                    class="fa fa-github"></i></a>
+        </section>
+        <!-- Section: Social media -->
+    </div>
+    <!-- Grid container -->
+
+    <!-- Copyright -->
+    <div class="text-center p-3" style="background-color: rgba(19, 18, 18, 0.2);">
+        © 2022 Copyright LAC-Insurance
+        <br>
+        <a routerLink="employee-login">Employee Login</a> ||
+        <a routerLink="admin-login" >Admin Login</a>
+    </div>
+    <!-- Copyright -->
+</footer>

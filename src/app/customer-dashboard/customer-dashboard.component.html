@@ -15,18 +15,20 @@
 
                     <li class="nav-item dropdown" ngbDropdown>
                         <a class="nav-link active dropdown-toggle" id="navbarScrollingDropdown" role="button"
-                            data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle style="color: white;">
+                            data-bs-toggle="dropdown" aria-expanded="false"
+                             ngbDropdownToggle style="color: white;">
                             Customer Profile
                         </a>
                         <ul class="dropdown-menu" ngbDropdownMenu aria-labelledby="navbarScrollingDropdown">
-                            <li ngbDropdownItem><a class="dropdown-item" href="customer-profile">Profile</a></li>
-                            <li ngbDropdownItem><a class="dropdown-item" href="customer-documents">Documents</a></li>
+                            <li ngbDropdownItem><a class="dropdown-item" routerLink="/customer-profile">Profile</a></li>
+                            <li ngbDropdownItem><a class="dropdown-item" routerLink="/customer-documents">Documents</a></li>
                         </ul>
                     </li>
 
                     <li class="nav-item dropdown" ngbDropdown>
                         <a class="nav-link active dropdown-toggle" id="navbarScrollingDropdown" role="button"
-                            data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle style="color: white;">
+                            data-bs-toggle="dropdown" aria-expanded="false"
+                             ngbDropdownToggle style="color: white;">
                             Insurance Plans
                         </a>
                         <ul class="dropdown-menu" ngbDropdownMenu aria-labelledby="navbarScrollingDropdown">
@@ -40,14 +42,16 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link active" href="view-insurance-account-detail" style="color: white;">Insurance Account</a>
+                        <a class="nav-link active" routerLink="/view-insurance-account-detail" 
+                        style="color: white;">Insurance Account</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" routerLink="/customerQueries" style="color: white;">Queries</a>
+                        <a class="nav-link active" routerLink="/customerQueries" 
+                        style="color: white;">Queries</a>
                     </li>
                     <li class="nav- " >
                         <!-- <button class="btn btn-danger"> -->
-                        <a class="nav-link active" routerLink="#" style="color: white;">Logout</a>
+                        <a class="nav-link active" routerLink="/app-home" style="color: white;">Logout</a>
                         <!-- </button> -->
                     </li>
                 </ul>
@@ -60,7 +64,7 @@
         <!-- <h3 style="color: black;">{{username}}</h3> -->
 
         <div class="card" style="width: 18rem; margin: 10px; display: inline-block;">
-            <a class="card-block stretched-link text-decoration-none" routerLink="/admin-login">
+            <a class="card-block stretched-link text-decoration-none" routerLink="/customer-profile">
                 <img class="card-img-top" src="assets/profile.jpg" alt="Card image cap">
                 <div class="card-body">
                     <h5 class="card-title">Profile</h5>
@@ -79,7 +83,7 @@
 
 
         <div class="card" style="width: 18rem; margin: 10px; display: inline-block;">
-            <a class="card-block stretched-link text-decoration-none" routerLink="/admin-login">
+            <a class="card-block stretched-link text-decoration-none" routerLink="/view-insurance-account-detail">
                 <img class="card-img-top" src="assets/insuranceAccount.jpg" alt="Card image cap">
                 <div class="card-body">
                     <h5 class="card-title">Insurance Account</h5>

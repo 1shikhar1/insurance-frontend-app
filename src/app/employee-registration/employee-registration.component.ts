@@ -6,14 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./employee-registration.component.css']
 })
 export class EmployeeRegistrationComponent implements OnInit {
-  title:string="AGENT REGISTRATION";
+  title:string="ADDING EMPLOYEE RECORD";
+  emp_type:string="";
   emp_name:string="";
-  emp_code:string="";
+  loginId:string="";
   password:string="";
   confirmPassword:string="";
-  address:string="";
-  email:string="";
-  qualification:string="";
   status:string="";
   constructor() { }
 
@@ -22,13 +20,11 @@ export class EmployeeRegistrationComponent implements OnInit {
   onSubmit()
   {
     let data={
+      "emp_type":this.emp_type,
       "emp_name":this.emp_name,
-      "emp_code":this.emp_code,
+      "loginId": this.loginId,
       "password":this.password,
       "confirmPassword":this.confirmPassword,
-      "address":this.address,
-      "email":this.email,
-      "qualification":this.qualification,
       "status":this.status,
     }
   //  this.service.addEmployee(data);

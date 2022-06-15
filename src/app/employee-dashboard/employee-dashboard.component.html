@@ -10,7 +10,7 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" routerLink="/agent-dashboard" style="color: white;">Dashboard</a>
+                    <a class="nav-link active" aria-current="page" routerLink="/employee-dashboard" style="color: white;">Dashboard</a>
                 </li>
 
                 <li class="nav-item dropdown" ngbDropdown>
@@ -32,7 +32,7 @@
                         Insurance
                     </a>
                     <ul class="dropdown-menu" ngbDropdownMenu aria-labelledby="navbarScrollingDropdown">
-                        <li ngbDropdownItem><a class="dropdown-item" routerLink="/viewCustomers">View Customers</a></li>
+                        <li ngbDropdownItem><a class="dropdown-item" routerLink="/viewCustomer">View Customers</a></li>
                         <li ngbDropdownItem><a class="dropdown-item" routerLink="/view-insurance-account-detail">Insurance Account</a></li>
                         <li ngbDropdownItem><a class="dropdown-item" routerLink="/viewPolicyPay" >View Policy Payment</a></li>
                         <li ngbDropdownItem><a class="dropdown-item" routerLink="/viewPolicyClaim" >View Policy Claim</a></li>
@@ -51,7 +51,7 @@
 
                 <li class="nav- ">
                     <!-- <button class="btn btn-danger"> -->
-                    <a class="nav-link active" routerLink="employeeLogin" style="color: white;">Logout</a>
+                    <a class="nav-link active" routerLink="/app-home" style="color: white;">Logout</a>
                     <!-- </button> -->
                 </li>
             </ul>
@@ -65,7 +65,7 @@
         <!-- <h3 style="color: black;">{{username}}</h3> -->
 
         <div class="card" style="width: 18rem; margin:10px; display: inline-block;">
-            <img class="card-img-top" src="assets/agent.jpg" alt="Card image cap">
+            <img class="card-img-top" src="assets/agentLogin.jpg" alt="Card image cap">
             <div class="card-body">
                 <h5 class="card-title">Agent</h5>
                 <p>No of records - {{agentRecords}}</p>
@@ -84,7 +84,7 @@
 
 
         <div class="card" style="width: 18rem; margin:10px; display: inline-block;">
-            <img class="card-img-top" src="assets/customer.jpg" alt="Card image cap">
+            <img class="card-img-top" src="assets/customerLogin.png" alt="Card image cap">
             <div class="card-body">
                 <h5 class="card-title">Customer</h5>
                 <p>No of records - {{customerRecords}}</p>
@@ -161,7 +161,7 @@
             <div class="card-body">
                 <h5 class="card-title">Commisssion</h5>
                 <p>No of records - {{commissionRecords}}</p>
-                <a routerLink="#" class="fa fa-eye" style="color:red; text-decoration: none;">View</a>
+                <a routerLink="/viewCommission" class="fa fa-eye" style="color:red; text-decoration: none;">View</a>
             </div>
         </div>
 
@@ -177,7 +177,7 @@
         </div>
 
         <div class="card" style="width: 18rem; margin:10px; display: inline-block;">
-            <img class="card-img-top" src="assets/state.jpg" alt="Card image cap">
+            <img class="card-img-top" src="assets/state.png" alt="Card image cap">
             <div class="card-body">
                 <h5 class="card-title">State</h5>
                 <p>No of records - {{stateRecords}}</p>

@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { AddingInsurancePlanService } from '../services/services/addingInsurancePlan.service';
 
 
 @Component({
@@ -23,7 +22,7 @@ export class AddingInsurancePlanComponent implements OnInit {
   profitRatio:string="";
   status:string="";
  
-  constructor(private service : AddingInsurancePlanService) { }
+  constructor() { }
 
   ngOnInit(): void {
   }
@@ -45,7 +44,7 @@ export class AddingInsurancePlanComponent implements OnInit {
       "profitRatio": this.profitRatio,
       "status": this.status
     }
-   this.service.addPlan(data);
+  //  this.service.addPlan(data);
   }
 }
  

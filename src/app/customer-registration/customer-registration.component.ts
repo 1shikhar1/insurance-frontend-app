@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { CustomerRegistrationService } from '../services/services/customer-registration-service';
 
 @Component({
   selector: 'customer-registration',
@@ -20,7 +19,7 @@ export class CustomerRegistrationComponent implements OnInit {
   mobile:string="";
   nominee:string="";
   nomineeRelation:string="";
-  constructor(private service : CustomerRegistrationService) { }
+  constructor() { }
 
   ngOnInit(): void {
   }
@@ -40,7 +39,7 @@ export class CustomerRegistrationComponent implements OnInit {
       "nominee":this.nominee,
       "nomineeRelation":this.nomineeRelation
     }
-   this.service.addCustomer(data);
+  //  this.service.addCustomer(data);
   }
 
 }

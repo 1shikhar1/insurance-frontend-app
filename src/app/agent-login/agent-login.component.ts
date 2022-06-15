@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { AgentLoginService } from '../services/services/agent-login.service';
 
 
 @Component({
@@ -13,7 +12,7 @@ credentials={
   username:'',
   password:''
 }
-  constructor(private loginService: AgentLoginService) { }
+  constructor() { }
 
   ngOnInit(): void {
   }

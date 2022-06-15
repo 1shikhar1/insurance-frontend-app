@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AdminLoginService } from '../services/services/admin-login.service';
 
 
 @Component({
@@ -14,7 +13,7 @@ export class AdminLoginComponent implements OnInit {
     username: '',
     password: ''
   }
-  constructor(private loginService: AdminLoginService) { }
+  constructor() { }
 
   ngOnInit(): void {
   }

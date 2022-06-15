@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { AddingInsuranceSchemeService } from '../services/services/addingInsuranceScheme.service';
 
 
 @Component({
@@ -17,7 +16,7 @@ export class AddingInsuranceSchemeComponent implements OnInit {
   note:string="";
   status:string="";
  
-  constructor(private service : AddingInsuranceSchemeService) { }
+  constructor() { }
 
   ngOnInit(): void {
   }
@@ -34,7 +33,7 @@ export class AddingInsuranceSchemeComponent implements OnInit {
       "status":this.status,
       
     }
-   this.service.addCustomer(data);
+  //  this.service.addCustomer(data);
   }
 }
  

@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { EmployeeLoginService } from '../services/services/employee-login.service';
 
 
 @Component({
@@ -13,7 +12,7 @@ credentials={
   username:'',
   password:''
 }
-  constructor(private loginService: EmployeeLoginService) { }
+  constructor() { }
 
   ngOnInit(): void {
   }

@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { EmployeeRegistrationService } from '../services/services/employee-registration.service';
 
 @Component({
   selector: 'empRegistration',
@@ -16,7 +15,7 @@ export class EmployeeRegistrationComponent implements OnInit {
   email:string="";
   qualification:string="";
   status:string="";
-  constructor(private service:EmployeeRegistrationService) { }
+  constructor() { }
 
   ngOnInit(): void {
   }
@@ -32,6 +31,6 @@ export class EmployeeRegistrationComponent implements OnInit {
       "qualification":this.qualification,
       "status":this.status,
     }
-   this.service.addEmployee(data);
+  //  this.service.addEmployee(data);
   }
 }

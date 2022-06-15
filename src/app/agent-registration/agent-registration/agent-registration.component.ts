@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { AgentRegistrationService } from 'src/app/services/services/agent-registration.service';
 
 
 @Component({
@@ -18,7 +17,7 @@ export class AgentRegistrationComponent implements OnInit {
   qualification:string="";
   status:string="";
 
-  constructor(private service : AgentRegistrationService) { }
+  constructor() { }
 
   ngOnInit(): void {
   }
@@ -35,7 +34,7 @@ export class AgentRegistrationComponent implements OnInit {
       "qualification":this.qualification,
       "status":this.status,
     }
-   this.service.addCustomer(data);
+  //  this.service.addCustomer(data);
   }
 
 }

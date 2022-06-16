@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./view-commission-withdrawal.component.css']
 })
 export class ViewCommissionWithdrawalComponent implements OnInit {
-  title:string = "View Customers Record"
+  title:string = "View Commission Withdrawl Records"
   accountNo:string="";
   requestDate : string = "";
   particulars: string = "";

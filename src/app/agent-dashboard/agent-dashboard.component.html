@@ -12,7 +12,7 @@
                     
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" 
-                        routerLink="/" style="color: white;">Agent Account</a>
+                        routerLink="#" style="color: white;">Agent Account</a>
                     </li>
 
                     <li class="nav-item dropdown" ngbDropdown>
@@ -22,8 +22,8 @@
                             Account
                         </a>
                         <ul class="dropdown-menu" ngbDropdownMenu aria-labelledby="navbarScrollingDropdown">
-                            <li ngbDropdownItem><a class="dropdown-item" routerLink="">Profile</a></li>
-                            <li ngbDropdownItem><a class="dropdown-item" routerLink="">Change Password</a></li>
+                            <li ngbDropdownItem><a class="dropdown-item" routerLink="#">Profile</a></li>
+                            <li ngbDropdownItem><a class="dropdown-item" routerLink="#">Change Password</a></li>
                         </ul>
                     </li>
 
@@ -53,7 +53,7 @@
                             <li ngbDropdownItem><a class="dropdown-item" routerLink="/viewCommission">View Commission</a></li>
                             <li ngbDropdownItem><a class="dropdown-item"
                                 routerLink="/viewCommWithdrawal">View Commission Withdrawl</a></li>
-                                 <li ngbDropdownItem><a class="dropdown-item" href="#">Withdraw Amount</a></li>
+                                 <li ngbDropdownItem><a class="dropdown-item" routerLink="#">Withdraw Amount</a></li>
                         </ul>
                     </li>
                  
@@ -72,7 +72,7 @@
         <!-- <h3 style="color: black;">{{username}}</h3> -->
 
         <div class="card" style="width: 18rem; margin: 10px; display: inline-block;">
-            <a class="card-block stretched-link text-decoration-none" routerLink="/admin-login">
+            <a class="card-block stretched-link text-decoration-none" routerLink="#">
                 <img class="card-img-top" src="assets/agentProfile.png" alt="Card image cap">
                 <div class="card-body">
                     <h5 class="card-title">Profile</h5>
@@ -81,7 +81,7 @@
         </div>
 
         <div class="card" style="width: 18em; margin: 10px; display: inline-block;">
-            <a class="card-block stretched-link text-decoration-none" href="marketingAgent">
+            <a class="card-block stretched-link text-decoration-none" routerLink="/marketingAgent">
                 <img class="card-img-top" src="assets/marketing.png" alt="Card image cap">
                 <div class="card-body">
                     <h5 class="card-title">Marketing</h5>
@@ -146,7 +146,7 @@
 
 
         <div class="card" style="width: 18rem; margin: 10px; display: inline-block;">
-            <a class="card-block stretched-link text-decoration-none" routerLink="/admin-login">
+            <a class="card-block stretched-link text-decoration-none" routerLink="#">
                 <img class="card-img-top" src="assets/withdrawlAmount.png" alt="Card image cap">
                 <div class="card-body">
                     <h5 class="card-title">Withdrawl Amount</h5>

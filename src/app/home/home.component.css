@@ -8,3 +8,11 @@ a:hover {
     height: 50px;
     
 }
+
+.navbar-toggler {
+  background: orange;
+  border: none;
+  padding: 10px 6px;
+  outline: none;
+}
+

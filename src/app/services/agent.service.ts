@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 
@@ -6,13 +6,22 @@ import { Router } from '@angular/router';
   providedIn: 'root'
 })
 export class AgentService {
+  constructor(private http: HttpClient) { }
 
-  constructor(private http:HttpClient, private router: Router) {
-
-   }
-
-   getAgents(){
+  getAgents() {
     let url = "http://localhost:8080/api/v1/agent"
-    return this.http.get<any[]>(url)
-   }
+    let token = "Bearer " + localStorage.getItem("token")
+    return this.http.get<any[]>(url, {
+      headers: new HttpHeaders({
+        'Authorization': token
+      })
+    })
+  }
+
+  getNumberOfAgents() {
+    let length: number;
+    return this.getAgents().subscribe(data =>
+      console.log(data.length))
+  }
+  
 }

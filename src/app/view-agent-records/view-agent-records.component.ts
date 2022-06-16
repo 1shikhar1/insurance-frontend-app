@@ -7,21 +7,34 @@ import { AgentService } from '../services/agent.service';
   templateUrl: './view-agent-records.component.html',
 })
 export class ViewAgentRecordsComponent implements OnInit {
-  title:string = "AGENT RECORDS"
+  title: string = "VIEW AGENT RECORDS"
+  agentName: string = "";
+  agentCode: string = "";
+  address: string = "";
+  email_id: string = "";
+  qualification: string = "";
+  status: string = "";
+  action: string = "";
+  agents: any[] = []
 
-  agents: any[]=[]
-  
-  constructor(private agentService: AgentService) {
-    this.getAgents();
-   }
-
-   getAgents(){
-    this.agentService.getAgents().subscribe((result)=>{
-      this.agents = result
-    })
-   }
+  constructor(private service: AgentService) {
+    this.getAgents()
+  }
 
   ngOnInit(): void {
   }
 
+  getAgents() {
+    this.service.getAgents().subscribe(data => {
+      console.log(data)
+      data.map(el => {
+        if (el.status) {
+          el.status = 'active'
+        } if (!el.status) {
+          el.status = 'inactive'
+        }
+        this.agents.push(el)
+      })
+    })
+  }
 }

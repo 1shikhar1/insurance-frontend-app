@@ -1,19 +1,38 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CustomerService {
 
-  constructor(private http:HttpClient, private router: Router) {
+  feedbackUrl:string;
 
+  constructor(private http:HttpClient) {
+    this.feedbackUrl="http://localhost:8080/api/v1/customer/"+localStorage.getItem("userId")+"/addFeedback"
+  //  http://localhost:8080/api/v1/customer/99/addFeedback
+   }
+   sendFeedback(data:any){
+    console.log(data)
+    console.log(this.feedbackUrl);
+    const httpHeaders = new HttpHeaders({
+      "Authorization":"Bearer "+localStorage.getItem("token") 
+    });
+    return this.http.post(this.feedbackUrl,data,{headers:httpHeaders});
    }
 
-   getCustomers(){
+   addCustomerData(data:any){
+      let url = "http://localhost:8080/api/v1/login/addCustomer";
+      return this.http.post(url,data);
+   }
+   
+   getCustomers() {
     let url = "http://localhost:8080/api/v1/customer"
-    return this.http.get<any[]>(url)
-   }
-
+    let token = "Bearer " + localStorage.getItem("token")
+    return this.http.get<any[]>(url, {
+      headers: new HttpHeaders({
+        'Authorization': token
+      })
+    })
+  }
 }

@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { CustomerService } from '../services/customer.service';
+
+
 
 @Component({
   selector: 'customer-registration',
@@ -6,40 +11,37 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./customer-registration.component.css']
 })
 export class CustomerRegistrationComponent implements OnInit {
-
+  id:any;
   title:string="CUSTOMER REGISTRATION";
-  cust_name:string="";
-  dob:string="";
-  loginId:string="";
-  password:string="";
-  address:string="";
-  email:string="";
-  state:string="";
-  city:string="";
-  mobile:string="";
-  nominee:string="";
-  nomineeRelation:string="";
-  constructor() { }
-
-  ngOnInit(): void {
+  constructor(private service:CustomerService, private route:Router) {
   }
 
-  onSubmit()
+  exform: any;
+  ngOnInit(): void {
+    this.exform=new FormGroup({
+      'name':new FormControl(null,Validators.required),
+      'dob':new FormControl(null,Validators.required),
+      'password':new FormControl(null,Validators.required),
+      'address':new FormControl(null,Validators.required),
+      'email':new FormControl(null,[Validators.required,Validators.email]),
+      'state':new FormControl(null,Validators.required),
+      'city':new FormControl(null,Validators.required),
+      'number':new FormControl(null,Validators.required),
+      'nominee':new FormControl(null,Validators.required),
+      'nomineeRelation':new FormControl(null,Validators.required)
+    });
+  }
+
+  addCustomerData()
   {
-    let data={
-      "cust_name":this.cust_name,
-      "dob":this.dob,
-      "loginId":this.loginId,
-      "password":this.password,
-      "address":this.address,
-      "email":this.email,
-      "state":this.state,
-      "city":this.city,
-      "mobile":this.mobile,
-      "nominee":this.nominee,
-      "nomineeRelation":this.nomineeRelation
-    }
-  //  this.service.addCustomer(data);
+    this.service.addCustomerData(this.exform.value).subscribe(result=>{
+      this.id = result;
+      alert("This is your Auto-Generated User-Id: "+this.id.id);
+      setTimeout(()=>{
+        this.route.navigate(['/customer-login']);
+      },5000)
+    })
+    this.exform.reset();
   }
 
 }

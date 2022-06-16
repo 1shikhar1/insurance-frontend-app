@@ -17,8 +17,6 @@
                   <a class="nav-link active" aria-current="page"
                    routerLink="/app-home" style="color: white;">Logout</a>
               </li>
-
-            
           </ul>
       </div>
   </div>
@@ -28,25 +26,22 @@
   <p class="text-center">Please give Your Feedback...</p>
 </div>
 <div class="container">
-  <form>
+  <form #userForm="ngForm" (ngSubmit)="sendFeedback(userForm.value)">
     <table class="table table-bordered">
       <tbody>
         <tr>
           <td colspan="2"><strong>Title:</strong>
-            <input type="text" class="form-control">
+            <input type="text" ngModel name="title" class="form-control">
           </td>
         </tr>
         <tr>
           <td colspan="2"><strong>Message:</strong>
-            <form method="post">
-              <textarea id="mytextarea"></textarea>
-            </form>
+            <input type="textarea" ngModel name="message" class="form-control">
           </td>
         </tr>
         <tr>
           <td colspan="2">
-            <div align="center"><input type="submir" name="feedback" class="btn btn-danger" value="Post Feedback" />
-            </div>
+            <button>Submit</button>
           </td>
         </tr>
       </tbody>

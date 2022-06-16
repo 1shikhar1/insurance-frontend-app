@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AdminService } from '../services/admin.service';
+import { CustomerService } from '../services/customer.service';
 
 @Component({
   selector: 'admin-dashboard',
@@ -23,12 +24,14 @@ export class AdminDashboardComponent implements OnInit {
   stateRecords:number=0;
   cityRecords:number=0;
 
+
   constructor(private adminService: AdminService) {
     this.getEmployeeCounts();
     this.getAgentCounts();
     this.getCustomerCounts();
     this.getInsuranceTypeCounts();
     this.getInsurancePlanCounts();
+
    }
 
    getEmployeeCounts(){

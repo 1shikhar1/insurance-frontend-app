@@ -22,10 +22,6 @@
 <body>
     <h2 class="text-center">{{title}}</h2>
 
-    <ng-template *ngFor = "let customer of customers" >
-        <p>{{customer}}</p>
-    </ng-template>
-
     <div class="container">
         <form>
             <table class="table table-bordered">
@@ -43,8 +39,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <ng-template *ngFor = "let customer of customers" >
-                    <tr>
+                    <tr *ngFor = "let customer of customers">
                         <td>{{customer.id}}</td>
                         <td>{{customer.name}}</td>
                         <td>{{customer.dob}}</td>
@@ -55,7 +50,6 @@
                         <td>{{customer.status}}</td>
                         <!-- <td><a href="viewCustomerDocument">View Documents</a></td> -->
                     </tr>
-                </ng-template>
                 </tbody>
             </table>
         </form>

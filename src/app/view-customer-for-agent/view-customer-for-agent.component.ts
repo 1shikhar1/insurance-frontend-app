@@ -6,18 +6,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./view-customer-for-agent.component.css']
 })
 export class ViewCustomerForAgentComponent implements OnInit {
-  title:string = "View Customers Record"
-  customerName : string = "";
-  DOB: string = "";
-  LoginId: string = "";
-  Address:string = "";
-  mobileNo:string="";
-  nominee:string = "";
-  nomineeRelation = "";
-  status:string="";
-  constructor() { }
+
+  title: string = "Customers"
+  customers: any[] = []
+
+  constructor() {
+
+   }
 
   ngOnInit(): void {
   }
-
 }

@@ -11,22 +11,24 @@
                     </li>
                     
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" routerLink="/agent-dashboard" style="color: white;">Agent Account</a>
+                        <a class="nav-link active" aria-current="page" 
+                        routerLink="/" style="color: white;">Agent Account</a>
                     </li>
 
                     <li class="nav-item dropdown" ngbDropdown>
                         <a class="nav-link dropdown-toggle" id="navbarScrollingDropdown" role="button"
-                            data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle style="color: white;">
+                            data-bs-toggle="dropdown" aria-expanded="false"
+                             ngbDropdownToggle style="color: white;">
                             Account
                         </a>
                         <ul class="dropdown-menu" ngbDropdownMenu aria-labelledby="navbarScrollingDropdown">
-                            <li ngbDropdownItem><a class="dropdown-item" href="#">Profile</a></li>
-                            <li ngbDropdownItem><a class="dropdown-item" href="#">Change Password</a></li>
+                            <li ngbDropdownItem><a class="dropdown-item" routerLink="">Profile</a></li>
+                            <li ngbDropdownItem><a class="dropdown-item" routerLink="">Change Password</a></li>
                         </ul>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="marketingAgent" style="color: white;">Marketing</a>
+                        <a class="nav-link active" aria-current="page" routerLink="/marketingAgent" style="color: white;">Marketing</a>
                     </li>
 
                     <li class="nav-item dropdown" ngbDropdown>
@@ -35,11 +37,11 @@
                             Insurance
                         </a>
                         <ul class="dropdown-menu" ngbDropdownMenu aria-labelledby="navbarScrollingDropdown">
-                            <li ngbDropdownItem><a class="dropdown-item" href="#">View Customers</a></li>
-                            <li ngbDropdownItem><a class="dropdown-item" href="#">Insurance Account</a></li>
+                            <li ngbDropdownItem><a class="dropdown-item" routerLink="/viewCustomer">View Customers</a></li>
+                            <li ngbDropdownItem><a class="dropdown-item" routerLink="/InsuranceAccountForAgent">Insurance Account</a></li>
                             <!-- <li ngbDropdownItem><hr class="dropdown-divider"></li> -->
-                            <li ngbDropdownItem><a class="dropdown-item" href="#">View Policy Payment</a></li>
-                            <li ngbDropdownItem><a class="dropdown-item" href="#">View Policy Claim</a></li>
+                            <li ngbDropdownItem><a class="dropdown-item"  routerLink="/viewPolicyPay">View Policy Payment</a></li>
+                            <li ngbDropdownItem><a class="dropdown-item" routerLink="/viewPolicyClaim">View Policy Claim</a></li>
                         </ul>
                     </li>
                     <li class="nav-item dropdown" ngbDropdown>
@@ -48,9 +50,9 @@
                             Account
                         </a>
                         <ul class="dropdown-menu" ngbDropdownMenu aria-labelledby="navbarScrollingDropdown">
-                            <li ngbDropdownItem><a class="dropdown-item" href="#">View Commission</a></li>
+                            <li ngbDropdownItem><a class="dropdown-item" routerLink="/viewCommission">View Commission</a></li>
                             <li ngbDropdownItem><a class="dropdown-item"
-                                 href="#">View Commission Withdrawl</a></li>
+                                routerLink="/viewCommWithdrawal">View Commission Withdrawl</a></li>
                                  <li ngbDropdownItem><a class="dropdown-item" href="#">Withdraw Amount</a></li>
                         </ul>
                     </li>
@@ -89,7 +91,7 @@
 
 
         <div class="card" style="width: 18rem; margin: 10px; display: inline-block;">
-            <a class="card-block stretched-link text-decoration-none" href="viewCustomer">
+            <a class="card-block stretched-link text-decoration-none" routerLink="/viewCustomer">
                 <img class="card-img-top" src="assets/viewCustomer.png" alt="Card image cap">
                 <div class="card-body">
                     <h5 class="card-title">View Customers</h5>
@@ -98,7 +100,7 @@
         </div>
         <br>
         <div class="card" style="width: 18rem; margin: 10px; display: inline-block;">
-            <a class="card-block stretched-link text-decoration-none" href="InsuranceAccountForAgent">
+            <a class="card-block stretched-link text-decoration-none" routerLink="/InsuranceAccountForAgent">
                 <img class="card-img-top" src="assets/insuranceAccount.png" alt="Card image cap">
                 <div class="card-body">
                     <h5 class="card-title">Insurance Account</h5>
@@ -107,7 +109,7 @@
         </div>
 
         <div class="card" style="width: 18rem; margin: 10px; display: inline-block;">
-            <a class="card-block stretched-link text-decoration-none" href="viewPolicyPay">
+            <a class="card-block stretched-link text-decoration-none" routerLink="/viewPolicyPay">
                 <img class="card-img-top" src="assets/policyPayment.png" alt="Card image cap">
                 <div class="card-body">
                     <h5 class="card-title">Policy Payment</h5>
@@ -116,7 +118,7 @@
         </div>
 
         <div class="card" style="width: 18rem; margin: 10px; display: inline-block;">
-            <a class="card-block stretched-link text-decoration-none" href="viewPolicyClaim">
+            <a class="card-block stretched-link text-decoration-none" routerLink="/viewPolicyClaim">
                 <img class="card-img-top" src="assets/policyClaim.png" alt="Card image cap">
                 <div class="card-body">
                     <h5 class="card-title">Policy Claim</h5>
@@ -125,7 +127,7 @@
         </div>
         <br>
         <div class="card" style="width: 18em; margin: 20px; display: inline-block;">
-            <a class="card-block stretched-link text-decoration-none" href="viewCommission">
+            <a class="card-block stretched-link text-decoration-none" routerLink="/viewCommission">
                 <img class="card-img-top" src="assets/viewCommission.png" alt="Card image cap">
                 <div class="card-body">
                     <h5 class="card-title">View Commission &nbsp;</h5>
@@ -134,7 +136,7 @@
         </div>
 
         <div class="card" style="width: 18em; margin: 10px; display: inline-block;">
-            <a class="card-block stretched-link text-decoration-none" href="viewCommWithdrawal">
+            <a class="card-block stretched-link text-decoration-none" routerLink="/viewCommWithdrawal">
                 <img class="card-img-top" src="assets/viewCommWithdrawl.png" alt="Card image cap">
                 <div class="card-body">
                     <h5 class="card-title">View Commission Withdrawl</h5>

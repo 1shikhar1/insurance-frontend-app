@@ -31,21 +31,22 @@
             <table class="table table-bordered">
                 <thead>
                     <tr>
+                        <th>Id</th>
+                        <th>Name</th>
                         <th>Employee Type</th>
-                        <th>Employee Name</th>
-                        <th>Login Id</th>
                         <th>Password</th>
                         <th>Status</th>
                         <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td [(ngModel)]="empType"></td>
-                        <td [(ngModel)]="empName"></td>
-                        <td [(ngModel)]="login_id"></td>
-                        <td [(ngModel)]="password"></td>
-                        <td [(ngModel)]="status"></td>
+                    <tr *ngFor="let employee of employees">
+                        <td>{{employee.id}}</td>
+                        <td>{{employee.name}}</td>
+                        <td>{{employee.type}}</td>
+                        <td>{{employee.password}}</td>
+                        <td *ngIf="employee.status===true">Active</td>
+                        <td *ngIf="employee.status===false">Inactive</td>
                         <td><a href="edit">Edit/</a><br><a href="delete">Delete</a></td>
                     </tr>
                 </tbody>

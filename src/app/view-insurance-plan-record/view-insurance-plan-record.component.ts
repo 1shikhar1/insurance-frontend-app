@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { InsuranceService } from '../services/insurance.service';
 
 @Component({
   selector: 'viewInsurancePlan',
@@ -6,18 +7,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./view-insurance-plan-record.component.css']
 })
 export class ViewInsurancePlanRecordComponent implements OnInit {
-title:string="View Insurance Plan Records"
-insuranceType:string=""
-insuranceScheme:string=""
-policyMin:number=0
-policyMax:number=0
-minAge:number=0
-maxAge:number=0
-sumMin:number=0
-sumMax:number=0
-profitRatio:number=0
-status:string=""
-  constructor() { }
+  title:string="Insurance Plans"
+  insurancePlans: any[] = []
+
+
+  constructor(private insuranceService: InsuranceService) {
+    this.getInsurancePlans();
+   }
+
+   getInsurancePlans(){
+    this.insuranceService.getInsurancePlans().subscribe((result)=>{
+      this.insurancePlans = result
+    })
+   }
 
   ngOnInit(): void {
   }

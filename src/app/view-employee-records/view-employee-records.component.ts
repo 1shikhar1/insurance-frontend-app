@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { EmployeeService } from '../services/employee.service';
 
 @Component({
   selector: 'empRecords',
@@ -6,13 +7,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./view-employee-records.component.css']
 })
 export class ViewEmployeeRecordsComponent implements OnInit {
-title:string="View Employee Records"
-empType:string=""
-empName:string=""
-login_id:string=""
-password:string=""
-status:string=""
-  constructor() { }
+  title:string="View Employee Records"
+  employees: any[] = []
+
+  constructor(private employeeService: EmployeeService) {
+    this.getEmployees();
+   }
+
+   getEmployees(){
+    this.employeeService.getEmployees().subscribe((result)=>{
+      this.employees = result
+    })
+   }
 
   ngOnInit(): void {
   }

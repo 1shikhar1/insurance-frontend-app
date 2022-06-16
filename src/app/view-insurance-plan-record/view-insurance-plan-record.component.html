@@ -24,8 +24,8 @@
             <table class="table table-bordered">
                 <thead>
                     <tr>
+                        <th>Insurance Plan Name</th>
                         <th>Insurance Type</th>
-                        <th>Insurance Scheme</th>
                         <th>Policy Term Min</th>
                         <th>Policy Term Max</th>
                         <th>Minimum Age</th>
@@ -38,17 +38,18 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td [(ngModel)]="insuranceType"></td>
-                        <td [(ngModel)]="insuranceScheme"></td>
-                        <td [(ngModel)]="policyMin"></td>
-                        <td [(ngModel)]="policyMax"></td>
-                        <td [(ngModel)]="minAge"></td>
-                        <td [(ngModel)]="maxAge"></td>
-                        <td [(ngModel)]="sumMin"></td>
-                        <td [(ngModel)]="sumMax"></td>
-                        <td [(ngModel)]="profitRatio"></td>
-                        <td [(ngModel)]="status"></td>
+                    <tr *ngFor="let insurancePlan of insurancePlans">
+                        <td>{{insurancePlan.name}}</td>
+                        <td>{{insurancePlan.insuranceTypeName}}</td>
+                        <td>{{insurancePlan.policyTermMin}}</td>
+                        <td>{{insurancePlan.policyTermMax}}</td>
+                        <td>{{insurancePlan.minAge}}</td>
+                        <td>{{insurancePlan.maxAge}}</td>
+                        <td>{{insurancePlan.sumAssuredMin}}</td>
+                        <td>{{insurancePlan.sumAssuredMax}}</td>
+                        <td>{{insurancePlan.profitRatio}}</td>
+                        <td *ngIf="insurancePlan.status===true">Active</td>
+                        <td *ngIf="insurancePlan.status===false">Inactive</td>
                         <td><a href="edit">Edit/</a><br><a href="delete">Delete</a></td>
                     </tr>
                 </tbody>

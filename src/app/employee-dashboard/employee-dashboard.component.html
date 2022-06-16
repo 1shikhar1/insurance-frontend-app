@@ -44,8 +44,8 @@
                         Account
                     </a>
                     <ul class="dropdown-menu" ngbDropdownMenu aria-labelledby="navbarScrollingDropdown">
-                        <li ngbDropdownItem><a class="dropdown-item" href="#">Profile</a></li>
-                        <li ngbDropdownItem><a class="dropdown-item" href="#">Change Password</a></li>
+                        <li ngbDropdownItem><a class="dropdown-item" routerLink="#">Profile</a></li>
+                        <li ngbDropdownItem><a class="dropdown-item" routerLink="#">Change Password</a></li>
                     </ul>
                 </li>
 
@@ -181,7 +181,7 @@
             <div class="card-body">
                 <h5 class="card-title">State</h5>
                 <p>No of records - {{stateRecords}}</p>
-                <a routerLink="viewState" class="fa fa-eye" style="color:red; text-decoration: none;">View</a>
+                <a routerLink="/viewState" class="fa fa-eye" style="color:red; text-decoration: none;">View</a>
             </div>
         </div>
         
@@ -190,7 +190,7 @@
             <div class="card-body">
                 <h5 class="card-title">City</h5>
                 <p>No of records - {{cityRecords}}</p>
-                <a routerLink="viewCity" class="fa fa-eye" style="color:red; text-decoration: none;">View</a>
+                <a routerLink="/viewCity" class="fa fa-eye" style="color:red; text-decoration: none;">View</a>
             </div>
         </div>
 

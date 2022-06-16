@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CustomerService } from '../services/customer.service';
 
 @Component({
   selector: 'customer-profile',
@@ -7,20 +8,34 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CustomerProfileComponent implements OnInit {
   title:string="PROFILE";
-  cust_name:string="Abhi";
-  dob:string="";
-  loginId:string="";
-  password:string="";
-  address:string="";
-  email:string="";
-  state:string="";
-  city:string="";
-  mobile:string="";
-  nominee:string="";
-  nomineeRelation:string="";
-  constructor() { }
+  // cust_name:string="Abhi";
+  // dob:string="";
+  // loginId:string="";
+  // password:string="";
+  // address:string="";
+  // email:string="";
+  // state:string="";
+  // city:string="";
+  // mobile:string="";
+  // nominee:string="";
+  // nomineeRelation:string="";
+  customer:any={};
+  constructor(private customerService: CustomerService) { 
+    this.getCustomerData();
+  }
 
   ngOnInit(): void {
   }
+ getCustomerData(){
+   let id:any;
+   id = localStorage.getItem("userId");
+   let idd:number= +id;
+ this.customerService.getCustomerById(idd).subscribe((result)=>{
+   console.log(result)
+  this.customer=result;
+ })
+
+ }
+
 
 }

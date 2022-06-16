@@ -48,6 +48,7 @@ import { PolicyPaymentComponent } from './policy-payment/policy-payment.componen
 import { AddCityComponent } from './add-city/add-city.component';
 import { ViewCityComponent } from './view-city/view-city.component';
 import { ViewStateComponent } from './view-state/view-state.component';
+import { AgentProfileComponent } from './agent-profile/agent-profile.component';
 
 
 @NgModule({
@@ -94,7 +95,8 @@ import { ViewStateComponent } from './view-state/view-state.component';
     PolicyPaymentComponent,
     AddCityComponent,
     ViewCityComponent,
-    ViewStateComponent
+    ViewStateComponent,
+    AgentProfileComponent
   ],
   imports: [
     BrowserModule,

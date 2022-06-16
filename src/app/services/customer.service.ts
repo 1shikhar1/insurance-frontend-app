@@ -35,4 +35,13 @@ export class CustomerService {
       })
     })
   }
+  getCustomerById(id:number){
+    let url = "http://localhost:8080/api/v1/customer/"+id;
+    let token = "Bearer " + localStorage.getItem("token")
+    return this.http.get<any>(url, {
+      headers: new HttpHeaders({
+        'Authorization': token
+      })
+    })
+  }
 }

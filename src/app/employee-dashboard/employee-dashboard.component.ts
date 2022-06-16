@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { EmployeeService } from '../services/employee.service';
 
 @Component({
@@ -24,7 +25,7 @@ export class EmployeeDashboardComponent implements OnInit {
   insuranceSchemeRecords:number=0;
   cityRecords:number=0;
 
-  constructor(private employeeService: EmployeeService) {
+  constructor(private employeeService: EmployeeService, private route: Router) {
     this.getEmployeesCount();
     this.getAgentsCount();
     this.getCustomersCount();
@@ -63,6 +64,11 @@ export class EmployeeDashboardComponent implements OnInit {
    }
 
   ngOnInit(): void {
+  }
+
+  logOut(){
+    localStorage.clear();
+    this.route.navigate(['/app-home'])
   }
 
 }

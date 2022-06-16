@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { AdminService } from '../services/admin.service';
 import { CustomerService } from '../services/customer.service';
 
@@ -25,7 +26,7 @@ export class AdminDashboardComponent implements OnInit {
   cityRecords:number=0;
 
 
-  constructor(private adminService: AdminService) {
+  constructor(private adminService: AdminService, private route: Router) {
     this.getEmployeeCounts();
     this.getAgentCounts();
     this.getCustomerCounts();
@@ -63,7 +64,11 @@ export class AdminDashboardComponent implements OnInit {
       this.noOfInsurancePlans = result.length
     })
   }
-  
+  logOut(){
+    localStorage.clear();
+    this.route.navigate(['/app-home'])
+  }
+
   ngOnInit(): void {
   }
 

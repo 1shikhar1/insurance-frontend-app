@@ -23,7 +23,7 @@ getUserFormData(data:any){
     console.log(data.id)
     localStorage.setItem("token",this.token.token);
     localStorage.setItem("userId",data.id);
-    this.route.navigate(['/customer-dashboard'])
+    this.route.navigate(['/employee-dashboard'])
   })
 }
 }

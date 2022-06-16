@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 
@@ -12,27 +12,53 @@ export class EmployeeService {
    }
 
    getEmployees(){
-    let url = "http://localhost:8080/api/v1/employee"
-    return this.http.get<any[]>(url)
+    var token = "Bearer " + localStorage.getItem("token");
+    let url = "http://localhost:8080/api/v1/employee";
+    return this.http.get<any[]>(url, {
+     headers: new HttpHeaders({
+        'Authorization': token
+      })
+    })
+   
   }
 
   getAgents(){
-    let url = "http://localhost:8080/api/v1/agent"
-    return this.http.get<any[]>(url)
+    var token = "Bearer " + localStorage.getItem("token");
+    let url = "http://localhost:8080/api/v1/agent";
+    return this.http.get<any[]>(url, {
+     headers: new HttpHeaders({
+        'Authorization': token
+      })
+    })
   }
 
   getCustomers(){
-    let url = "http://localhost:8080/api/v1/customer"
-    return this.http.get<any[]>(url)
+    var token = "Bearer " + localStorage.getItem("token");
+    let url =  "http://localhost:8080/api/v1/customer";
+    return this.http.get<any[]>(url, {
+     headers: new HttpHeaders({
+        'Authorization': token
+      })
+    })
   }
 
   getInsuranceTypes(){
-    let url = "http://localhost:8080/api/v1/insurance/insuranceType"
-    return this.http.get<any[]>(url)
+    var token = "Bearer " + localStorage.getItem("token");
+    let url =  "http://localhost:8080/api/v1/insurance/insuranceType";
+    return this.http.get<any[]>(url, {
+     headers: new HttpHeaders({
+        'Authorization': token
+      })
+    })
   }
 
   getInsurancePlans(){
-    let url = "http://localhost:8080/api/v1/insurance/insurancePlan"
-    return this.http.get<any[]>(url)
+    var token = "Bearer " + localStorage.getItem("token");
+    let url =  "http://localhost:8080/api/v1/insurance/insurancePlan";
+    return this.http.get<any[]>(url, {
+     headers: new HttpHeaders({
+        'Authorization': token
+      })
+    })
   }
 }

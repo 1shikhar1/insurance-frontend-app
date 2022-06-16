@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 
@@ -12,12 +12,22 @@ export class InsuranceService {
    }
 
    getInsuranceTypes(){
-    let url = "http://localhost:8080/api/v1/insurance/insuranceType"
-    return this.http.get<any[]>(url)
+    var token = "Bearer " + localStorage.getItem("token");
+    let url =  "http://localhost:8080/api/v1/insurance/insuranceType";
+    return this.http.get<any[]>(url, {
+     headers: new HttpHeaders({
+        'Authorization': token
+      })
+    })
    }
 
    getInsurancePlans(){
-    let url = "http://localhost:8080/api/v1/insurance/insurancePlan"
-    return this.http.get<any[]>(url)
+    var token = "Bearer " + localStorage.getItem("token");
+    let url =  "http://localhost:8080/api/v1/insurance/insurancePlan";
+    return this.http.get<any[]>(url, {
+     headers: new HttpHeaders({
+        'Authorization': token
+      })
+    })
    }
 }

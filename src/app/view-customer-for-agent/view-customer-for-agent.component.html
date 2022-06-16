@@ -35,7 +35,8 @@
                         <th>Nominee</th>
                         <th>Nominee Relation</th>
                         <th>status</th>
-                        <!-- <th>Documents</th> -->
+                        <th>Documents</th>
+                        <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -47,8 +48,10 @@
                         <td>{{customer.number}}</td>
                         <td>{{customer.nominee}}</td>
                         <td>{{customer.nomineeRelation}}</td>
-                        <td>{{customer.status}}</td>
-                        <!-- <td><a href="viewCustomerDocument">View Documents</a></td> -->
+                        <td *ngIf="customer.status===true">Active</td>
+                        <td *ngIf="customer.status===false">Inactive</td>
+                        <td><a href="viewCustomerDocument">View Documents</a></td>
+                        <td><a href="edit">Edit/</a><br><a href="delete">Delete</a></td>
                     </tr>
                 </tbody>
             </table>

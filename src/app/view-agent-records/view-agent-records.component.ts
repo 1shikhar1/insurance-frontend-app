@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AgentService } from '../services/agent.service';
 
 @Component({
   selector: 'viewAgents',
@@ -6,16 +7,19 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './view-agent-records.component.html',
 })
 export class ViewAgentRecordsComponent implements OnInit {
-  title:string = "VIEW AGENT RECORDS"
-  agentName: string="";
-  agentCode : string = "";
-  address: string = "";
-  email_id: string = "";
-  qualification :string = "";
-  status:string="";
-  action:string = "";
+  title:string = "AGENT RECORDS"
+
+  agents: any[]=[]
   
-  constructor() { }
+  constructor(private agentService: AgentService) {
+    this.getAgents();
+   }
+
+   getAgents(){
+    this.agentService.getAgents().subscribe((result)=>{
+      this.agents = result
+    })
+   }
 
   ngOnInit(): void {
   }

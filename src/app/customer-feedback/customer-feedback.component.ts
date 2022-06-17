@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { CustomerService } from '../services/customer.service';
 
 @Component({
@@ -8,7 +9,7 @@ import { CustomerService } from '../services/customer.service';
 })
 export class CustomerFeedbackComponent implements OnInit {
   title: string = "FeedBack";
-  constructor(private service: CustomerService) {}
+  constructor(private service: CustomerService, private route: Router) {}
 
   ngOnInit(): void {}
   sendFeedback(data: any) {
@@ -17,5 +18,9 @@ export class CustomerFeedbackComponent implements OnInit {
       console.log(resp);
       alert("feed back send successfully");
     });
+  }
+  logOut(){
+    localStorage.clear();
+    this.route.navigate(['/app-home'])
   }
 }

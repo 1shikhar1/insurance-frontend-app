@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { InsuranceService } from '../services/insurance.service';
 
 @Component({
@@ -11,7 +12,7 @@ export class ViewInsurancePlanRecordComponent implements OnInit {
   insurancePlans: any[] = []
 
 
-  constructor(private insuranceService: InsuranceService) {
+  constructor(private insuranceService: InsuranceService,private route: Router) {
     this.getInsurancePlans();
    }
 
@@ -22,6 +23,11 @@ export class ViewInsurancePlanRecordComponent implements OnInit {
    }
 
   ngOnInit(): void {
+  }
+
+  logOut(){
+    localStorage.clear();
+    this.route.navigate(['/app-home'])
   }
 
 }

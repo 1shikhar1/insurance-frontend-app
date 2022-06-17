@@ -10,10 +10,8 @@
 
               <li class="nav-item">
                   <a class="nav-link active" aria-current="page"
-                   routerLink="/app-home" style="color: white;">Logout</a>
+                   routerLink="/app-home" style="color: white;" (click)="logOut()">Logout</a>
               </li>
-
-            
           </ul>
       </div>
   </div>
@@ -23,56 +21,48 @@
     <p class="text-center">Kindly enter the credentials</p>
   </div>
   <div class="container">
-    <form (ngSubmit)="onSubmit()">
+    
+
+    <form [formGroup]="exform">
       <table class="table table-bordered">
         <tbody>
           <tr>
             <td scope="col"><strong>Agent Name:</strong></td>
-            <td scope="col"><input type="text" name="agentname" class="form-control"
-                 [(ngModel)]="agent_name"></td>
-          </tr>
-          <tr>
-            <td scope="col"><strong>Agent Code:</strong></td>
-            <td><input type="number" name="agent_code" class="form-control"  value="" 
-                [(ngModel)]="agent_code" /></td>
+            <td scope="col"><input formControlName="name" type="text" name="name" class="form-control">
+            <small *ngIf="exform.get('name').invalid && exform.get('name').touched" class="text-danger">Name is required</small></td>
           </tr>
           <tr>
             <td scope="col"><strong>Password:</strong></td>
-            <td><input type="password" class="form-control" name="password" value="" 
-                [(ngModel)]="password" /></td>
-          </tr>
-          <tr>
-            <td scope="col"><strong>Confirm Password:</strong></td>
-            <td><input type="password" class="form-control" name="confirmPassword" [(ngModel)]="confirmPassword"
-                 value="" /></td>
+            <td><input formControlName="password" type="password" class="form-control" name="password"/>
+              <small *ngIf="exform.get('password').invalid && exform.get('password').touched" class="text-danger">password is required</small></td>
           </tr>
           <tr>
             <td scope="col"><strong>Agent Address:</strong></td>
-            <td><textarea class="form-control" name="address" [(ngModel)]="address"></textarea></td>
+            <td><textarea formControlName="address" class="form-control" name="address"></textarea>
+              <small *ngIf="exform.get('address').invalid && exform.get('address').touched" class="text-danger">address is required</small></td>
           </tr>
           <tr>
             <td scope="col"><strong>Email ID:</strong></td>
-            <td><input type="email" class="form-control" name="email" [(ngModel)]="email"></td>
+            <td><input formControlName="email" type="email" class="form-control" name="email">
+              <small *ngIf="exform.get('email').invalid && exform.get('email').touched" class="text-danger">email is required</small></td>
           </tr>
+      
           <tr>
             <td scope="col"><strong>Qualification:</strong></td>
-            <td><select name="state" class="form-control"  
-                [(ngModel)]="qualification">
-                <option value="">Select</option>
-                <option value="Intermediate">Intermediate</option>
-                <option value="Graduate">Graduate</option>
-              </select></td>
+            <td><input formControlName="qualification" type="text" class="form-control" name="qualification">
+              <small *ngIf="exform.get('qualification').invalid && exform.get('qualification').touched" class="text-danger">Qualification is required</small></td>
           </tr>
           <tr>
             <td scope="col"><strong>Status:</strong></td>
-            <td><select name="status" class="form-control"  [(ngModel)]="status">
+            <td><select formControlName="status" name="status" class="form-control">
                 <option value="">Select</option>
-                <option value="active">Active</option>
-                <option value="inactive">Inactive</option>
-              </select></td>
+                <option value='ACTIVE'>active</option>
+                <option value='INACTIVE'>inactive</option>
+              </select>
+              <small *ngIf="exform.get('status').invalid && exform.get('status').touched" class="text-danger">Status is required</small></td>
           </tr>
           <tr>
-            <td colspan="2"><button type="submit" class="btn btn-primary">Submit</button></td>
+            <td colspan="2"><button (click)="addAgent()" [disabled]="exform.invalid" type="button" class="btn btn-primary">Submit</button></td>
           </tr>
         </tbody>
       </table>

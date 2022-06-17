@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -16,7 +17,7 @@ export class AddingInsuranceSchemeComponent implements OnInit {
   note:string="";
   status:string="";
  
-  constructor() { }
+  constructor(private route: Router) { }
 
   ngOnInit(): void {
   }
@@ -34,6 +35,10 @@ export class AddingInsuranceSchemeComponent implements OnInit {
       
     }
   //  this.service.addCustomer(data);
+  }
+  logOut(){
+    localStorage.clear();
+    this.route.navigate(['/app-home'])
   }
 }
  

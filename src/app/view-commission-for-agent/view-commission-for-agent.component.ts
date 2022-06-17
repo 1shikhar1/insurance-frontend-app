@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { CustomerService } from '../services/customer.service';
 
 @Component({
@@ -18,7 +19,7 @@ export class ViewCommissionForAgentComponent implements OnInit {
   status: string = "";
   customers: any[] = []
 
-  constructor(private customerService: CustomerService) {
+  constructor(private customerService: CustomerService, private route: Router) {
     this.getAllCustomers()
   }
 
@@ -37,5 +38,9 @@ export class ViewCommissionForAgentComponent implements OnInit {
         this.customers.push(el)
       })
     })
+  }
+  logOut(){
+    localStorage.clear();
+    this.route.navigate(['/app-home'])
   }
 }

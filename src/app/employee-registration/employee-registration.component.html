@@ -15,7 +15,7 @@
 
               <li class="nav-item">
                   <a class="nav-link active" aria-current="page"
-                   routerLink="/app-home" style="color: white;">Logout</a>
+                   routerLink="/app-home" style="color: white;" (click)="logOut()">Logout</a>
               </li>
 
             
@@ -86,13 +86,13 @@
                 <option value='NORMAL'>Normal</option>
                 <option value='ADMIN'>Admin</option>
               </select>
-              <small *ngIf="exform.get('nomineeRelation').invalid && exform.get('nomineeRelation').touched" class="text-danger">Nominee Relation is required</small></td>
+              <small *ngIf="exform.get('employeeType').invalid && exform.get('employeeType').touched" class="text-danger">Nominee Relation is required</small></td>
           </tr>
 
 
           <tr>
             <td scope="col"><strong>Name:</strong></td>
-            <td scope="col"><input formControlName="name" type="text" name="custname" class="form-control">
+            <td scope="col"><input formControlName="name" type="text" name="name" class="form-control">
             <small *ngIf="exform.get('name').invalid && exform.get('name').touched" class="text-danger">Name is required</small></td>
           </tr>
          

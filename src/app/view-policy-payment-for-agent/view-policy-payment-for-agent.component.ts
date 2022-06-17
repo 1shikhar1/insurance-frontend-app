@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'viewPolicyPay',
@@ -16,9 +17,13 @@ export class ViewPolicyPaymentForAgentComponent implements OnInit {
   transType = "";
   status:string="";
   Action:string="";
-  constructor() { }
+  constructor(private route: Router) { }
 
   ngOnInit(): void {
   }
 
+  logOut(){
+    localStorage.clear();
+    this.route.navigate(['/app-home'])
+  }
 }

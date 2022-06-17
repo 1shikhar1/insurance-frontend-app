@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { AgentService } from '../services/agent.service';
 
 @Component({
@@ -9,7 +10,7 @@ import { AgentService } from '../services/agent.service';
 export class AgentProfileComponent implements OnInit {
   title:string="Agent Details"
   agent:any={};
-  constructor(private agentService: AgentService) { }
+  constructor(private agentService: AgentService, private route: Router) { }
 
   ngOnInit(): void {
   }
@@ -22,6 +23,11 @@ export class AgentProfileComponent implements OnInit {
       this.agent=result;
       
     })
+  }
+
+  logOut(){
+    localStorage.clear();
+    this.route.navigate(['/app-home'])
   }
 
 }

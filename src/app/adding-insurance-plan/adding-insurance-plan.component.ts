@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -22,7 +23,7 @@ export class AddingInsurancePlanComponent implements OnInit {
   profitRatio:string="";
   status:string="";
  
-  constructor() { }
+  constructor(private route: Router) { }
 
   ngOnInit(): void {
   }
@@ -45,6 +46,10 @@ export class AddingInsurancePlanComponent implements OnInit {
       "status": this.status
     }
   //  this.service.addPlan(data);
+  }
+  logOut(){
+    localStorage.clear();
+    this.route.navigate(['/app-home'])
   }
 }
  

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { CustomerService } from '../services/customer.service';
 
 @Component({
@@ -20,7 +21,7 @@ export class CustomerProfileComponent implements OnInit {
   // nominee:string="";
   // nomineeRelation:string="";
   customer:any={};
-  constructor(private customerService: CustomerService) { 
+  constructor(private customerService: CustomerService, private route: Router) { 
     this.getCustomerData();
   }
 
@@ -37,5 +38,9 @@ export class CustomerProfileComponent implements OnInit {
 
  }
 
+ logOut(){
+  localStorage.clear();
+  this.route.navigate(['/app-home'])
+}
 
 }

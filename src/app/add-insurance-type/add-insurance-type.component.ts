@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'addInsuranceType',
@@ -9,9 +10,13 @@ export class AddInsuranceTypeComponent implements OnInit {
 title:string="Add Insurance Type"
 insuranceType:string=""
 status:string=""
-  constructor() { }
+  constructor(private route: Router) { }
 
   ngOnInit(): void {
   }
 
+  logOut(){
+    localStorage.clear();
+    this.route.navigate(['/app-home'])
+  }
 }

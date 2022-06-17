@@ -9,7 +9,8 @@ export class AgentService {
   constructor(private http: HttpClient) { }
 
   getAgents() {
-    let url = "http://localhost:8080/api/v1/agent"
+    console.log("inside service addagent")
+    let url = "http://localhost:8080/api/v1/agent/addAgent";
     let token = "Bearer " + localStorage.getItem("token")
     return this.http.get<any[]>(url, {
       headers: new HttpHeaders({
@@ -25,6 +26,16 @@ export class AgentService {
     let token = "Bearer " + localStorage.getItem("token")
     return this.http.get<any[]>(url, {
       headers: new HttpHeaders({
+        'Authorization': token
+      })
+    })
+  }
+
+  addAgent(data:any){
+    let token = "Bearer " + localStorage.getItem("token");
+    let url =  "http://localhost:8080/api/v1/agent/addAgent";
+    return this.http.post<any[]>(url,data, {
+     headers: new HttpHeaders({
         'Authorization': token
       })
     })

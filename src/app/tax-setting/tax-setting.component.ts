@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'taxSetting',
@@ -8,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 export class TaxSettingComponent implements OnInit {
 title:string="Tax Panel"
 taxPercentage:number=0
-  constructor() { }
+  constructor(private route: Router) { }
 
   ngOnInit(): void {
   }
 
+  logOut(){
+    localStorage.clear();
+    this.route.navigate(['/app-home'])
+  }
 }

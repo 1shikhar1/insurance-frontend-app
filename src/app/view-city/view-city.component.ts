@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'viewCity',
@@ -11,9 +12,14 @@ export class ViewCityComponent implements OnInit {
    status : string = "";
    action: string = "";
  
-  constructor() { }
+  constructor(private route: Router) { }
 
   ngOnInit(): void {
+  }
+
+  logOut(){
+    localStorage.clear();
+    this.route.navigate(['/app-home'])
   }
 
 }

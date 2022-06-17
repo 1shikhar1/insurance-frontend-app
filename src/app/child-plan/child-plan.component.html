@@ -16,6 +16,10 @@
                     <a class="nav-link active" aria-current="page"
                      routerLink="/app-home" style="color: white;">About Us</a>
                 </li>
+                <li class="nav-item" *ngIf="buttonSubmit">
+                    <a class="nav-link active" aria-current="page"
+                     routerLink="/app-home" style="color: white;" (click)="logOut()">Logout</a>
+                </li>
             </ul>
         </div>
     </div>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'viewState',
@@ -10,9 +11,13 @@ export class ViewStateComponent implements OnInit {
   state: string="";
    status : string = "";
    action: string = "";
-  constructor() { }
+  constructor(private route: Router) { }
 
   ngOnInit(): void {
   }
 
+  logOut(){
+    localStorage.clear();
+    this.route.navigate(['/app-home'])
+  }
 }

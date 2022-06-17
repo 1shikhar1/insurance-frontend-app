@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { AgentService } from 'src/app/services/agent.service';
 
 
 @Component({
@@ -8,33 +11,40 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AgentRegistrationComponent implements OnInit {
   title:string="AGENT REGISTRATION";
-  agent_name:string="";
-  agent_code:string="";
-  password:string="";
-  confirmPassword:string="";
-  address:string="";
-  email:string="";
-  qualification:string="";
-  status:string="";
+  id:any;
 
-  constructor() { }
-
-  ngOnInit(): void {
+  constructor(private service: AgentService, private route:Router) {
   }
 
-  onSubmit()
+  exform: any;
+  ngOnInit(): void {
+    this.exform=new FormGroup({
+      'name':new FormControl(null,Validators.required),
+      'password':new FormControl(null,Validators.required),
+      'address':new FormControl(null,Validators.required),
+      'email':new FormControl(null,[Validators.required,Validators.email]),
+      'qualification':new FormControl(null,Validators.required),
+      'status':new FormControl(null,Validators.required)
+    });
+  }
+
+  addAgent()
   {
-    let data={
-      "agent_name":this.agent_name,
-      "agent_code":this.agent_code,
-      "password":this.password,
-      "confirmPassword":this.confirmPassword,
-      "address":this.address,
-      "email":this.email,
-      "qualification":this.qualification,
-      "status":this.status,
-    }
-  //  this.service.addCustomer(data);
+    console.log("add employee ts file")
+    this.service.addAgent(this.exform.value).subscribe(result=>{
+      console.log(result)
+      this.id = result;
+      alert("This is your Auto-Generated User-Id: "+this.id.id);
+      setTimeout(()=>{
+        this.route.navigate(['/admin-dashboard']);
+      },2000)
+    })
+    this.exform.reset();
+  }
+
+  logOut(){
+    localStorage.clear();
+    this.route.navigate(['/app-home'])
   }
 
 }

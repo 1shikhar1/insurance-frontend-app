@@ -39,4 +39,8 @@ export class EmployeeRegistrationComponent implements OnInit {
     this.exform.reset();
   }
 
+  logOut(){
+    localStorage.clear();
+    this.route.navigate(['/app-home'])
+  }
 }

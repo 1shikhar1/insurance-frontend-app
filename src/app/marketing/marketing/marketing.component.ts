@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'marketingAgent',
@@ -12,7 +13,7 @@ export class MarketingComponent implements OnInit {
     message: '',
 
   }
-  constructor() { }
+  constructor(private route: Router) { }
 
   ngOnInit(): void {
   }
@@ -20,5 +21,8 @@ export class MarketingComponent implements OnInit {
   onSubmit(){
     
   }
-
+  logOut(){
+    localStorage.clear();
+    this.route.navigate(['/app-home'])
+  }
 }

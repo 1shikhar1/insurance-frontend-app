@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'view-insurance-account-detail',
@@ -16,9 +17,13 @@ export class ViewInsuranceAccountDetailComponent implements OnInit {
   totalPremiumAmount = "";
   profitRatio:string="";
   sumAssured:string="";
-  constructor() { }
+  constructor(private route : Router) { }
 
   ngOnInit(): void {
   }
 
+  logOut(){
+    localStorage.clear();
+    this.route.navigate(['/app-home'])
+  }
 }

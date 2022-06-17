@@ -20,19 +20,15 @@
         </div>
     </div>
   </nav>
-<body style="background-color: skyblue;">
+<body style="background-color: whitesmoke;">
     <div class="text-center">
-        <h1>AR-Saral-Jheevan-Plan</h1>
-        <img src="https://st2.depositphotos.com/1037987/5987/i/450/depositphotos_59876915-stock-photo-happy-family-in-garden.jpg"
+        <h1>LAC-CANCER-INSURANCE-PLAN</h1><br>
+        <img src="assets/cancerPlan.jpg"
             class="rounded float-center" alt="...">
         <p>
-            An Individual, Non-Linked, Non-Participating Life Insurance Pure Risk Premium Product.
-            <br>
-            A solution that offers you and your family, the independence to stay financially protected, even in
-            unforeseen circumstances.
-            <br>
-            AR Life- Saral Jeevan Bima offers ease of understanding with standard terms and conditions.
-            <br>
+            Cancer insurance plan is a form of insurance plan that has been designed to help you manage risks of cancer disease to your health. A cancer policy helps mitigate the expenses related to getting good quality cancer treatment, thus providing the insured with required financial support.
+            LAC Jeevan Bima offers ease of understanding with standard terms and conditions.
+            
         </p>
         <h3>Key Features:</h3>
         <p>
@@ -130,6 +126,10 @@
                     <tr>
                         <td scope="col"><strong>Total Amount:</strong></td>
                         <td scope="col"><input type="text" name="total amount" class="form-control" [(ngModel)]="totalAmt" value=totalAmt></td>
+                    </tr>
+                    <tr>
+                        <td *ngIf="buttonSubmit"><a class="btn btn-danger"
+                                routerLink="/insurance-account-details">Submit</a></td>
                     </tr>
                 </tbody>
             </table>

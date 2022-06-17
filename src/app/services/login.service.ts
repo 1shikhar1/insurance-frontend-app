@@ -16,11 +16,12 @@ export class LoginService {
   }
 
   isLoggedIn(){
-
-   let token = localStorage.getItem('token')
-    if(token =='' && token == null){
-      return false;
-    } 
-    return true;
-  }
+    let token = localStorage.getItem('token')
+     if(token =='' || token == null || token==undefined){
+       return false;
+     }
+     else{
+     return true;
+     }
+   }
 }

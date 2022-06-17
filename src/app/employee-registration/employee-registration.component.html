@@ -4,7 +4,7 @@
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
               <li class="nav-brand">
-                  <a class="nav-link active" style="color: white;" aria-current="page" routerLink="app-Home">
+                  <a class="nav-link active" style="color: white;" aria-current="page" routerLink="/app-home">
                   <img src="assets/homelogo.jpg" id="image" width="150" height="50"/></a>
               </li>
 
@@ -27,7 +27,7 @@
     <h2 class="text-center">{{title}}</h2>
   </div>
   <div class="container">
-    <form (ngSubmit)="onSubmit()">
+    <!-- <form (ngSubmit)="onSubmit()">
       <table class="table table-bordered">
         <tbody>
           <tr>
@@ -68,7 +68,60 @@
           </tr>
         </tbody>
       </table>
+    </form> -->
+
+
+
+
+
+
+
+    <form [formGroup]="exform">
+      <table class="table table-bordered">
+        <tbody>
+          <tr>
+            <td scope="col"><strong>Employee Type:</strong></td>
+            <td><select formControlName="employeeType" name="employeeType" class="form-control">
+                <option value="">Select</option>
+                <option value='NORMAL'>Normal</option>
+                <option value='ADMIN'>Admin</option>
+              </select>
+              <small *ngIf="exform.get('nomineeRelation').invalid && exform.get('nomineeRelation').touched" class="text-danger">Nominee Relation is required</small></td>
+          </tr>
+
+
+          <tr>
+            <td scope="col"><strong>Name:</strong></td>
+            <td scope="col"><input formControlName="name" type="text" name="custname" class="form-control">
+            <small *ngIf="exform.get('name').invalid && exform.get('name').touched" class="text-danger">Name is required</small></td>
+          </tr>
+         
+          <tr>
+            <td scope="col"><strong>Password:</strong></td>
+            <td><input formControlName="password" type="password" class="form-control" name="password"/>
+              <small *ngIf="exform.get('password').invalid && exform.get('password').touched" class="text-danger">password is required</small></td>
+          </tr>
+        
+          <!-- <tr>
+            <td scope="col"><strong>Confirm Password:</strong></td>
+            <td><input formControlName="confirmPassword" type="password" class="form-control" name="confirmPassword"/>
+              <small *ngIf="exform.get('password').invalid && exform.get('password').touched" class="text-danger">confirm password is required</small></td>
+          </tr> -->
+          
+          <tr>
+            <td colspan="2"><button (click)="addEmployee()" [disabled]="exform.invalid" type="button" class="btn btn-primary">Submit</button></td>
+          </tr>
+        </tbody>
+      </table>
     </form>
+
+
+
+
+
+
+
+
   </div>
 
 

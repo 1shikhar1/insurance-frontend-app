@@ -5,7 +5,7 @@
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
   
                 <li class="nav-brand">
-                    <a class="nav-link active" style="color: white;" aria-current="page" routerLink="app-Home">
+                    <a class="nav-link active" style="color: white;" aria-current="page" routerLink="/app-home">
                     <img src="assets/homelogo.jpg" id="image" width="150" height="50"/></a>
                 </li>
   
@@ -22,11 +22,11 @@
     </div>
   </nav>
   <br><br><br>
-  <div class="container mt">
+  <div class="container mt" style="background-color:whitesmoke;">
     <div class="row">
       <div class="col-md-6 offset-md-3">
         <div class="container text-center" style="margin: 10px;">
-          <img class="img-fluid" src="assets/employee.jpg" style="width: 100px;" />
+          <img class="img-fluid" src="assets/employeeLogin.jpg" style="width: 100px;" />
         </div>
         <h1 class="text-center">Employee Login</h1>
   
@@ -40,13 +40,28 @@
               <input type="password" class="form-control" id="pass" placeholder="Password" name="password" ngModel />
               <label for="floatingPassword">Password</label>
             </div>
-            <br />
-            <br />
-  
-            <button id="submit" class="btn btn-primary">login button</button>
+            <button id="submit" class="btn btn-dark btn-lg btn-block" style="margin-top: 20px;">Login</button><br><br>
           </div>
+          <div class="text-center">
+              <button type="button" style="background-color: black;" class="btn btn-link btn-floating mx-1">
+                <i class="fa fa-facebook-f"></i>
+              </button>
+          
+              <button type="button" style="background-color: black;" class="btn btn-link btn-floating mx-1">
+                <i class="fa fa-google"></i>
+              </button>
+          
+              <button type="button" style="background-color: black;" class="btn btn-link btn-floating mx-1">
+                <i class="fa fa-twitter"></i>
+              </button>
+          
+              <button type="button" style="background-color: black;" class="btn btn-link btn-floating mx-1">
+                <i class="fa fa-github"></i>
+              </button>
+            </div>
+            <br>
         </form>
       </div>
     </div>
-  </div>
+  </div><br><br><br>
 </body>

@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { EmployeeService } from '../services/employee.service';
 
 @Component({
   selector: 'empRegistration',
@@ -7,26 +10,33 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EmployeeRegistrationComponent implements OnInit {
   title:string="ADDING EMPLOYEE RECORD";
-  emp_type:string="";
-  emp_name:string="";
-  loginId:string="";
-  password:string="";
-  confirmPassword:string="";
-  status:string="";
-  constructor() { }
+
+  exform: any;
+  id:any;
+
+  constructor(private service:EmployeeService, private route:Router) { }
 
   ngOnInit(): void {
+    this.exform=new FormGroup({
+      'employeeType':new FormControl(null,Validators.required),
+      'name':new FormControl(null,Validators.required),
+      'password':new FormControl(null,Validators.required)
+      // 'confirmPassword':new FormControl(null,Validators.required)
+     
+    });
   }
-  onSubmit()
+  
+
+  addEmployee()
   {
-    let data={
-      "emp_type":this.emp_type,
-      "emp_name":this.emp_name,
-      "loginId": this.loginId,
-      "password":this.password,
-      "confirmPassword":this.confirmPassword,
-      "status":this.status,
-    }
-  //  this.service.addEmployee(data);
+    this.service.addEmployee(this.exform.value).subscribe(result=>{
+      this.id = result;
+      alert("This is your Auto-Generated User-Id: "+this.id.id);
+      setTimeout(()=>{
+        this.route.navigate(['/admin-dashboard']);
+      },5000)
+    })
+    this.exform.reset();
   }
+
 }

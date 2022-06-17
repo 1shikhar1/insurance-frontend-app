@@ -53,9 +53,19 @@ export class EmployeeService {
   }
 
   getInsurancePlans(){
-    var token = "Bearer " + localStorage.getItem("token");
+    let token = "Bearer " + localStorage.getItem("token");
     let url =  "http://localhost:8080/api/v1/insurance/insurancePlan";
     return this.http.get<any[]>(url, {
+     headers: new HttpHeaders({
+        'Authorization': token
+      })
+    })
+  }
+  
+  addEmployee(data:any){
+    let token = "Bearer " + localStorage.getItem("token");
+    let url =  "http://localhost:8080/api/v1/employee/addEmployee";
+    return this.http.post<any[]>(url,data, {
      headers: new HttpHeaders({
         'Authorization': token
       })

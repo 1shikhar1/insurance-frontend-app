@@ -41,6 +41,7 @@
                 </thead>
                 <tbody>
                     <tr *ngFor = "let customer of customers">
+                        <ng-template  [ngIf]="customer.deleted===false">
                         <td>{{customer.id}}</td>
                         <td>{{customer.name}}</td>
                         <td>{{customer.dob}}</td>
@@ -51,7 +52,20 @@
                         <td *ngIf="customer.status===true">Active</td>
                         <td *ngIf="customer.status===false">Inactive</td>
                         <td><a href="viewCustomerDocument">View Documents</a></td>
-                        <td><a href="edit">Edit/</a><br><a href="delete">Delete</a></td>
+<td>
+                        <div *ngIf="customer.status == true">
+                            <div class="form-check form-switch" (click)="deactivateCustomer(customer.id)">
+                              <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked >
+                              </div>
+                            </div>   
+                            <div *ngIf="customer.status == false">
+                            <div class="form-check form-switch" (click)="activateCustomer(customer.id)">
+                              <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" unchecked >
+                              </div>
+                            </div>
+                            <a (click)="deleteCustomerById(customer.id)" style="color:blue; cursor: pointer;">Delete</a>
+                        </td>
+                    </ng-template>
                     </tr>
                 </tbody>
             </table>

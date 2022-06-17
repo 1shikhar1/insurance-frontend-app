@@ -29,4 +29,26 @@ export class ViewCustomerForAgentComponent implements OnInit {
     localStorage.clear();
     this.route.navigate(['/app-home'])
   }
+
+  activateCustomer(id:number){
+    this.customerService.activateCustomer(id).subscribe((result)=>{
+     
+    })
+    window.location.href="viewCustomer";
+  }
+  
+  deactivateCustomer(id:number){
+    this.customerService.deactivateCustomer(id).subscribe((result)=>{
+      
+    })
+    window.location.href="viewCustomer";
+  }
+
+  deleteCustomerById(id:number){
+    this.customerService.deleteCustomerById(id).subscribe((result)=>{
+      
+    })
+    window.location.href="viewCustomer";
+  }
+
 }

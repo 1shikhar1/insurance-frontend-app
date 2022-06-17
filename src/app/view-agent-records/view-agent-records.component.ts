@@ -16,9 +16,9 @@ export class ViewAgentRecordsComponent implements OnInit {
   // qualification: string = "";
   // status: string = "";
   // action: string = "";
-  agents: any[] = []
+  agents: any[] = [];
 
-  constructor(private service: AgentService, private route: Router) {
+  constructor(private agentService: AgentService, private route: Router) {
     this.getAgents()
   }
 
@@ -26,7 +26,7 @@ export class ViewAgentRecordsComponent implements OnInit {
   }
 
   getAgents() {
-    this.service.getAgents().subscribe(data => {
+    this.agentService.getAgents().subscribe(data => {
       console.log("hello")
       console.log(data)
     this.agents= data;
@@ -37,4 +37,28 @@ export class ViewAgentRecordsComponent implements OnInit {
     localStorage.clear();
     this.route.navigate(['/app-home'])
   }
+
+  activateAgent(id:number){
+    this.agentService.activateAgent(id).subscribe((result)=>{
+     
+    })
+    window.location.href="viewAgents";
+  }
+  
+  deactivateAgent(id:number){
+    this.agentService.deactivateAgent(id).subscribe((result)=>{
+      
+    })
+    window.location.href="viewAgents";
+  }
+
+  deleteAgentById(id:number){
+    this.agentService.deleteAgentById(id).subscribe((result)=>{
+      
+    })
+    window.location.href="viewAgents";
+  }
+
+
+
 }

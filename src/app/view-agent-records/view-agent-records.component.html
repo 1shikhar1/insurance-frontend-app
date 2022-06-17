@@ -19,8 +19,6 @@
     </div>
 </nav>
 <br><br><br>
-
-
     <h2 class="text-center">{{title}}</h2>
     <div class="container">
         <form>
@@ -37,6 +35,7 @@
                     </tr>
                 </thead>
                 <tbody *ngFor="let agent of agents">
+                    <ng-template [ngIf]="agent.deleted===false">
                     <tr>
                         <td>{{agent.id}}</td>
                         <td>{{agent.name}}</td>
@@ -45,12 +44,26 @@
                         <td>{{agent.qualification}}</td>
                         <td *ngIf="agent.status===true">Active</td>
                         <td *ngIf="agent.status===false">Inactive</td>
-                        <td><a href="edit">Edit/</a><br><a href="delete">Delete</a></td>
-                    </tr>
+                        <td>
+                            <div *ngIf="agent.status == true">
+                                <div class="form-check form-switch" (click)="deactivateAgent(agent.id)">
+                                  <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked >
+                                  </div>
+                                </div>   
+                                <div *ngIf="agent.status == false">
+                                <div class="form-check form-switch" (click)="activateAgent(agent.id)">
+                                  <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" unchecked >
+                                  </div>
+                                </div>
+                                <a (click)="deleteAgentById(agent.id)" style="color:blue; cursor: pointer;">Delete</a>
+                            </td>
+                        </tr>
+                           </ng-template>
                 </tbody>
             </table>
         </form>
     </div>
+
 
 
 

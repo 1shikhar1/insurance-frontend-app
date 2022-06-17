@@ -13,21 +13,20 @@
                     <a class="nav-link active" aria-current="page"
                      routerLink="/app-home" style="color: white;" (click)="logOut()">Logout</a>
                 </li>
-
-              
             </ul>
         </div>
     </div>
 </nav>
 <br><br>
+
 <body>
-    <h2 class="text-center">{{title}}</h2>
+
     <div class="container">
         <form>
             <table class="table table-bordered">
                 <thead>
                     <tr>
-                        <th>Customer Name</th>
+                        <th>Customer Feedback Id</th>
                         <th>Title</th>
                         <th>Message</th>
                         <th>Contact Date</th>
@@ -36,13 +35,12 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td [(ngModel)]="customerName"></td>
-                        <td [(ngModel)]="Qtitle"></td>
-                        <td [(ngModel)]="message"></td>
-                        <td [(ngModel)]="contactDate"></td>
-                        <td [(ngModel)]="reply"></td>
-                        <td [(ngModel)]="action"><a href="edit">Edit/</a><br><a href="delete">Delete</a></td>
+                    <tr *ngFor="let detail of feedback">
+                        <td>{{detail.id}}</td>
+                        <td>{{detail.title}}</td>
+                        <td>{{detail.message}}</td>
+                        <td>{{detail.date}}</td>
+                        <td>{{detail.reply}}</td>
                     </tr>
                 </tbody>
             </table>

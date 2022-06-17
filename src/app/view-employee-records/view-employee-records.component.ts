@@ -9,7 +9,8 @@ import { EmployeeService } from '../services/employee.service';
 })
 export class ViewEmployeeRecordsComponent implements OnInit {
   title:string="View Employee Records"
-  employees: any[] = []
+  employees: any[] = [];
+  
 
   constructor(private employeeService: EmployeeService, private route: Router) {
     this.getEmployees();
@@ -28,4 +29,26 @@ export class ViewEmployeeRecordsComponent implements OnInit {
     localStorage.clear();
     this.route.navigate(['/app-home'])
   }
+
+  activateEmployee(id:number){
+    this.employeeService.activateEmployee(id).subscribe((result)=>{
+     
+    })
+    window.location.href="empRecords";
+  }
+  
+  deactivateEmployee(id:number){
+    this.employeeService.deactivateEmployee(id).subscribe((result)=>{
+      
+    })
+    window.location.href="empRecords";
+  }
+  
+  deleteEmployeeById(id:number){
+    this.employeeService.deleteEmployeeById(id).subscribe((result)=>{
+      
+    })
+    window.location.href="empRecords";
+  }
+ 
 }

@@ -17,8 +17,6 @@
                     <a class="nav-link active" aria-current="page"
                      routerLink="/app-home" style="color: white;" (click)="logOut()">Logout</a>
                 </li>
-
-              
             </ul>
         </div>
     </div>
@@ -40,19 +38,39 @@
                     </tr>
                 </thead>
                 <tbody>
+                  
                     <tr *ngFor="let employee of employees">
+                       <ng-template [ngIf]="employee.deleted===false">
                         <td>{{employee.id}}</td>
                         <td>{{employee.name}}</td>
                         <td>{{employee.type}}</td>
                         <td>{{employee.password}}</td>
                         <td *ngIf="employee.status===true">Active</td>
                         <td *ngIf="employee.status===false">Inactive</td>
-                        <td><a href="edit">Edit/</a><br><a href="delete">Delete</a></td>
+                        <!-- <td><a href="edit">Edit/</a><br><a href="delete">Delete</a></td> -->
+                        <td>
+    
+                        <div *ngIf="employee.status == true">
+                            <div class="form-check form-switch" (click)="deactivateEmployee(employee.id)">
+                              <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked >
+                              </div>
+                            </div>   
+                            <div *ngIf="employee.status == false">
+                            <div class="form-check form-switch" (click)="activateEmployee(employee.id)">
+                              <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" unchecked >
+                              </div>
+                            </div>
+                            <a (click)="deleteEmployeeById(employee.id)" style="color:blue; cursor: pointer;">Delete</a>
+                        </td>
+                       </ng-template>
                     </tr>
                 </tbody>
             </table>
         </form>
     </div>
 </body>
+
+
+
 
 

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { FeedbackService } from '../services/feedback.service';
 
 @Component({
   selector: 'viewFeedback',
@@ -7,18 +8,20 @@ import { Router } from '@angular/router';
   styleUrls: ['./view-feedback.component.css']
 })
 export class ViewFeedbackComponent implements OnInit {
-title:string="View Feedback"
-customerName:string="";
-Qtitle:string="";
-message:string="";
-contactDate:string=""
-reply:string=""
-action:string=""
-  constructor(private route: Router) { }
+feedback:any=[];
+  constructor(private service: FeedbackService,private route: Router) { 
+    this.getFeedback();
+  }
 
   ngOnInit(): void {
   }
 
+getFeedback(){
+  this.service.getFeedback().subscribe((result)=>{
+    this.feedback = result;
+  })
+}
+  
   logOut(){
     localStorage.clear();
     this.route.navigate(['/app-home'])

@@ -40,5 +40,35 @@ export class AgentService {
       })
     })
   }
+  activateAgent(id:number){
+    let token = "Bearer " + localStorage.getItem("token");
+    let url =  "http://localhost:8080/api/v1/agent/"+id+"/activate";
+    return this.http.get<any[]>(url, {
+     headers: new HttpHeaders({
+        'Authorization': token
+      })
+    })
+  }
+
+  deactivateAgent(id:number){
+    let token = "Bearer " + localStorage.getItem("token");
+    let url =  "http://localhost:8080/api/v1/agent/"+id+"/deactivate";
+    return this.http.get<any[]>(url, {
+     headers: new HttpHeaders({
+        'Authorization': token
+      })
+    })
+  }
+
+  deleteAgentById(id:number){
+    let token = "Bearer " + localStorage.getItem("token");
+    let url =  "http://localhost:8080/api/v1/agent/"+id+"/delete";
+    return this.http.get<any[]>(url, {
+     headers: new HttpHeaders({
+        'Authorization': token
+      })
+    })
+  }
+
   
 }

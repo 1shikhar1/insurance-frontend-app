@@ -27,8 +27,8 @@
             <table class="table table-bordered">
                 <thead>
                     <tr>
+                        <th>Agent id</th>
                         <th>Agent Name</th>
-                        <th>Agent Code</th>
                         <th>Address</th>
                         <th>Email-id</th>
                         <th>Qualification</th>
@@ -38,19 +38,14 @@
                 </thead>
                 <tbody *ngFor="let agent of agents">
                     <tr>
-                        <td>{{agent.name}}</td>
                         <td>{{agent.id}}</td>
+                        <td>{{agent.name}}</td>
                         <td>{{agent.address}}</td>
                         <td>{{agent.email}}</td>
                         <td>{{agent.qualification}}</td>
-                        <td>{{agent.status}}</td>
-                        <!-- <td [(ngModel)]="agentName"></td>
-                        <td [(ngModel)]="agentCode"></td>
-                        <td [(ngModel)]="address"></td>
-                        <td [(ngModel)]="email_id"></td>
-                        <td [(ngModel)]="qualification"></td>
-                        <td [(ngModel)]="status"></td>
-                        <td [(ngModel)]="action"></td> -->
+                        <td *ngIf="agent.status===true">Active</td>
+                        <td *ngIf="agent.status===false">Inactive</td>
+                        <td><a href="edit">Edit/</a><br><a href="delete">Delete</a></td>
                     </tr>
                 </tbody>
             </table>

@@ -24,7 +24,7 @@ export class AgentRegistrationComponent implements OnInit {
       'address':new FormControl(null,Validators.required),
       'email':new FormControl(null,[Validators.required,Validators.email]),
       'qualification':new FormControl(null,Validators.required),
-      'status':new FormControl(null,Validators.required)
+      // 'status':new FormControl(null,Validators.required)
     });
   }
 

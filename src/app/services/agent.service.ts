@@ -10,7 +10,7 @@ export class AgentService {
 
   getAgents() {
     console.log("inside service addagent")
-    let url = "http://localhost:8080/api/v1/agent/addAgent";
+    let url = "http://localhost:8080/api/v1/agent";
     let token = "Bearer " + localStorage.getItem("token")
     return this.http.get<any[]>(url, {
       headers: new HttpHeaders({

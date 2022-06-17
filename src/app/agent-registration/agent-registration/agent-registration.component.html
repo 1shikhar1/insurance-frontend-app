@@ -52,7 +52,7 @@
             <td><input formControlName="qualification" type="text" class="form-control" name="qualification">
               <small *ngIf="exform.get('qualification').invalid && exform.get('qualification').touched" class="text-danger">Qualification is required</small></td>
           </tr>
-          <tr>
+          <!-- <tr>
             <td scope="col"><strong>Status:</strong></td>
             <td><select formControlName="status" name="status" class="form-control">
                 <option value="">Select</option>
@@ -60,7 +60,7 @@
                 <option value='INACTIVE'>inactive</option>
               </select>
               <small *ngIf="exform.get('status').invalid && exform.get('status').touched" class="text-danger">Status is required</small></td>
-          </tr>
+          </tr> -->
           <tr>
             <td colspan="2"><button (click)="addAgent()" [disabled]="exform.invalid" type="button" class="btn btn-primary">Submit</button></td>
           </tr>

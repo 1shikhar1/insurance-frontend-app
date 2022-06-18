@@ -36,10 +36,8 @@ export class CustomerRegistrationComponent implements OnInit {
   {
     this.service.addCustomerData(this.exform.value).subscribe(result=>{
       this.id = result;
-      alert("This is your Auto-Generated User-Id: "+this.id.id);
-      setTimeout(()=>{
-        this.route.navigate(['/customer-login']);
-      },5000)
+      alert("Your User Id: "+this.id.id);
+      this.route.navigate(['/app-home']);
     })
     this.exform.reset();
   }

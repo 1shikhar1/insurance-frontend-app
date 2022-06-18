@@ -13,12 +13,14 @@ import { AgentProfileComponent } from './agent-profile/agent-profile.component';
 import { AgentRegistrationComponent } from './agent-registration/agent-registration/agent-registration.component';
 import { ChildPlanComponent } from './child-plan/child-plan.component';
 import { CustomerDashboardComponent } from './customer-dashboard/customer-dashboard.component';
+import { CustomerDocumentComponent } from './customer-document/customer-document.component';
 import { CustomerFeedbackComponent } from './customer-feedback/customer-feedback.component';
 import { CustomerLoginComponent } from './customer-login/customer-login.component';
 import { CustomerProfileComponent } from './customer-profile/customer-profile.component';
 import { CustomerRegistrationComponent } from './customer-registration/customer-registration.component';
 import { EmployeeDashboardComponent } from './employee-dashboard/employee-dashboard.component';
 import { EmployeeLoginComponent } from './employee-login/employee-login.component';
+import { EmployeeProfileComponent } from './employee-profile/employee-profile.component';
 import { EmployeeRegistrationComponent } from './employee-registration/employee-registration.component';
 import { HomeComponent } from './home/home.component';
 import { InsuranceAccountDetailsComponent } from './insurance-account-details/insurance-account-details.component';
@@ -49,6 +51,7 @@ const routes: Routes = [
   {path:'app-home',component:HomeComponent},
   {path:'admin-login',component:AdminLoginComponent},
   {path:'employee-login',component:EmployeeLoginComponent},
+  {path:'employee-profile', component:EmployeeProfileComponent},
   {path:'customer-login',component:CustomerLoginComponent},
   {path:'agent-login',component:AgentLoginComponent},
   {path:'protection-plan',component:ProtectionPlanComponent},
@@ -89,7 +92,8 @@ const routes: Routes = [
   {path:'insurance-account-details',component:InsuranceAccountDetailsComponent},
   {path:'policy-payment',component:PolicyPaymentComponent},
   {path:'payment-slip',component:PaymentSlipComponent},
-  {path:'agentProfile', component:AgentProfileComponent}
+  {path:'agentProfile', component:AgentProfileComponent},
+  {path:'customerDocument', component:CustomerDocumentComponent}
 ];
 
 @NgModule({

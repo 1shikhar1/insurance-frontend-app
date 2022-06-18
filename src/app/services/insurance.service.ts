@@ -10,7 +10,7 @@ export class InsuranceService {
   constructor(private http:HttpClient, private router: Router) {
 
    }
-
+   
    getInsuranceTypes(){
     var token = "Bearer " + localStorage.getItem("token");
     let url =  "http://localhost:8080/api/v1/insurance/insuranceType";

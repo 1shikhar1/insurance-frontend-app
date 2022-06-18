@@ -30,14 +30,12 @@ export class AgentRegistrationComponent implements OnInit {
 
   addAgent()
   {
-    console.log("add employee ts file")
+
     this.service.addAgent(this.exform.value).subscribe(result=>{
       console.log(result)
       this.id = result;
-      alert("This is your Auto-Generated User-Id: "+this.id.id);
-      setTimeout(()=>{
-        this.route.navigate(['/admin-dashboard']);
-      },2000)
+      alert("Agent User Id: "+this.id.id);
+      this.route.navigate(['/admin-dashboard']);
     })
     this.exform.reset();
   }

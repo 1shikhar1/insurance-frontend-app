@@ -9,6 +9,8 @@ import { FeedbackService } from '../services/feedback.service';
 })
 export class ViewFeedbackComponent implements OnInit {
 feedback:any=[];
+editButton:boolean[]=[];
+reply:string=""
   constructor(private service: FeedbackService,private route: Router) { 
     this.getFeedback();
   }
@@ -25,6 +27,26 @@ getFeedback(){
   logOut(){
     localStorage.clear();
     this.route.navigate(['/app-home'])
+  }
+ 
+  editReply(id:number,feedbackId:number){
+    console.log(id)
+    if(this.editButton[id]==true){
+      this.addFeedback(feedbackId,this.reply);
+      this.editButton[id]=false;
+    }else{
+      this.editButton[id]=true;
+    }
+  }
+
+  addFeedback(id:number,reply:any){
+     console.log(reply,id)
+    let data:any= {
+       "message": "thanks all of you"
+     }
+    this.service.addReply(id,data).subscribe((result)=>{
+      console.log(result);
+    })
   }
 
 }

@@ -8,7 +8,7 @@ import { CustomerService } from '../services/customer.service';
   styleUrls: ['./view-commission-for-agent.component.css']
 })
 export class ViewCommissionForAgentComponent implements OnInit {
-  title: string = "View Customers Record"
+  title: string = "Commission Record"
   customerName: string = "";
   DOB: string = "";
   LoginId: string = "";
@@ -20,25 +20,12 @@ export class ViewCommissionForAgentComponent implements OnInit {
   customers: any[] = []
 
   constructor(private customerService: CustomerService, private route: Router) {
-    this.getAllCustomers()
+    
   }
 
   ngOnInit(): void {
   }
 
-  getAllCustomers() {
-    this.customerService.getCustomers().subscribe(data => {
-      console.log(data)
-      data.map(el => {
-        if (el.status) {
-          el.status = 'active'
-        } if (!el.status) {
-          el.status = 'inactive'
-        }
-        this.customers.push(el)
-      })
-    })
-  }
   logOut(){
     localStorage.clear();
     this.route.navigate(['/app-home'])

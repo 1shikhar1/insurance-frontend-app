@@ -10,7 +10,9 @@ import { AgentService } from '../services/agent.service';
 export class AgentProfileComponent implements OnInit {
   title:string="Agent Details"
   agent:any={};
-  constructor(private agentService: AgentService, private route: Router) { }
+  constructor(private agentService: AgentService, private route: Router) {
+    this.getAgentById();
+   }
 
   ngOnInit(): void {
   }
@@ -20,6 +22,7 @@ export class AgentProfileComponent implements OnInit {
     id = localStorage.getItem("userId");
     let idd:number= +id;
     this.agentService.getAgentById(idd).subscribe((result)=>{
+      console.log(result)
       this.agent=result;
       
     })

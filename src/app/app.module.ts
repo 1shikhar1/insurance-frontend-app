@@ -49,6 +49,8 @@ import { AddCityComponent } from './add-city/add-city.component';
 import { ViewCityComponent } from './view-city/view-city.component';
 import { ViewStateComponent } from './view-state/view-state.component';
 import { AgentProfileComponent } from './agent-profile/agent-profile.component';
+import { EmployeeProfileComponent } from './employee-profile/employee-profile.component';
+import { CustomerDocumentComponent } from './customer-document/customer-document.component';
 
 
 @NgModule({
@@ -57,6 +59,7 @@ import { AgentProfileComponent } from './agent-profile/agent-profile.component';
     HomeComponent,
     AdminLoginComponent,
     EmployeeLoginComponent,
+    EmployeeProfileComponent,
     CustomerLoginComponent,
     AgentLoginComponent,
     ProtectionPlanComponent,
@@ -96,7 +99,9 @@ import { AgentProfileComponent } from './agent-profile/agent-profile.component';
     AddCityComponent,
     ViewCityComponent,
     ViewStateComponent,
-    AgentProfileComponent
+    AgentProfileComponent,
+    EmployeeProfileComponent,
+    CustomerDocumentComponent
   ],
   imports: [
     BrowserModule,

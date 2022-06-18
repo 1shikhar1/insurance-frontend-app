@@ -35,12 +35,16 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let detail of feedback">
+                    <tr *ngFor="let detail of feedback, let i= index">
                         <td>{{detail.id}}</td>
                         <td>{{detail.title}}</td>
                         <td>{{detail.message}}</td>
                         <td>{{detail.date}}</td>
-                        <td>{{detail.reply}}</td>
+                        <td *ngIf="editButton[i]"><textarea  name="reply" [(ngModel)]="reply"></textarea></td>
+                        <td *ngIf="!editButton[i]">{{detail.reply}}</td>
+
+                        <td *ngIf="!editButton[i]"><a (click)="editReply(i,detail.id)" style="color:blue;cursor:pointer" >Edit</a></td>
+                        <td *ngIf="editButton[i]"><button (click)="editReply(i,detail.id)" class="btn btn-primary">Submit</button></td>
                     </tr>
                 </tbody>
             </table>

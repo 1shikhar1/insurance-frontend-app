@@ -1,0 +1,77 @@
+<!-- <nav class="navbar navbar-expand-lg navbar-light" style="background-color:#1d4e9e;">
+    <div class="container-fluid">
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+  
+                <li class="nav-brand">
+                    <a class="nav-link active" style="color: white;" aria-current="page" routerLink="/app-home">
+                    <img src="assets/homelogo.jpg" id="image" width="150" height="50"/></a>
+                </li>
+  
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page"
+                     routerLink="/app-home" style="color: white;">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page"
+                     routerLink="/app-home" style="color: white;">About Us</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+  </nav>
+  <div>
+    <h2 class="text-center">{{title}}</h2>
+    <p class="text-center">Kindly enter the credentials</p>
+  </div>
+  <div class="container">
+    <form [formGroup]="exform">
+      <table class="table table-bordered" style="background-color: whitesmoke;">
+        <tbody>
+            <tr>
+                <td scope="col"><strong>Document Type:</strong></td>
+                <td><select formControlName="documentType" name="documentType" class="form-control">
+                    <option value="">Select</option>
+                    <option value='aadharCard'>Aadhar Card</option>
+                    <option value='panCard'>Pan Card</option>
+                    <option value='voterId'>Voter Id</option>
+                  </select>
+                  <small *ngIf="exform.get('documentType').invalid && exform.get('documentType').touched" class="text-danger">Document Type is required</small></td>
+              </tr>
+         
+          <tr>
+            <td scope="col"><strong>Document:</strong></td>
+            <td><input formControlName="document" type="file" class="form-control" name="document">
+              <small *ngIf="exform.get('document').invalid && exform.get('document').touched" class="text-danger">Document is required</small></td>
+          </tr>
+         
+          <tr>
+            <td colspan="2" style="text-align: center;"><button (click)="uploadDocument()" [disabled]="exform.invalid" type="button" class="btn btn-primary">Submit</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </form>
+  </div>
+
+
+  <form>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Document Type</th>
+                <th>Document Path</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody *ngFor="let document of dos">
+            <tr>
+                <td>{{agent.id}}</td>
+                <td>{{agent.name}}</td>
+                <td><a (click)="" style="color:blue; cursor: pointer;">Delete</a></td>
+                
+                </tr>
+        </tbody>
+    </table>
+</form>
+
+ -->

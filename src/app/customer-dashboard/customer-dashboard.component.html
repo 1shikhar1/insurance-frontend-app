@@ -21,7 +21,7 @@
                         </a>
                         <ul class="dropdown-menu" ngbDropdownMenu aria-labelledby="navbarScrollingDropdown">
                             <li ngbDropdownItem><a class="dropdown-item" routerLink="/customer-profile">Profile</a></li>
-                            <li ngbDropdownItem><a class="dropdown-item" routerLink="/customer-documents">Documents</a></li>
+                            <li ngbDropdownItem><a class="dropdown-item" routerLink="/customerDocument">Documents</a></li>
                         </ul>
                     </li>
 
@@ -32,12 +32,10 @@
                             Insurance Plans
                         </a>
                         <ul class="dropdown-menu" ngbDropdownMenu aria-labelledby="navbarScrollingDropdown">
-                            <li ngbDropdownItem><a class="dropdown-item" routerLink="/protection-plan">Cancer Plans</a></li>
-                            <li ngbDropdownItem><a class="dropdown-item" routerLink="/child-plan">Education Plans</a></li>
-                            <!-- <li ngbDropdownItem><hr class="dropdown-divider"></li> -->
-                            <!-- <li ngbDropdownItem><a class="dropdown-item" href="#">Saving Plans</a></li>
-                            <li ngbDropdownItem><a class="dropdown-item" href="#">Growth Plans</a></li>
-                            <li ngbDropdownItem><a class="dropdown-item" href="#">Group Plans</a></li> -->
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a ngDropDownItem *ngFor="let insuranceType of insuranceTypes" class="dropdown-item"
+                                  href="/{{insuranceType.name}}">{{insuranceType.name}}</a>
+                              </div>
                         </ul>
                     </li>
 
@@ -73,7 +71,7 @@
         </div>
 
         <div class="card" style="width: 18em; margin: 10px; display: inline-block;">
-            <a class="card-block stretched-link text-decoration-none" routerLink="#">
+            <a class="card-block stretched-link text-decoration-none" routerLink="/customerDocument">
                 <img class="card-img-top" src="assets/document.jpg" alt="Card image cap">
                 <div class="card-body">
                     <h5 class="card-title">Documents</h5>

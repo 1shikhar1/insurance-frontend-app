@@ -28,6 +28,7 @@
                         <th>Name</th>
                         <th>Status</th>
                         <th>Action</th>
+                        <th>Delete</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -35,9 +36,12 @@
                         <td>{{insuranceType.name}}</td>
                         <td *ngIf="insuranceType.status===true">Active</td>
                         <td *ngIf="insuranceType.status===false">Inactive</td>
-                        <td><a href="edit">Edit/</a><br><a href="delete">Delete</a></td>
+                        <td><a href="edit">Edit</a></td>
+                        <td><a href="delete">Delete</a></td>
                     </tr>
-                </tbody>
+
+
+                
             </table>
         </form>
     </div>

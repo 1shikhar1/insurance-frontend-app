@@ -32,6 +32,7 @@
                         <th>Qualification</th>
                         <th>Status</th>
                         <th>Action</th>
+                        <th>Delete</th>
                     </tr>
                 </thead>
                 <tbody *ngFor="let agent of agents">
@@ -55,8 +56,8 @@
                                   <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" unchecked >
                                   </div>
                                 </div>
-                                <a (click)="deleteAgentById(agent.id)" style="color:blue; cursor: pointer;">Delete</a>
                             </td>
+                            <td><a (click)="deleteAgentById(agent.id)" style="color:blue; cursor: pointer;">Delete</a></td>
                         </tr>
                            </ng-template>
                 </tbody>

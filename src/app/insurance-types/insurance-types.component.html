@@ -1,0 +1,10 @@
+<ul *ngFor="let insuranceType of insuranceTypes">
+    <li>
+        <h3>{{insuranceType.name}}</h3>
+        <ul *ngFor="let insurancePlan of insurancePlans">
+                <li>
+                    <a style="cursor: pointer;">{{insurancePlan.name}}</a>
+                </li>
+        </ul>
+    </li>
+</ul>

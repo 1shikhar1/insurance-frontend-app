@@ -52,6 +52,7 @@ import { AgentProfileComponent } from './agent-profile/agent-profile.component';
 import { EmployeeProfileComponent } from './employee-profile/employee-profile.component';
 import { CustomerDocumentComponent } from './customer-document/customer-document.component';
 import { InsuranceTypesComponent } from './insurance-types/insurance-types.component';
+import { InsurancePlanCalculatorComponent } from './insurance-plan-calculator/insurance-plan-calculator.component';
 
 
 @NgModule({
@@ -103,7 +104,8 @@ import { InsuranceTypesComponent } from './insurance-types/insurance-types.compo
     AgentProfileComponent,
     EmployeeProfileComponent,
     CustomerDocumentComponent,
-    InsuranceTypesComponent
+    InsuranceTypesComponent,
+    InsurancePlanCalculatorComponent
   ],
   imports: [
     BrowserModule,

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { InsuranceService } from '../services/insurance.service';
 
 
 @Component({
@@ -9,43 +10,32 @@ import { Router } from '@angular/router';
 })
 export class AddingInsurancePlanComponent implements OnInit {
   title:string="Adding Insurance Plan";
-  insuranceType:string="";
-  insuranceScheme:string="";
-  policyTerm:string="";
-  minimumTerm:string="";
-  maximumTerm:string="";
-  age:string="";
-  minimumAge:string="";
-  maximumAge:string="";
-  totalInvestment:string="";
-  minimumInvestment:string="";
-  maximumInvestment:string="";
-  profitRatio:string="";
-  status:string="";
+
+  id:number=0
+  insuranceTypes:any[]=[]
  
-  constructor(private route: Router) { }
+  constructor(private route: Router, private insuranceService:InsuranceService) {
+    this.getInsuranceTypes();
+   }
 
   ngOnInit(): void {
   }
 
-  onSubmit()
+  getInsuranceTypes(){
+    this.insuranceService.getInsuranceTypes().subscribe((result)=>{
+      this.insuranceTypes = result;
+    })
+  }
+
+  onSubmit(data:any)
   {
-    let data={
-      "insuranceType":this.insuranceType,
-      "insuranceScheme":this.insuranceScheme,
-      "policyTerm":this.policyTerm,
-      "minimumTerm":this.minimumTerm,
-      "maximumTerm":this.maximumTerm,
-      "age":this.age,
-      "minimumAge":this.minimumAge,
-      "maximumAge":this.maximumAge,
-      "totalInvestment":this.totalInvestment,
-      "minimumInvestment":this.minimumInvestment,
-      "maximumInvestment": this.maximumInvestment,
-      "profitRatio": this.profitRatio,
-      "status": this.status
-    }
-  //  this.service.addPlan(data);
+   
+   console.log(data)
+   console.log(this.id)
+   this.insuranceService.addInsurancePlan(this.id, data).subscribe(resp=>{
+    console.log(resp)
+    alert("plan added")
+   })
   }
   logOut(){
     localStorage.clear();

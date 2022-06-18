@@ -10,7 +10,10 @@ import { InsuranceService } from '../services/insurance.service';
 export class CustomerDashboardComponent implements OnInit {
 username:string="user";
 insuranceTypes:any[]=[];
-  constructor(private route: Router,private insuranceService: InsuranceService) { }
+title:string="Customer Dashboard"
+  constructor(private route: Router,private insuranceService: InsuranceService) {
+    this.getInsuranceTypes();
+   }
 
   ngOnInit(): void {
   }
@@ -33,6 +36,9 @@ insuranceTypes:any[]=[];
     })
   }
 
-
+customerLogout(){
+  localStorage.clear();
+  this.route.navigate(['/app-home'])
+}
 
 }

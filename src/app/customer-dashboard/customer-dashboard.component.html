@@ -21,7 +21,7 @@
                         </a>
                         <ul class="dropdown-menu" ngbDropdownMenu aria-labelledby="navbarScrollingDropdown">
                             <li ngbDropdownItem><a class="dropdown-item" routerLink="/customer-profile">Profile</a></li>
-                            <li ngbDropdownItem><a class="dropdown-item" routerLink="/customerDocument">Documents</a></li>
+                            <li ngbDropdownItem><a class="dropdown-item" routerLink="/customer-documents">Documents</a></li>
                         </ul>
                     </li>
 
@@ -32,10 +32,12 @@
                             Insurance Plans
                         </a>
                         <ul class="dropdown-menu" ngbDropdownMenu aria-labelledby="navbarScrollingDropdown">
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a ngDropDownItem *ngFor="let insuranceType of insuranceTypes" class="dropdown-item"
-                                  href="/{{insuranceType.name}}">{{insuranceType.name}}</a>
-                              </div>
+                            <li ngbDropdownItem><a class="dropdown-item" routerLink="/protection-plan">Cancer Plans</a></li>
+                            <li ngbDropdownItem><a class="dropdown-item" routerLink="/child-plan">Education Plans</a></li>
+                            <!-- <li ngbDropdownItem><hr class="dropdown-divider"></li> -->
+                            <!-- <li ngbDropdownItem><a class="dropdown-item" href="#">Saving Plans</a></li>
+                            <li ngbDropdownItem><a class="dropdown-item" href="#">Growth Plans</a></li>
+                            <li ngbDropdownItem><a class="dropdown-item" href="#">Group Plans</a></li> -->
                         </ul>
                     </li>
 
@@ -70,8 +72,17 @@
             </a>
         </div>
 
+        <div class="card" style="width: 20rem; margin: 20px; display: inline-block;">
+            <a class="card-block stretched-link text-decoration-none" routerLink="#">
+                <img class="card-img-top" src="assets/feedback.jpg" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">Insurance Types</h5>
+                </div>
+            </a>
+        </div>
+
         <div class="card" style="width: 18em; margin: 10px; display: inline-block;">
-            <a class="card-block stretched-link text-decoration-none" routerLink="/customerDocument">
+            <a class="card-block stretched-link text-decoration-none" routerLink="#">
                 <img class="card-img-top" src="assets/document.jpg" alt="Card image cap">
                 <div class="card-body">
                     <h5 class="card-title">Documents</h5>
@@ -106,6 +117,8 @@
                 </div>
             </a>
         </div>
+
+     
 
     </div>
     <br><br><br><br><br><br><br><br><br>

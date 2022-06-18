@@ -51,6 +51,7 @@ import { ViewStateComponent } from './view-state/view-state.component';
 import { AgentProfileComponent } from './agent-profile/agent-profile.component';
 import { EmployeeProfileComponent } from './employee-profile/employee-profile.component';
 import { CustomerDocumentComponent } from './customer-document/customer-document.component';
+import { InsuranceTypesComponent } from './insurance-types/insurance-types.component';
 
 
 @NgModule({
@@ -101,7 +102,8 @@ import { CustomerDocumentComponent } from './customer-document/customer-document
     ViewStateComponent,
     AgentProfileComponent,
     EmployeeProfileComponent,
-    CustomerDocumentComponent
+    CustomerDocumentComponent,
+    InsuranceTypesComponent
   ],
   imports: [
     BrowserModule,

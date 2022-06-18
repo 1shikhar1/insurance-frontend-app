@@ -30,4 +30,15 @@ export class InsuranceService {
       })
     })
    }
+
+   addInsuranceType(data:any){
+     console.log(data)
+    var token = "Bearer " + localStorage.getItem("token");
+    let url =  "http://localhost:8080/api/v1/insurance/addInsuranceType";
+    return this.http.post<any[]>(url,data, {
+     headers: new HttpHeaders({
+        'Authorization': token
+      })
+    })
+   }
 }

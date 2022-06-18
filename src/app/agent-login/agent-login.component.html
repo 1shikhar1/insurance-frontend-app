@@ -26,41 +26,30 @@
         <div class="row">
             <div class="col-md-6 offset-md-3">
                 <div class="container text-center" style="margin: 10px;">
+                    <br>
                     <img class="img-fluid" src="assets/agentLogin.png" style="width: 100px;" />
                 </div>
                 <h1 class="text-center">Agent Login</h1>
-
-                <form (ngSubmit)="onSubmit()">
-                    <label for="username">Username*</label>
-                    <input type="text" name="username" [(ngModel)]="credentials.username" required
-                        class="form-control"><br>
-
-                    <label for="password">Password*</label>
-                    <input type="password" name="password" [(ngModel)]="credentials.password" required
-                        class="form-control">
-                     <button type="submit" class="btn btn-dark btn-lg btn-block" style="margin-top: 20px;">Login</button>
-                     <br><br>
-                     <div class="text-center">
-                        <button type="button" style="background-color: black;" class="btn btn-link btn-floating mx-1">
-                          <i class="fa fa-facebook-f"></i>
-                        </button>
-                    
-                        <button type="button" style="background-color: black;" class="btn btn-link btn-floating mx-1">
-                          <i class="fa fa-google"></i>
-                        </button>
-                    
-                        <button type="button" style="background-color: black;" class="btn btn-link btn-floating mx-1">
-                          <i class="fa fa-twitter"></i>
-                        </button>
-                    
-                        <button type="button" style="background-color: black;" class="btn btn-link btn-floating mx-1">
-                          <i class="fa fa-github"></i>
-                        </button>
-                      </div>
-                      <br>
+    
+                <form #userForm="ngForm" (ngSubmit)="getUserFormData(userForm.value)">
+                  <div class="container">
+                    <div class="form-floating mb-3">
+                      <input type="text" class="form-control" id="userId" placeholder="name@example.com" name="id" ngModel />
+                      <label for="floatingInput">User Id</label>
+                    </div>
+                    <div class="form-floating">
+                      <input type="password" class="form-control" id="pass" placeholder="Password" name="password" ngModel />
+                      <label for="floatingPassword">Password</label>
+                    </div>
+                    <br />
+                    <br />
+          
+                    <button id="submit" class="btn btn-dark btn-lg btn-block">Login</button>
+                    <br><br><br>
+                  </div>
                 </form>
             </div>
         </div>
     </div>
-    <br><br><br><br><br><br><br><br><br>
-</body>
+    <br><br><br><br><br>
+    </body>

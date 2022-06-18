@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgbCarousel, NgbSlideEvent, NgbSlideEventSource } from '@ng-bootstrap/ng-bootstrap';
-
+import { InsuranceService } from '../services/insurance.service';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -14,6 +14,7 @@ export class HomeComponent implements OnInit {
     pauseOnIndicator = false;
     pauseOnHover = true;
     pauseOnFocus = true;
+    insuranceTypes:any[]=[];
   
     @ViewChild('carousel', { static: true })
   carousel!: NgbCarousel;
@@ -37,11 +38,12 @@ export class HomeComponent implements OnInit {
       }
     }
 
-  constructor() {
+  constructor(private insuranceService: InsuranceService) {
     this.images.push('assets/home1.jpg');
     this.images.push('assets/home2.jpg');
     this.images.push('assets/home3.jpg');
     this.images.push('assets/home4.jpg');
+    this.getInsuranceType();
 
    }
 
@@ -49,6 +51,13 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
 
+  }
+
+  getInsuranceType(){
+  this.insuranceService.getInsuranceTypes().subscribe((result)=>{
+    this.insuranceTypes=result;
+    console.log(result)
+  })
   }
 
 }

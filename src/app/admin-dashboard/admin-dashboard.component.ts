@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AdminService } from '../services/admin.service';
 import { CustomerService } from '../services/customer.service';
+import { FeedbackService } from '../services/feedback.service';
 
 @Component({
   selector: 'admin-dashboard',
@@ -21,52 +22,94 @@ export class AdminDashboardComponent implements OnInit {
   policyPaymentRecords:number=0;
   policyClaimRecords:number=0;
   commissionRecords:number=0;
-  queryRecords:number=0;
+  noOfQueries:number=0;
   stateRecords:number=0;
   cityRecords:number=0;
+  
 
-
-  constructor(private adminService: AdminService, private route: Router) {
+  constructor(private adminService: AdminService, private route: Router,private feedbackService: FeedbackService) {
     this.getEmployeeCounts();
     this.getAgentCounts();
     this.getCustomerCounts();
     this.getInsuranceTypeCounts();
     this.getInsurancePlanCounts();
-
+    this.getFeedbackCount();
    }
 
    getEmployeeCounts(){
     this.adminService.getEmployees().subscribe((result)=>{
-      this.noOfEmployees = result.length
+      let count:number=0;
+      for (let employee of result){
+        if(employee.deleted==false){
+          count++;
+        }
+      }
+      this.noOfEmployees = count;
     })
    }
 
   getAgentCounts(){
     this.adminService.getAgents().subscribe((result)=>{
-      this.noOfAgents = result.length
+      let count:number=0;
+      for (let agent of result){
+        if(agent.deleted==false){
+          count++;
+        }
+      }
+      this.noOfAgents = count;
     })
   }
 
   getCustomerCounts(){
     this.adminService.getCustomers().subscribe((result)=>{
-      this.noOfCustomers = result.length
+      let count:number=0;
+      for (let customer of result){
+        if(customer.deleted==false){
+          count++;
+        }
+      }
+      this.noOfCustomers = count;
     })
   }
 
   getInsuranceTypeCounts(){
     this.adminService.getInsuranceTypes().subscribe((result)=>{
-      this.noOfInsuranceTypes = result.length
+      let count:number=0;
+      for (let insuranceType of result){
+        if(insuranceType.deleted==false){
+          count++;
+        }
+      }
+      this.noOfInsuranceTypes = count;
     })
   }
 
   getInsurancePlanCounts(){
     this.adminService.getInsurancePlans().subscribe((result)=>{
-      this.noOfInsurancePlans = result.length
+      let count:number=0;
+      for (let insurancePlan of result){
+        if(insurancePlan.deleted==false){
+          count++;
+        }
+      }
+      this.noOfInsurancePlans = count;
     })
   }
   logOut(){
     localStorage.clear();
     this.route.navigate(['/app-home'])
+  }
+
+  getFeedbackCount(){
+  this.feedbackService.getFeedback().subscribe((result)=>{
+    let count:number=0;
+      for (let feedback of result){
+        if(feedback.deleted==false){
+          count++;
+        }
+      }
+      this.noOfQueries = count;
+  })
   }
 
   ngOnInit(): void {

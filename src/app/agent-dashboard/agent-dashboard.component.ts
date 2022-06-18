@@ -17,4 +17,10 @@ username:string="Agent"
     this.route.navigate(['/app-home'])
   }
 
+  // getFeedbackCount(){
+  //   this.feedbackService.getFeedback().subscribe((result)=>{
+  //     this.noOfQueries= result.length;
+  //   })
+  //   }
+
 }

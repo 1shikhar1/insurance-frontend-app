@@ -17,8 +17,7 @@ export class AdminService {
         'Authorization': token
       })
     })
-    // let url = "http://localhost:8080/api/v1/employee"
-    // return this.http.get<any[]>(url)
+  
 
   }
 
@@ -32,8 +31,7 @@ export class AdminService {
         'Authorization': token
       })
     })
-    // let url = "http://localhost:8080/api/v1/agent"
-    // return this.http.get<any[]>(url)
+   
   }
 
   getCustomers() {
@@ -44,8 +42,6 @@ export class AdminService {
         'Authorization': token
       })
     })
-    // let url = "http://localhost:8080/api/v1/customer"
-    // return this.http.get<any[]>(url)
   }
 
   getInsuranceTypes() {
@@ -56,8 +52,7 @@ export class AdminService {
         'Authorization': token
       })
     })
-    // let url = "http://localhost:8080/api/v1/insurance/insuranceType"
-    // return this.http.get<any[]>(url)
+  
   }
 
   getInsurancePlans() {
@@ -68,7 +63,5 @@ export class AdminService {
         'Authorization': token
       })
     })
-    // let url = "http://localhost:8080/api/v1/insurance/insurancePlan"
-    // return this.http.get<any[]>(url)
   }
 }

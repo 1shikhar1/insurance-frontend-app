@@ -28,7 +28,58 @@
     <p class="text-center">Kindly enter the credentials</p>
   </div>
   <div class="container">
-    <form>
+
+
+
+
+
+
+    <form [formGroup]="exform">
+      <table class="table table-bordered">
+        <tbody>
+
+          <tr>
+            <td scope="col"><strong>Insurance Type:</strong></td>
+            <td scope="col"><input formControlName="name" type="text" name="name" class="form-control">
+            <small *ngIf="exform.get('name').invalid && exform.get('name').touched" class="text-danger">Insurance Type is required</small></td>
+          </tr>
+         
+          <tr>
+            <td scope="col"><strong>Status:</strong></td>
+            <td><select formControlName="status" name="status" class="form-control">
+                <option value="">Select</option>
+                <option value=true>Active</option>
+                <option value=false>Inactive</option>
+              </select>
+              <small *ngIf="exform.get('status').invalid && exform.get('status').touched" class="text-danger">Status is Required</small></td>
+          </tr>
+          
+          
+          <tr>
+            <td colspan="2"><button (click)="addInsuranceType()" [disabled]="exform.invalid" type="button" class="btn btn-primary">Submit</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- <form [formGroup]="exform">
       <table class="table table-bordered">
         <tbody>
           <tr>
@@ -60,5 +111,5 @@
           </tr>
         </tbody>
       </table>
-    </form>
+    </form> -->
   </div>

@@ -27,8 +27,6 @@ export class ViewAgentRecordsComponent implements OnInit {
 
   getAgents() {
     this.agentService.getAgents().subscribe(data => {
-      console.log("hello")
-      console.log(data)
     this.agents= data;
     })
   }

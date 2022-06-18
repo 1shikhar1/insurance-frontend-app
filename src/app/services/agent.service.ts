@@ -9,7 +9,6 @@ export class AgentService {
   constructor(private http: HttpClient) { }
 
   getAgents() {
-    console.log("inside service addagent")
     let url = "http://localhost:8080/api/v1/agent";
     let token = "Bearer " + localStorage.getItem("token")
     return this.http.get<any[]>(url, {

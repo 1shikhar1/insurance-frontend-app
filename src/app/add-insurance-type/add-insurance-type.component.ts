@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { InsuranceService } from '../services/insurance.service';
 
 @Component({
   selector: 'addInsuranceType',
@@ -8,15 +10,35 @@ import { Router } from '@angular/router';
 })
 export class AddInsuranceTypeComponent implements OnInit {
 title:string="Add Insurance Type"
-insuranceType:string=""
-status:string=""
-  constructor(private route: Router) { }
+exform: any;
+id:any;
+  constructor(private route: Router, private insuranceService: InsuranceService) { }
 
   ngOnInit(): void {
+    this.exform=new FormGroup({
+      'status':new FormControl(null,Validators.required),
+      'name':new FormControl(null,Validators.required)
+      // 'password':new FormControl(null,Validators.required)
+      // 'confirmPassword':new FormControl(null,Validators.required)
+     
+    });
   }
 
   logOut(){
     localStorage.clear();
     this.route.navigate(['/app-home'])
   }
+
+  addInsuranceType(){
+  this.insuranceService.addInsuranceType(this.exform.value).subscribe((result)=>{
+    this.id = result;
+    alert("This is your Auto-Generated User-Id: "+this.id.id);
+    setTimeout(()=>{
+      this.route.navigate(['/admin-dashboard']);
+    },5000)
+  })
+  this.exform.reset();
+  }
+
+
 }

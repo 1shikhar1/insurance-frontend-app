@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { EmployeeService } from '../services/employee.service';
+import { FeedbackService } from '../services/feedback.service';
 
 @Component({
   selector: 'employee-dashboard',
@@ -20,46 +21,77 @@ export class EmployeeDashboardComponent implements OnInit {
   policyPaymentRecords:number=0;
   policyClaimRecords:number=0;
   commissionRecords:number=0;
-  queryRecords:number=0;
+  noOfQueries:number=0;
   stateRecords:number=0;
   insuranceSchemeRecords:number=0;
   cityRecords:number=0;
 
-  constructor(private employeeService: EmployeeService, private route: Router) {
+  constructor(private employeeService: EmployeeService, private route: Router,private feedbackService: FeedbackService) {
     this.getEmployeesCount();
     this.getAgentsCount();
     this.getCustomersCount();
     this.getInsuranceTypesCount();
     this.getInsurancePlansCount();
+    this.getFeedbackCount();
    }
 
    getEmployeesCount(){
     this.employeeService.getEmployees().subscribe((result)=>{
-      this.noOfEmployees = result.length
+      let count:number=0;
+      for (let employee of result){
+        if(employee.deleted==false){
+          count++;
+        }
+      }
+      this.noOfEmployees = count;
     })
    }
 
    getAgentsCount(){
     this.employeeService.getAgents().subscribe((result)=>{
-      this.noOfAgents = result.length
+      let count:number=0;
+      for (let agent of result){
+        if(agent.deleted==false){
+          count++;
+        }
+      }
+      this.noOfAgents = count;
     })
    }
 
    getCustomersCount(){
     this.employeeService.getCustomers().subscribe((result)=>{
-      this.noOfCustomers = result.length
+      let count:number=0;
+      for (let customer of result){
+        if(customer.deleted==false){
+          count++;
+        }
+      }
+      this.noOfCustomers = count;
     })
    }
 
    getInsuranceTypesCount(){
     this.employeeService.getInsuranceTypes().subscribe((result)=>{
-      this.noOfInsuranceTypes = result.length
+      let count:number=0;
+      for (let insuranceType of result){
+        if(insuranceType.deleted==false){
+          count++;
+        }
+      }
+      this.noOfInsuranceTypes = count;
     })
    }
 
    getInsurancePlansCount(){
     this.employeeService.getInsurancePlans().subscribe((result)=>{
-      this.noOfInsurancePlans = result.length
+      let count:number=0;
+      for (let insurancePlan of result){
+        if(insurancePlan.deleted==false){
+          count++;
+        }
+      }
+      this.noOfInsurancePlans = count;
     })
    }
 
@@ -70,5 +102,17 @@ export class EmployeeDashboardComponent implements OnInit {
     localStorage.clear();
     this.route.navigate(['/app-home'])
   }
+
+  getFeedbackCount(){
+    this.feedbackService.getFeedback().subscribe((result)=>{
+      let count:number=0;
+      for (let feedback of result){
+        if(feedback.deleted==false){
+          count++;
+        }
+      }
+      this.noOfQueries = count;
+    })
+    }
 
 }

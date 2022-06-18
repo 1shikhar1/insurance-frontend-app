@@ -28,25 +28,25 @@ export class ViewInsuranceTypeComponent implements OnInit {
     localStorage.clear();
     this.route.navigate(['/app-home'])
   }
-  activateCustomer(id:number){
+  activateInsuranceType(id:number){
     this.insuranceService.activateInsuranceType(id).subscribe((result)=>{
      
     })
-    window.location.href="viewCustomer";
+    window.location.href="insuranceType";
   }
   
-  deactivateCustomer(id:number){
+  deactivateInsuranceType(id:number){
     this.insuranceService.deactivateInsuranceType(id).subscribe((result)=>{
       
     })
-    window.location.href="viewCustomer";
+    window.location.href="insuranceType";
   }
 
-  deleteCustomerById(id:number){
+  deleteInsuranceTypeById(id:number){
     this.insuranceService.deleteInsuranceTypeById(id).subscribe((result)=>{
       
     })
-    window.location.href="viewCustomer";
+    window.location.href="insuranceType";
   }
 
 

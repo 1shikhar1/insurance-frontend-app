@@ -25,6 +25,7 @@
             <table class="table table-bordered">
                 <thead>
                     <tr>
+                        <th>Id</th>
                         <th>Name</th>
                         <th>Status</th>
                         <th>Action</th>
@@ -32,18 +33,41 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let insuranceType of insuranceTypes">
+                    <tr *ngFor = "let insuranceType of insuranceTypes">
+                        <ng-template  [ngIf]="insuranceType.deleted===false">
+                        <td>{{insuranceType.id}}</td>
                         <td>{{insuranceType.name}}</td>
                         <td *ngIf="insuranceType.status===true">Active</td>
                         <td *ngIf="insuranceType.status===false">Inactive</td>
-                        <td><a href="edit">Edit</a></td>
-                        <td><a href="delete">Delete</a></td>
+<td>
+                        <div *ngIf="insuranceType.status == true">
+                            <div class="form-check form-switch" (click)="deactivateInsuranceType(insuranceType.id)">
+                              <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked >
+                              </div>
+                            </div>   
+                            <div *ngIf="insuranceType.status == false">
+                            <div class="form-check form-switch" (click)="activateInsuranceType(insuranceType.id)">
+                              <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" unchecked >
+                              </div>
+                            </div>
+                          
+                        </td>
+                        <td>  <a (click)="deleteInsuranceTypeById(insuranceType.id)" style="color:blue; cursor: pointer;">Delete</a></td>
+                    </ng-template>
                     </tr>
-
-
-                
+                </tbody>
             </table>
         </form>
     </div>
 </body>
 
+
+
+ <!-- <tr *ngFor="let insuranceType of insuranceTypes">
+                        <td>{{insuranceType.id}}</td>
+                        <td>{{insuranceType.name}}</td>
+                        <td *ngIf="insuranceType.status===true">Active</td>
+                        <td *ngIf="insuranceType.status===false">Inactive</td>
+                        <td><a href="edit">Edit</a></td>
+                        <td><a href="delete">Delete</a></td>
+                    </tr> -->

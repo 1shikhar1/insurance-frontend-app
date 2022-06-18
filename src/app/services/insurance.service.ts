@@ -49,9 +49,10 @@ export class InsuranceService {
     });
     return this.http.post(url, data, { headers: httpHeaders });
   }
+  
   activateInsuranceType(id:number){
     let token = "Bearer " + localStorage.getItem("token");
-    let url =  "http://localhost:8080/api/v1/customer/"+id+"/activate";
+    let url =  "http://localhost:8080/api/v1/insurance/insuranceType/"+id+"/activate";
     return this.http.get<any[]>(url, {
      headers: new HttpHeaders({
         'Authorization': token
@@ -61,7 +62,7 @@ export class InsuranceService {
 
   deactivateInsuranceType(id:number){
     let token = "Bearer " + localStorage.getItem("token");
-    let url =  "http://localhost:8080/api/v1/customer/"+id+"/deactivate";
+    let url =  "http://localhost:8080/api/v1/insurance/insuranceType/"+id+"/deactivate";
     return this.http.get<any[]>(url, {
      headers: new HttpHeaders({
         'Authorization': token
@@ -71,7 +72,7 @@ export class InsuranceService {
 
   deleteInsuranceTypeById(id:number){
     let token = "Bearer " + localStorage.getItem("token");
-    let url =  "http://localhost:8080/api/v1/customer/"+id+"/delete";
+    let url =  "http://localhost:8080/api/v1/insurance/insuranceType/"+id+"/delete";
     return this.http.get<any[]>(url, {
      headers: new HttpHeaders({
         'Authorization': token

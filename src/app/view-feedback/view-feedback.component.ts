@@ -40,7 +40,6 @@ getFeedback(){
   }
 
   addFeedback(id:number,reply:any){
-     console.log(reply,id)
     let data:any= {
        "message": "thanks all of you"
      }

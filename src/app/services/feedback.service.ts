@@ -19,9 +19,9 @@ export class FeedbackService {
     })
   }
 
-  addReply(feedbackId:number,data:string){
+  addReply(feedbackId:number,data:any){
     var token = "Bearer " + localStorage.getItem("token");
-    console.log(feedbackId)
+    console.log(feedbackId,data)
     let url = "http://localhost:8080/api/v1/feedback/"+feedbackId+"/replyFeedback";
     return this.http.post<any[]>(url,data, {
      headers: new HttpHeaders({

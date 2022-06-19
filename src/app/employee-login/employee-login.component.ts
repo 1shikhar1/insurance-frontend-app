@@ -25,6 +25,10 @@ getUserFormData(data:any){
     localStorage.setItem("userId",data.id);
     this.route.navigate(['/employee-dashboard'])
   })
+  if(data.id==null || data.id=="" || data.id==undefined 
+  || data.password==null || data.password=="" || data.password==undefined){
+   alert("Please fill up both id and password");
+  }
 }
 }
 

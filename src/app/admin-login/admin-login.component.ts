@@ -19,13 +19,17 @@ export class AdminLoginComponent implements OnInit {
   getUserFormData(data:any){
     console.log(data);
     this.service.loginUser(data).subscribe(user=>{
-      this.token=user
+      this.token=user;
       console.log(this.token.token)
       console.log(data.id)
       localStorage.setItem("token",this.token.token);
       localStorage.setItem("userId",data.id);
       this.route.navigate(['/admin-dashboard'])
     })
+    if(data.id==null || data.id=="" || data.id==undefined 
+    || data.password==null || data.password=="" || data.password==undefined){
+     alert("Please fill up both id and password");
+    }
   }
   
   

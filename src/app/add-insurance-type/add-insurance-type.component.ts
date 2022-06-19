@@ -33,9 +33,7 @@ id:any;
   this.insuranceService.addInsuranceType(this.exform.value).subscribe((result)=>{
     this.id = result;
     alert("This is your Auto-Generated User-Id: "+this.id.id);
-    setTimeout(()=>{
-      this.route.navigate(['/admin-dashboard']);
-    },5000)
+    this.route.navigate(['/admin-dashboard']);
   })
   this.exform.reset();
   }

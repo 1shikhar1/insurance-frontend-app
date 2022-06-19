@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { DataSharingService } from '../service/data-sharing.service';
 import { InsuranceService } from '../services/insurance.service';
 
@@ -12,7 +13,8 @@ export class InsuranceTypesComponent implements OnInit {
   insuranceTypes:any[]=[]
   insurancePlans:any[]=[]
 
-  constructor(private insuranceService: InsuranceService, private dataSharingService: DataSharingService) {
+  constructor(private insuranceService: InsuranceService, private dataSharingService: DataSharingService,
+    private route:Router) {
     this.getInsuranceTypes();
     this.getInsurancePlans();
    }
@@ -35,5 +37,10 @@ export class InsuranceTypesComponent implements OnInit {
 
   setData(data:any){
     this.dataSharingService.data = data;
+  }
+
+  logOut(){
+    localStorage.clear();
+    this.route.navigate(['/app-home'])
   }
 }

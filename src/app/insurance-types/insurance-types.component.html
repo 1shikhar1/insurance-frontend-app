@@ -3,7 +3,7 @@
         <h3>{{insuranceType.name}}</h3>
         <ul *ngFor="let insurancePlan of insurancePlans">
                 <li>
-                    <a style="cursor: pointer;">{{insurancePlan.name}}</a>
+                    <a style="cursor: pointer;" routerLink="/insurancePlanCalculator">{{insurancePlan.name}}</a>
                 </li>
         </ul>
     </li>

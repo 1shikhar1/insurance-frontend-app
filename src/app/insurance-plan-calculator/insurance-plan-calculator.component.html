@@ -1,1 +1,126 @@
 <p>insurance-plan-calculator works!</p>
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color:#1d4e9e;">
+    <div class="container-fluid">
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+  
+                <li class="nav-brand">
+                    <a class="nav-link active" style="color: white;" aria-current="page" routerLink="/app-home">
+                    <img src="assets/homelogo.jpg" id="image" width="150" height="50"/></a>
+                </li>
+  
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page"
+                     routerLink="/app-home" style="color: white;">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page"
+                     routerLink="/app-home" style="color: white;">About Us</a>
+                </li>
+                <li class="nav-item" *ngIf="buttonSubmit">
+                    <a class="nav-link active" aria-current="page"
+                     routerLink="/app-home" style="color: white;" (click)="logOut()">Logout</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+  </nav>
+<body style="background-color: whitesmoke;">
+    <div class="text-center">
+        <h1>Education Plan</h1>
+        <img src="assets/educationPlan.jpg" width="50%" class="rounded float-center" alt="...">
+        <br><br><br>
+        <div class="container">
+        <p>
+            As a parent, your kids are the most important part of your lives. Smallest of your happy moments depend on them. While trying to maintain a balance between emotions & practical life, managing spending and savings often becomes a tricky task.
+
+            You would do anything to make your children happy and to secure their life & future. LAC Life Child Insurance Plans have been specially customized to address your child’s future needs, even in your absence.Simple monthly savings might not suffice the growing higher education costs. For your child to shine in the competitive environment, education fees should be the last constraint. Child insurance plans provide you the flexibility to invest based on your child's education needs, your current financial status, and other monetary goals. Typically, child insurance plans provide a life cover of around 10 times the annual premium. Additionally, these plans also provide partial withdrawal facility as needed. Along with this, you can also avail tax benefits for the premium paid.</p></div>
+        <br>
+        <br>
+        <br>
+        <br>
+        <!-- Default form contact -->
+        <h2>Plan Details:</h2>
+        <table class="table table-hover">
+            <tbody>
+                <tr>
+                    <td>Policy term-minimum</td>
+                    <td>{{ policyTermMin}}</td>
+                </tr>
+                <tr>
+                    <td>Policy term-maximum</td>
+                    <td>{{ policyTermMax}}</td>
+                </tr>
+                <tr>
+                    <td>Minimum Age</td>
+                    <td>{{minAge}}</td>
+                </tr>
+                <tr>
+                    <td>Maximum Age</td>
+                    <td>{{maxAge}}</td>
+                </tr>
+                <tr>
+                    <td>Minimum Investment Amount</td>
+                    <td>{{minInvestmentAmount}}</td>
+                </tr>
+                <tr>
+                    <td>Maxmimum Investment Amount</td>
+                    <td>{{maxInvestmentAmount}}</td>
+                </tr>
+                <tr>
+                    <td>Profit Ratio</td>
+                    <td>{{profitRatio}}</td>
+                </tr>
+            </tbody>
+        </table>
+        <form>
+            <h2>Interest Calculator</h2>
+            <table class="table table-border">
+                <tbody>
+                    <tr>
+                        <td scope="col"><strong>No Of Years:</strong></td>
+                        <td scope="col"><input type="number" name="years" class="form-control" [(ngModel)]="noOfYear">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td scope="col"><strong>Total Investment Amount:</strong></td>
+                        <td scope="col"><input type="number" name="amount" class="form-control" [(ngModel)]="amount">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td scope="col"><strong>Months:</strong></td>
+                        <td scope="col"><select name="months" class="form-control" [(ngModel)]="months">
+                                <option value="">Select</option>
+                                <option value='1 month'>1 Month</option>
+                                <option value='3 month'>3 Month</option>
+                                <option value='6 month'>6 Month</option>
+                                <option value='1 year'>1 Year</option>
+                            </select></td>
+                    </tr>
+                    <button class="btn btn-success" type="submit" (click)="interestCalculator()">Calculate</button>
+                    <br>
+                    <br>
+                    <tr>
+                        <td scope="col"><strong>Installment Amount:</strong></td>
+                        <td scope="col"><input type="text" name="installment amount" class="form-control"
+                                [(ngModel)]="installAmt" value=installAmt disabled></td>
+                    </tr>
+                    <tr>
+                        <td scope="col"><strong>Interest Amount:</strong></td>
+                        <td scope="col"><input type="text" name="interest amount" class="form-control"
+                                [(ngModel)]="insterestAmt" value=insterestAmt disabled></td>
+                    </tr>
+                    <tr>
+                        <td scope="col"><strong>Total Amount:</strong></td>
+                        <td scope="col"><input type="text" name="total amount" class="form-control"
+                                [(ngModel)]="totalAmt" value=totalAmt disabled></td>
+                    </tr>
+                    <tr>
+                        <td *ngIf="buttonSubmit"><a class="btn btn-danger"
+                                routerLink="/insurance-account-details">Submit</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </form>
+    </div>
+</body>

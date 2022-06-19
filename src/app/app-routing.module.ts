@@ -46,6 +46,7 @@ import { ViewPolicyClaimComponent } from './view-policy-claim/view-policy-claim.
 import { ViewPolicyPaymentForAgentComponent } from './view-policy-payment-for-agent/view-policy-payment-for-agent.component';
 import { ViewStateComponent } from './view-state/view-state.component';
 import { InsuranceTypesComponent } from './insurance-types/insurance-types.component';
+import { InsurancePlanCalculatorComponent } from './insurance-plan-calculator/insurance-plan-calculator.component';
 
 const routes: Routes = [
   {path:'',component:HomeComponent},
@@ -95,7 +96,8 @@ const routes: Routes = [
   {path:'payment-slip',component:PaymentSlipComponent},
   {path:'agentProfile', component:AgentProfileComponent},
   {path:'customerDocument', component:CustomerDocumentComponent},
-  {path:'exploreInsurancePlans', component:InsuranceTypesComponent}
+  {path:'exploreInsurancePlans', component:InsuranceTypesComponent},
+  {path:'insurancePlanCalculator', component:InsurancePlanCalculatorComponent}
 ];
 
 @NgModule({

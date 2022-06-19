@@ -12,11 +12,13 @@ export class InsuranceTypesComponent implements OnInit {
 
   insuranceTypes:any[]=[]
   insurancePlans:any[]=[]
+  showPlan:boolean=false;
 
   constructor(private insuranceService: InsuranceService, private dataSharingService: DataSharingService,
     private route:Router) {
     this.getInsuranceTypes();
     this.getInsurancePlans();
+    this.showPlan = this.insuranceService.isLoggedIn();
    }
 
   ngOnInit(): void {

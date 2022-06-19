@@ -8,12 +8,21 @@
                     <img src="assets/homelogo.jpg" id="image" width="150" height="50"/></a>
                 </li>
   
-                <li class="nav-item">
+                <li class="nav-item" *ngIf="showPlan">
                     <a class="nav-link active" aria-current="page"
                      routerLink="/customer-dashboard" style="color: white;">Dashboard</a>
                 </li>
+                
+                <li class="nav-item" *ngIf="!showPlan">
+                    <a class="nav-link active" aria-current="page"
+                     routerLink="/app-home" style="color: white;">Home</a>
+                </li>
+                <li class="nav-item" *ngIf="!showPlan">
+                    <a class="nav-link active" aria-current="page"
+                     routerLink="#" style="color: white;">About us</a>
+                </li>
 
-                <li class="nav-item">
+                <li class="nav-item" *ngIf="showPlan" >
                     <a class="nav-link active" aria-current="page"
                      routerLink="/app-home" style="color: white;" (click)="logOut()">Logout</a>
                 </li>
@@ -21,6 +30,7 @@
         </div>
     </div>
   </nav>
+
   <div class="container" style="background-color:whitesmoke; margin: 20px;">
 <ul *ngFor="let insuranceType of insuranceTypes">
     <li>

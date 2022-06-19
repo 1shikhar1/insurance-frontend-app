@@ -79,6 +79,14 @@ export class InsuranceService {
       })
     })
   }
-
+  isLoggedIn(){
+    let token = localStorage.getItem('token')
+     if(token =='' || token == null || token==undefined){
+       return false;
+     }
+     else{
+     return true;
+     }
+   }
 
 }

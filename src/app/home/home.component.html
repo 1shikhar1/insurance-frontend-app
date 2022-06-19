@@ -24,18 +24,9 @@
                 <li class="nav-item">
                     <a class="nav-link active" style="color: white;" routerLink="/agent-login">Agent Login</a>
                 </li>
-                <li class="nav-item dropdown" ngbDropdown>
-                    <a class="nav-link dropdown-toggle active" style="color: white;" id="navbarScrollingDropdown"
-                     role="button" data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
-                      Insurance Plans
-                    </a>
-                    <ul class="dropdown-menu"  ngbDropdownMenu aria-labelledby="navbarScrollingDropdown" *ngFor="let insuranceType of insuranceTypes">
-                      <!-- <li ngbDropdownItem><a class="dropdown-item"   routerLink="/protection-plan">{{insuranceType.name}}</a></li> -->
-                      <li ngbDropdownItem><a class="dropdown-item"  href="#">{{insuranceType.name}}</a></li>
-                      <!-- <li ngbDropdownItem><a class="dropdown-item"  href="#">Growth Plans</a></li>
-                      <li ngbDropdownItem><a class="dropdown-item"  href="#">Group Plans</a></li> -->
-                    </ul>
-                  </li>
+                <li class="nav-item">
+                    <a class="nav-link active" style="color: white;" routerLink="/exploreInsurancePlans">insurance Plan</a>
+                </li>
                 <li class="nav-item">
                     <a class="nav-link active" style="color: white;" href="#">Contact Us</a>
                 </li>

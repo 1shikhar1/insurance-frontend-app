@@ -41,7 +41,7 @@
          
           <tr>
             <td scope="col"><strong>Document:</strong></td>
-            <td><input formControlName="document" type="file" class="form-control" name="document">
+            <td><input formControlName="document" type="file" class="form-control" name="document" (change)="onFileSelected($event)">
               <small *ngIf="exform.get('document').invalid && exform.get('document').touched" class="text-danger">Document is required</small></td>
           </tr>
          

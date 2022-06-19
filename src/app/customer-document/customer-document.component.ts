@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { DocumentService } from '../services/document.service';
 
 @Component({
   selector: 'app-customer-document',
@@ -7,10 +8,12 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./customer-document.component.css']
 })
 export class CustomerDocumentComponent implements OnInit {
- title:string="CUSTOMER DOCUMENT";
- exform:any;
+  title:string="CUSTOMER DOCUMENT";
+  exform:any;
+  
+  selectedFile: any
 
-  constructor() { }
+  constructor(private documentService:DocumentService) { }
 
   ngOnInit(): void {
     this.exform=new FormGroup({
@@ -19,8 +22,18 @@ export class CustomerDocumentComponent implements OnInit {
     });
   }
 
-  uploadDocument(){
- console.log(this.exform.value.document)
 
+  onFileSelected(event:any){
+    console.log(event);
+    this.selectedFile = <File>event.target.files[0];
+  }
+
+  uploadDocument(){
+    const fd = new FormData();
+    fd.append('image',this.selectedFile, this.selectedFile.name);
+    
+    this.documentService.addDocument(fd).subscribe((result)=>{
+      console.log(result);
+    })
   }
 }

@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
 })
 export class InsuranceAccountDetailsComponent implements OnInit {
 
-  title:string="Insurance Account details";
+  title:string="Insurance Account (Policy) details";
   constructor(private route: Router) { 
 
   }

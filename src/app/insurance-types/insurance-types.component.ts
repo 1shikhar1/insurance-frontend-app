@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataSharingService } from '../service/data-sharing.service';
 import { InsuranceService } from '../services/insurance.service';
 
 @Component({
@@ -11,7 +12,7 @@ export class InsuranceTypesComponent implements OnInit {
   insuranceTypes:any[]=[]
   insurancePlans:any[]=[]
 
-  constructor(private insuranceService: InsuranceService) {
+  constructor(private insuranceService: InsuranceService, private dataSharingService: DataSharingService) {
     this.getInsuranceTypes();
     this.getInsurancePlans();
    }
@@ -30,5 +31,9 @@ export class InsuranceTypesComponent implements OnInit {
     this.insuranceService.getInsurancePlans().subscribe((result)=>{
       this.insurancePlans = result;
     })
+  }
+
+  setData(data:any){
+    this.dataSharingService.data = data;
   }
 }

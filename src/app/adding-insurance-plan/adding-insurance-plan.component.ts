@@ -11,7 +11,7 @@ import { InsuranceService } from '../services/insurance.service';
 export class AddingInsurancePlanComponent implements OnInit {
   title:string="Adding Insurance Plan";
 
-  id:number=0
+  id:any
   insuranceTypes:any[]=[]
  
   constructor(private route: Router, private insuranceService:InsuranceService) {
@@ -32,9 +32,10 @@ export class AddingInsurancePlanComponent implements OnInit {
    
    console.log(data)
    console.log(this.id)
-   this.insuranceService.addInsurancePlan(this.id, data).subscribe(resp=>{
+   this.insuranceService.addInsurancePlan(Number(this.id), data).subscribe(resp=>{
     console.log(resp)
     alert("plan added")
+    this.route.navigate(['/admin-dashboard'])
    })
   }
   logOut(){

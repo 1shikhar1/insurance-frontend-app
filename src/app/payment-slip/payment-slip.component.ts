@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { DataSharingService } from '../service/data-sharing.service';
 
 @Component({
   selector: 'app-payment-slip',
@@ -8,7 +9,7 @@ import { Router } from '@angular/router';
 })
 export class PaymentSlipComponent implements OnInit {
 
-  constructor(private route: Router) { }
+  constructor(private route: Router, private dataSharingService: DataSharingService) { }
 
   ngOnInit(): void {
   }

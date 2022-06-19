@@ -24,52 +24,54 @@
     <form>
       <table class="table table-bordered">
         <tbody>
+
           <tr>
-            <td scope="col"><strong>Insurance Type:</strong></td>
-            <td scope="col"><input type="text" name="insurance-type" class="form-control"></td>
+            <td scope="col"><strong>Agent referral id (optional):</strong></td>
+            <td><input type="text" name="referral" class="form-control" [(ngModel)]="referral"/></td>
           </tr>
-          <!-- <tr>
-            <td scope="col"><strong>Insurance scheme.:</strong></td>
-            <td><input type="text" name="inssurance-scheme" class="form-control" max="2004-06-11" value="" /></td>
-          </tr> -->
+
+          <tr>
+            <td scope="col"><strong>Insurance Plan:</strong></td>
+            <td scope="col"><input type="text" name="insurance-type" class="form-control" disabled [(ngModel)]="insurancePlan"/></td>
+          </tr>
           <tr>
             <td scope="col"><strong>No of Years:</strong></td>
-            <td><input type="text" name="no-Of-Year" class="form-control" value="" /></td>
+            <td><input type="text" name="no-Of-Year" class="form-control" disabled [(ngModel)]="noOfYears"/></td>
           </tr>
           <tr>
             <td scope="col"><strong>Profit Ratio: (in %)</strong></td>
-            <td><input type="text" class="form-control" name="profite-ratio" value=""  /></td>
+            <td><input type="text" class="form-control" name="profite-ratio"  disabled [(ngModel)]="profitRatio"/></td>
           </tr>
           <tr>
             <td scope="col"><strong>Total Investment Amount:</strong></td>
-            <td><input type="text" class="form-control" name="total-invest-amt" value="" /></td>
+            <td><input type="text" class="form-control" name="total-invest-amt" disabled [(ngModel)]="totalInvestmentAmount"/></td>
           </tr>
           <tr>
             <td scope="col"><strong>Premium Type:</strong></td>
-            <td><input type="text" class="form-control" name="premium-type" value="" /></td>
+            <td><input type="text" class="form-control" name="premium-type" disabled [(ngModel)]="premiumType"/></td>
           </tr>
           <tr>
             <td scope="col"><strong>Installment Amount:</strong></td>
-            <td><input type="text" class="form-control" name="install-Amt"/></td>
+            <td><input type="text" class="form-control" name="install-Amt" disabled [(ngModel)]="installmentAmount"/></td>
           </tr>
           <tr>
             <td scope="col"><strong>Interest Amount:</strong></td>
-            <td><input type="text" class="form-control" name="insterest-Amt"/></td>
+            <td><input type="text" class="form-control" name="insterest-Amt" disabled [(ngModel)]="interestAmount"/></td>
           </tr>
           <tr>
-            <td scope="col"><strong>Total Amount:</strong></td>
-            <td><input type="text" class="form-control" name="total-Amt"/></td>
+            <td scope="col"><strong>Sum Assured:</strong></td>
+            <td><input type="text" class="form-control" name="total-Amt" disabled [(ngModel)]="sumAssured"/></td>
           </tr>
           <tr>
             <td scope="col"><strong>Date Created:</strong></td>
-            <td><input type="text" class="form-control" name="dateCreated" /></td>
+            <td><input type="text" class="form-control" name="dateCreated" disabled [(ngModel)]="dateCreated"/></td>
           </tr>
           <tr>
             <td scope="col"><strong>Maturity Date:</strong></td>
-            <td><input type="text" class="form-control" name="maturity-date"/></td>
+            <td><input type="text" class="form-control" name="maturity-date" disabled [(ngModel)]="maturityDate"/></td>
           </tr>
           <tr>
-            <td colspan="2"><div align="center"><a routerLink="/policy-payment" class="btn btn-danger">Click Here to Processed</a></div></td>
+            <td colspan="2"><div align="center"><a routerLink="/policy-payment" class="btn btn-danger" (click)="sendData()">Click Here to Processed</a></div></td>
           </tr>
         </tbody>
       </table>

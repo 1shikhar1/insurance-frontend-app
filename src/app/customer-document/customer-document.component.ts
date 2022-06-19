@@ -1,3 +1,4 @@
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { DocumentService } from '../services/document.service';
@@ -10,10 +11,14 @@ import { DocumentService } from '../services/document.service';
 export class CustomerDocumentComponent implements OnInit {
   title:string="CUSTOMER DOCUMENT";
   exform:any;
+
+  documentType:any
+
+  documents:any[] = []
   
   selectedFile: any
 
-  constructor(private documentService:DocumentService) { }
+  constructor(private documentService:DocumentService, private http: HttpClient) { }
 
   ngOnInit(): void {
     this.exform=new FormGroup({
@@ -29,11 +34,36 @@ export class CustomerDocumentComponent implements OnInit {
   }
 
   uploadDocument(){
+
+    this.documentType = this.exform.value.documentType
+
     const fd = new FormData();
     fd.append('image',this.selectedFile, this.selectedFile.name);
     
     this.documentService.addDocument(fd).subscribe((result)=>{
-      console.log(result);
+      console.log("inside upload document-->");
+      // console.log(result);
+
+      this.documents.push(result);
     })
+
+    console.log(this.documents);
   }
+
+
+
+  openPdf(url:string) {
+
+    let token = "Bearer " + localStorage.getItem("token");
+    this.http.get(url, {
+      headers: new HttpHeaders({
+         'Authorization': token
+       })
+     }
+    ).subscribe((data)=> {
+        
+      console.log(data);
+    });
+}
+
 }

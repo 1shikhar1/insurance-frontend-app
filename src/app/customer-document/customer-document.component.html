@@ -32,9 +32,9 @@
                 <td scope="col"><strong>Document Type:</strong></td>
                 <td><select formControlName="documentType" name="documentType" class="form-control">
                     <option value="">Select</option>
-                    <option value='aadharCard'>Aadhar Card</option>
-                    <option value='panCard'>Pan Card</option>
-                    <option value='voterId'>Voter Id</option>
+                    <option value='AadharCard'>Aadhar Card</option>
+                    <option value='PanCard'>Pan Card</option>
+                    <option value='VoterId'>Voter Id</option>
                   </select>
                   <small *ngIf="exform.get('documentType').invalid && exform.get('documentType').touched" class="text-danger">Document Type is required</small></td>
               </tr>
@@ -60,12 +60,15 @@
             <tr>
                 <th>Document Type</th>
                 <th>Document Path</th>
-                <th>Action</th>
+                <!-- <th>Action</th> -->
             </tr>
         </thead>
         <tbody >
-            <tr>
-             
+            <tr *ngFor="let doc of documents">
+              <td>{{documentType}}</td>
+             <td>
+              <a style="cursor: pointer; color:blue;"  (click)="openPdf(doc.url)">View</a>
+             </td>
                 
                 </tr>
         </tbody>

@@ -23,24 +23,12 @@
       <table class="table table-bordered">
         <tbody>
           <tr>
-            <td scope="col"><strong>Date:</strong></td>
-            <td scope="col"><input type="text" name="custname" class="form-control"></td>
-          </tr>
-          <tr>
-            <td scope="col"><strong>Installment Amount:</strong></td>
-            <td><input type="text" name="dob" class="form-control" max="2004-06-11" value="" /></td>
-          </tr>
-          <tr>
-            <td scope="col"><strong>Text Amount :</strong></td>
-            <td><input type="text" name="loginid" class="form-control" value="" /></td>
-          </tr>
-          <tr>
-            <td scope="col"><strong>Total Amount:</strong></td>
-            <td><input type="password" class="form-control" name="password" value=""  /></td>
+            <td scope="col"><strong>Amount:</strong></td>
+            <td><input type="password" class="form-control" name="password" value=""  disabled [(ngModel)]="amount"/></td>
           </tr>
           <tr>
             <td scope="col"><strong>Payment Type:</strong></td>
-            <td><select name="payment_type" class="form-control">
+            <td><select name="payment_type" class="form-control" >
                 <option value="">Select payment type</option>
                 <option value='credit-card'>Credit Card</option>
                 <option value='debit-card'>Debit Card</option>
@@ -61,11 +49,11 @@
             <td><input type="email" class="form-control" name="email"/></td>
           </tr>
           <tr>
-            <td scope="col"><strong>Expire Date:</strong></td>
+            <td scope="col"><strong>Expiry Date:</strong></td>
             <td><input type="date" class="form-control" name="email"/></td>
           </tr>
           <tr>
-            <td colspan="2"><div align="center"><a routerLink="/payment-slip" class="btn btn-danger">Submit</a></div></td>
+            <td colspan="2"><div align="center"><a routerLink="/payment-slip" class="btn btn-danger" (click)="pay()">Pay</a></div></td>
           </tr>
         </tbody>
       </table>

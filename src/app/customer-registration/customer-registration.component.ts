@@ -13,6 +13,8 @@ import { CustomerService } from '../services/customer.service';
 export class CustomerRegistrationComponent implements OnInit {
   id:any;
   title:string="CUSTOMER REGISTRATION";
+  isLoading:boolean=false;
+
   constructor(private service:CustomerService, private route:Router) {
   }
 
@@ -34,9 +36,11 @@ export class CustomerRegistrationComponent implements OnInit {
 
   addCustomerData()
   {
+    this.isLoading=true;
     this.service.addCustomerData(this.exform.value).subscribe(result=>{
       this.id = result;
       alert("Your User Id: "+this.id.id);
+      this.isLoading=false;
       this.route.navigate(['/app-home']);
     })
     this.exform.reset();

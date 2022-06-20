@@ -54,7 +54,6 @@ import { CustomerDocumentComponent } from './customer-document/customer-document
 import { InsuranceTypesComponent } from './insurance-types/insurance-types.component';
 import { InsurancePlanCalculatorComponent } from './insurance-plan-calculator/insurance-plan-calculator.component';
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -113,7 +112,7 @@ import { InsurancePlanCalculatorComponent } from './insurance-plan-calculator/in
     FormsModule,
     HttpClientModule,
     NgbModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

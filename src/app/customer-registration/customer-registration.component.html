@@ -131,7 +131,7 @@
             <small *ngIf="exform.get('nomineeRelation').invalid && exform.get('nomineeRelation').touched" class="text-danger">Nominee Relation is required</small></td>
         </tr>
         <tr>
-          <td colspan="2"><button (click)="addCustomerData()" [disabled]="exform.invalid" type="button" class="btn btn-primary">Submit</button></td>
+          <td colspan="2"><button (click)="addCustomerData()" [disabled]="exform.invalid" type="button" class="btn btn-primary">Submit</button><img *ngIf="isLoading" src="assets/loader.gif" width="150"></td>
         </tr>
       </tbody>
     </table>

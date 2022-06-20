@@ -13,10 +13,10 @@ export class ViewCustomerForAgentComponent implements OnInit {
   customers: any[] = []
 
   constructor(private customerService: CustomerService, private route: Router) {
-    this.getCustomerss();
+     this.getCustomers();
    }
 
-   getCustomerss(){
+   getCustomers(){
     this.customerService.getCustomers().subscribe((result)=>{
       this.customers = result
     })
@@ -34,21 +34,22 @@ export class ViewCustomerForAgentComponent implements OnInit {
     this.customerService.activateCustomer(id).subscribe((result)=>{
      
     })
-    window.location.href="viewCustomer";
+      window.location.href="/viewCustomer";
+
   }
   
   deactivateCustomer(id:number){
     this.customerService.deactivateCustomer(id).subscribe((result)=>{
       
     })
-    window.location.href="viewCustomer";
+    window.location.href="/viewCustomer";
   }
 
   deleteCustomerById(id:number){
     this.customerService.deleteCustomerById(id).subscribe((result)=>{
-      
+
     })
-    window.location.href="viewCustomer";
+    window.location.href="/viewCustomer";
   }
 
 }

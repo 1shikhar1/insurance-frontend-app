@@ -11,7 +11,11 @@ export class ViewStateComponent implements OnInit {
   state: string="";
    status : string = "";
    action: string = "";
-  constructor(private route: Router) { }
+  constructor(private route: Router) {
+    let token= localStorage.getItem("token")
+    if(token==null){
+      this.route.navigate(['/app-home'])
+    } }
 
   ngOnInit(): void {
   }

@@ -13,6 +13,10 @@ export class ViewCustomerForAgentComponent implements OnInit {
   customers: any[] = []
 
   constructor(private customerService: CustomerService, private route: Router) {
+    let token= localStorage.getItem("token")
+    if(token==null){
+      this.route.navigate(['/app-home'])
+    }
      this.getCustomers();
    }
 

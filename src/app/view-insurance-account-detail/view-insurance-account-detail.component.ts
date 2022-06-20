@@ -13,6 +13,10 @@ export class ViewInsuranceAccountDetailComponent implements OnInit {
   policies:any = []
 
   constructor(private route : Router, private policyService: PolicyService) {
+    let token= localStorage.getItem("token")
+    if(token==null){
+      this.route.navigate(['/app-home'])
+    }
     this.setData();
    }
 

@@ -13,6 +13,10 @@ export class ViewEmployeeRecordsComponent implements OnInit {
   
 
   constructor(private employeeService: EmployeeService, private route: Router) {
+    let token= localStorage.getItem("token")
+    if(token==null){
+      this.route.navigate(['/app-home'])
+    }
     this.getEmployees();
    }
 

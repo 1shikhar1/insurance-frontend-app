@@ -30,7 +30,6 @@ export class AdminDashboardComponent implements OnInit {
   constructor(private adminService: AdminService, private route: Router,private feedbackService: FeedbackService) {
 
     let token= localStorage.getItem("token")
-
     if(token==null){
       this.route.navigate(['/admin-login'])
     }

@@ -13,6 +13,10 @@ editButton:boolean[]=[];
 reply:string=""
 
   constructor(private service: FeedbackService,private route: Router) { 
+    let token= localStorage.getItem("token")
+    if(token==null){
+      this.route.navigate(['/app-home'])
+    }
     this.getFeedback();
   }
 

@@ -28,7 +28,6 @@ export class EmployeeDashboardComponent implements OnInit {
 
   constructor(private employeeService: EmployeeService, private route: Router,private feedbackService: FeedbackService) {
     let token= localStorage.getItem("token")
-
     if(token==null){
       this.route.navigate(['/employee-login'])
     }

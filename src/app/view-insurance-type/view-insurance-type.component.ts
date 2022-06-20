@@ -12,6 +12,10 @@ export class ViewInsuranceTypeComponent implements OnInit {
   insuranceTypes: any[] = []
 
   constructor(private insuranceService: InsuranceService, private route: Router) {
+    let token= localStorage.getItem("token")
+    if(token==null){
+      this.route.navigate(['/app-home'])
+    }
     this.getInsuranceTypes();
    }
 

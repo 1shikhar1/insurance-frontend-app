@@ -13,6 +13,10 @@ export class ViewPolicyPaymentForAgentComponent implements OnInit {
   customerTransactions:any[] = []
 
   constructor(private route: Router, private customerService:CustomerService) {
+    let token= localStorage.getItem("token")
+    if(token==null){
+      this.route.navigate(['/app-home'])
+    }
     this.getCustomertransactions();
    }
 

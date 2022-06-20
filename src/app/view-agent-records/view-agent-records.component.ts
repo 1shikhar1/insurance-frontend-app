@@ -19,6 +19,10 @@ export class ViewAgentRecordsComponent implements OnInit {
   agents: any[] = [];
 
   constructor(private agentService: AgentService, private route: Router) {
+    let token= localStorage.getItem("token")
+    if(token==null){
+      this.route.navigate(['/app-home'])
+    }
     this.getAgents()
   }
 

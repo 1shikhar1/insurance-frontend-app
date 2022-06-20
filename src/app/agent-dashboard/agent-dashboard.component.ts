@@ -10,7 +10,6 @@ export class AgentDashboardComponent implements OnInit {
 username:string="Agent"
   constructor(private route:Router) {
     let token= localStorage.getItem("token")
-
     if(token==null){
       this.route.navigate(['/agent-login'])
     }

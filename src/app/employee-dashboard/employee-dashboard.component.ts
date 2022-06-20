@@ -17,13 +17,12 @@ export class EmployeeDashboardComponent implements OnInit {
   customerDocRecords:number=0;
   noOfInsuranceTypes:number=0;
   noOfInsurancePlans:number=0;
-  insuranceAccountRecords:number=0;
-  policyPaymentRecords:number=0;
+  noOfPolicies:number=0;
+  noOfPolicyPayment:number=0;
   policyClaimRecords:number=0;
-  commissionRecords:number=0;
+  noOfCommission:number=0;
   noOfQueries:number=0;
   stateRecords:number=0;
-  insuranceSchemeRecords:number=0;
   cityRecords:number=0;
 
   constructor(private employeeService: EmployeeService, private route: Router,private feedbackService: FeedbackService) {
@@ -32,12 +31,33 @@ export class EmployeeDashboardComponent implements OnInit {
       this.route.navigate(['/employee-login'])
     }
 
+    this.getAgentTransactionCount();
+    this.getCustomerTransactionCount();
+    this.getPolicyCount();
     this.getEmployeesCount();
     this.getAgentsCount();
     this.getCustomersCount();
     this.getInsuranceTypesCount();
     this.getInsurancePlansCount();
     this.getFeedbackCount();
+   }
+
+   getAgentTransactionCount(){
+    this.employeeService.getAgentTransactions().subscribe((result)=>{
+      this.noOfCommission = result.length
+    })
+   }
+
+   getCustomerTransactionCount(){
+    this.employeeService.getAgentTransactions().subscribe((result)=>{
+      this.noOfPolicyPayment = result.length
+    })
+   }
+
+   getPolicyCount(){
+    this.employeeService.getPolicies().subscribe((result)=>{
+      this.noOfPolicies = result.length
+    })
    }
 
    getEmployeesCount(){

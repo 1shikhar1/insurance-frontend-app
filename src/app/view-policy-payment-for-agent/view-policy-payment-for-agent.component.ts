@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { CustomerService } from '../services/customer.service';
 
 @Component({
   selector: 'viewPolicyPay',
@@ -8,16 +9,12 @@ import { Router } from '@angular/router';
 })
 export class ViewPolicyPaymentForAgentComponent implements OnInit {
   title:string = "View Policy Payment"
-  customerName : string = "";
-  insuranceAccountNo: string = "";
-  paidAmount: string = "";
-  taxAmount:string = "";
-  totalAmount:string="";
-  paidDate:string = "";
-  transType = "";
-  status:string="";
-  Action:string="";
-  constructor(private route: Router) { }
+
+  customerTransactions:any[] = []
+
+  constructor(private route: Router, private customerService:CustomerService) {
+    this.getCustomertransactions();
+   }
 
   ngOnInit(): void {
   }
@@ -26,4 +23,12 @@ export class ViewPolicyPaymentForAgentComponent implements OnInit {
     localStorage.clear();
     this.route.navigate(['/app-home'])
   }
+
+  getCustomertransactions(){
+    this.customerService.getCustomerTransactions().subscribe((result)=>{
+      this.customerTransactions = result;
+      console.log(result)
+    })
+  }
+  
 }

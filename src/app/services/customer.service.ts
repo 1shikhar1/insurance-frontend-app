@@ -12,6 +12,7 @@ export class CustomerService {
     this.feedbackUrl="http://localhost:8080/api/v1/customer/"+localStorage.getItem("userId")+"/addFeedback"
   //  http://localhost:8080/api/v1/customer/99/addFeedback
    }
+
    sendFeedback(data:any){
     console.log(data)
     console.log(this.feedbackUrl);
@@ -37,6 +38,16 @@ export class CustomerService {
   }
   getCustomerById(id:number){
     let url = "http://localhost:8080/api/v1/customer/"+id;
+    let token = "Bearer " + localStorage.getItem("token")
+    return this.http.get<any>(url, {
+      headers: new HttpHeaders({
+        'Authorization': token
+      })
+    })
+  }
+
+  getCustomerTransactions(){
+    let url = "http://localhost:8080/api/v1/customerTransaction"
     let token = "Bearer " + localStorage.getItem("token")
     return this.http.get<any>(url, {
       headers: new HttpHeaders({

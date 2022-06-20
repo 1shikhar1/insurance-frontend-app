@@ -19,9 +19,9 @@ export class AdminDashboardComponent implements OnInit {
   noOfInsuranceTypes:number=0;
   noOfInsurancePlans:number=0;
   noOfPolicies:number=0;
-  policyPaymentRecords:number=0;
+  noOfpolicyPayments:number=0;
   policyClaimRecords:number=0;
-  commissionRecords:number=0;
+  noOfAgentCommissions:number=0;
   noOfQueries:number=0;
   stateRecords:number=0;
   cityRecords:number=0;
@@ -35,6 +35,20 @@ export class AdminDashboardComponent implements OnInit {
     this.getInsurancePlanCounts();
     this.getFeedbackCount();
     this.getPolicyCounts();
+    this.getCustomertransactions();
+    this.getAgenttransactions();
+   }
+
+   getAgenttransactions(){
+    this.adminService.getAgentTransactions().subscribe((result)=>{
+      this.noOfAgentCommissions = result.length
+    })
+   }
+
+   getCustomertransactions(){
+    this.adminService.getCustomerTransactions().subscribe((result)=>{
+      this.noOfpolicyPayments = result.length
+    })
    }
 
    getPolicyCounts(){

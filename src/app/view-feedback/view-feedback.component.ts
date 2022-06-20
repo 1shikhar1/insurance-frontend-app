@@ -11,6 +11,7 @@ export class ViewFeedbackComponent implements OnInit {
 feedback:any=[];
 editButton:boolean[]=[];
 reply:string=""
+
   constructor(private service: FeedbackService,private route: Router) { 
     this.getFeedback();
   }
@@ -40,6 +41,7 @@ getFeedback(){
   }
 
   addFeedback(id:number,reply:any){
+    console.log("inside add Feedback:----->"+reply)
     let data:any= {
        "message": "thanks all of you"
      }

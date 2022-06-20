@@ -27,32 +27,23 @@
             <table class="table table-bordered">
                 <thead>
                     <tr>
-                        <th>Id</th>
-                        <th>Amount</th>
+                        <th>Transaction No.</th>
+                        <th>Agent Name</th>
                         <th>Description</th>
-                        <th>Time</th>
+                        <th>Amount</th>
                         <th>Type</th>
+                        <th>Time</th>
                     </tr>
                 </thead>
-                <tbody *ngFor="let customer of customers">
-                    <tr>
-                        <td>{{customer.name}}</td>
-                        <td>{{customer.dob}}</td>
-                        <td>{{customer.id}}</td>
-                        <td>{{customer.address}}</td>
-                        <td>{{customer.number}}</td>
-                        <td>{{customer.nominee}}</td>
-                        <td>{{customer.nomineeRelation}}</td>
-                        <td>{{customer.status}}</td>
-                        <!-- <td [(ngModel)]="customerName"></td>
-                        <td [(ngModel)]="DOB"></td>
-                        <td [(ngModel)]="LoginId"></td>
-                        <td [(ngModel)]="Address"></td>
-                        <td [(ngModel)]="mobileNo"></td>
-                        <td [(ngModel)]="nominee"></td>
-                        <td [(ngModel)]="nomineeRelation"></td>
-                        <td [(ngModel)]="status"></td> -->
-                        <td><a href="viewCustomerDocument">View Documents</a></td>
+                <tbody>
+                    <tr *ngFor="let transaction of agentTransactions">
+                        <td>{{transaction.id}}</td>
+                        <td>{{transaction.agentName}}</td>
+                        <td>{{transaction.description}}</td>
+                        <td>{{transaction.amount}}</td>
+                        <td>{{transaction.type}}</td>
+                        <td>{{transaction.time}}</td>
+                        
                     </tr>
                 </tbody>
             </table>

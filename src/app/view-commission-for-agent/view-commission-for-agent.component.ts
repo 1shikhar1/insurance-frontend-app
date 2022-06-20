@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AgentService } from '../services/agent.service';
 import { CustomerService } from '../services/customer.service';
 
 @Component({
@@ -9,18 +10,11 @@ import { CustomerService } from '../services/customer.service';
 })
 export class ViewCommissionForAgentComponent implements OnInit {
   title: string = "Commission Record"
-  customerName: string = "";
-  DOB: string = "";
-  LoginId: string = "";
-  Address: string = "";
-  mobileNo: string = "";
-  nominee: string = "";
-  nomineeRelation = "";
-  status: string = "";
-  customers: any[] = []
+  
+  agentTransactions:any[] = []
 
-  constructor(private customerService: CustomerService, private route: Router) {
-    
+  constructor(private agentService: AgentService, private route: Router) {
+    this.getAgentTransactions();
   }
 
   ngOnInit(): void {
@@ -29,5 +23,12 @@ export class ViewCommissionForAgentComponent implements OnInit {
   logOut(){
     localStorage.clear();
     this.route.navigate(['/app-home'])
+  }
+
+  getAgentTransactions(){
+    this.agentService.getAgentTransactions().subscribe((result)=>{
+      console.log(result)
+      this.agentTransactions = result;
+    })
   }
 }

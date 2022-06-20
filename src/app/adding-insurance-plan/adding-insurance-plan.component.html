@@ -31,18 +31,14 @@
   <form  #userFrom="ngForm"  (ngSubmit)="onSubmit(userFrom.value)">
     <table class="table table-bordered">
       <tbody>
-        <!-- <tr>
+        <tr>
           <td scope="col"><strong>Insurance Type:</strong></td>
-          <td><select  name="id" class="form-control" ngModel>
+          <td><select  name="id" class="form-control" [(ngModel)]="id">
               <option value="">Select</option>
               <option *ngFor="let insuranceType of insuranceTypes" value={{insuranceType.id}}>
                 {{insuranceType.name}}
             </option>
             </select>
-        </tr> -->
-        <tr>
-          <td scope="col"><strong>Insurance Type:</strong></td>
-          <td scope="col"><input type="text" name="id" class="form-control" [(ngModel)]="id"></td>
         </tr>
 
         <tr>
@@ -50,11 +46,7 @@
           <td><input type="text" name="name" class="form-control"
                max="2004-06-11" value="" ngModel/></td>
         </tr>
-        <!-- <tr>
-          <td scope="col"><strong>New Registration scheme</strong></td>
-          <td><input type="text" name="description" class="form-control"
-               max="2004-06-11" value="" ngModel/></td>
-        </tr> -->
+
         <tr>
           <td scope="col"><strong>New Registration Commission</strong></td>
           <td><input type="text" class="form-control" name="newRegistrationCommission"

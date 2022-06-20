@@ -9,6 +9,26 @@ export class AdminService {
 
   constructor(private http: HttpClient, private router: Router) { }
 
+  getAgentTransactions(){
+    let url = "http://localhost:8080/api/v1/agentTransaction"
+    let token = "Bearer " + localStorage.getItem("token")
+    return this.http.get<any>(url, {
+      headers: new HttpHeaders({
+        'Authorization': token
+      })
+    })
+  }
+
+  getCustomerTransactions(){
+    let url = "http://localhost:8080/api/v1/customerTransaction"
+    let token = "Bearer " + localStorage.getItem("token")
+    return this.http.get<any>(url, {
+      headers: new HttpHeaders({
+        'Authorization': token
+      })
+    })
+  }
+
   getPolicies(){
     var token = "Bearer " + localStorage.getItem("token");
     let url = "http://localhost:8080/api/v1/policy";

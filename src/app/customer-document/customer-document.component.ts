@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { DocumentService } from '../services/document.service';
 
 @Component({
@@ -18,7 +19,12 @@ export class CustomerDocumentComponent implements OnInit {
   
   selectedFile: any
 
-  constructor(private documentService:DocumentService, private http: HttpClient) { }
+  constructor(private documentService:DocumentService, private http: HttpClient, private route:Router) {
+    let token= localStorage.getItem("token")
+    if(token==null){
+      this.route.navigate(['/customer-login'])
+    }
+   }
 
   ngOnInit(): void {
     this.exform=new FormGroup({

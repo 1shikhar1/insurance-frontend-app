@@ -27,6 +27,12 @@ export class EmployeeDashboardComponent implements OnInit {
   cityRecords:number=0;
 
   constructor(private employeeService: EmployeeService, private route: Router,private feedbackService: FeedbackService) {
+    let token= localStorage.getItem("token")
+
+    if(token==null){
+      this.route.navigate(['/employee-login'])
+    }
+
     this.getEmployeesCount();
     this.getAgentsCount();
     this.getCustomersCount();

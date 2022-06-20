@@ -11,6 +11,10 @@ export class AgentProfileComponent implements OnInit {
   title:string="Agent Details"
   agent:any={};
   constructor(private agentService: AgentService, private route: Router) {
+    let token= localStorage.getItem("token")
+    if(token==null){
+      this.route.navigate(['/agent-login'])
+    }
     this.getAgentById();
    }
 

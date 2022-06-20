@@ -11,6 +11,11 @@ export class EmployeeProfileComponent implements OnInit {
   title:string="Employee Details"
   employee:any={};
   constructor(private employeeService: EmployeeService, private route: Router) {
+    let token= localStorage.getItem("token")
+    if(token==null){
+      this.route.navigate(['/employee-login'])
+    }
+    
     this.getEmployeeById();
    }
 

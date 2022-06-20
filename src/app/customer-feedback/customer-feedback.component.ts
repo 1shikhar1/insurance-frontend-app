@@ -9,7 +9,12 @@ import { CustomerService } from '../services/customer.service';
 })
 export class CustomerFeedbackComponent implements OnInit {
   title: string = "FeedBack";
-  constructor(private service: CustomerService, private route: Router) {}
+  constructor(private service: CustomerService, private route: Router) {
+    let token= localStorage.getItem("token")
+    if(token==null){
+      this.route.navigate(['/customer-login'])
+    }
+  }
 
   ngOnInit(): void {}
   sendFeedback(data: any) {

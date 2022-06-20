@@ -14,7 +14,12 @@ export class EmployeeRegistrationComponent implements OnInit {
   exform: any;
   id:any;
 
-  constructor(private service:EmployeeService, private route:Router) { }
+  constructor(private service:EmployeeService, private route:Router) {
+    let token= localStorage.getItem("token")
+    if(token==null){
+      this.route.navigate(['/admin-login'])
+    }
+   }
 
   ngOnInit(): void {
     this.exform=new FormGroup({

@@ -14,6 +14,10 @@ export class AgentRegistrationComponent implements OnInit {
   id:any;
 
   constructor(private service: AgentService, private route:Router) {
+    let token= localStorage.getItem("token")
+    if(token==null){
+      this.route.navigate(['/admin-login'])
+    }
   }
 
   exform: any;

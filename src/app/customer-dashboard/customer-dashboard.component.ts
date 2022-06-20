@@ -12,6 +12,12 @@ username:string="user";
 insuranceTypes:any[]=[];
 title:string="Customer Dashboard"
   constructor(private route: Router,private insuranceService: InsuranceService) {
+    let token= localStorage.getItem("token")
+
+    if(token==null){
+      this.route.navigate(['/customer-login'])
+    }
+
     this.getInsuranceTypes();
    }
 

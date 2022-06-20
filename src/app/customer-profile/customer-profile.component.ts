@@ -21,7 +21,11 @@ export class CustomerProfileComponent implements OnInit {
   // nominee:string="";
   // nomineeRelation:string="";
   customer:any={};
-  constructor(private customerService: CustomerService, private route: Router) { 
+  constructor(private customerService: CustomerService, private route: Router) {
+    let token= localStorage.getItem("token")
+    if(token==null){
+      this.route.navigate(['/customer-login'])
+    } 
     this.getCustomerData();
   }
 

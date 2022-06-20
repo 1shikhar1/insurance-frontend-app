@@ -8,7 +8,13 @@ import { Router } from '@angular/router';
 })
 export class AgentDashboardComponent implements OnInit {
 username:string="Agent"
-  constructor(private route:Router) { }
+  constructor(private route:Router) {
+    let token= localStorage.getItem("token")
+
+    if(token==null){
+      this.route.navigate(['/agent-login'])
+    }
+   }
 
   ngOnInit(): void {
   }

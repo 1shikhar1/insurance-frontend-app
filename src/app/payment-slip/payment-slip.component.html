@@ -9,6 +9,10 @@
         </li>
 
         <li class="nav-item">
+          <a class="nav-link active" aria-current="page" routerLink="/customer-dashboard" style="color: white;" >Dashboard</a>
+        </li>
+
+        <li class="nav-item">
           <a class="nav-link active" aria-current="page" routerLink="/app-home" style="color: white;" (click)="logOut()">Logout</a>
         </li>
       </ul>
@@ -20,27 +24,33 @@
     <table class="table table-bordered">
         <thead>
           <tr>
-            <th colspan="2" class="text-center" style="background-color: black; color:aliceblue"><h2>Policy Payment Receipt</h2></th>
+            <th colspan="2" class="text-center" style="background-color: black; color:aliceblue"><h2>Policy Receipt</h2></th>
           </tr>
         </thead>
         <tbody>  
           <tr>
-            <td><strong>Policy Number:</strong></td>
-            <td></td>
+            <td><strong>Insurance Plan:</strong></td>
+            <td>{{insurancePlan}}</td>
           </tr>
           <tr>
-            <td><strong>Amount</strong></td>
+            <td><strong>Installment Amount</strong></td>
+            <td>{{installmentAmount}}</td>
           </tr>
           <tr>
-            <td><strong>Payment Method:</strong></td>
+            <td><strong>Premium Type:</strong></td>
+            <td>{{premiumType}}</td>
           </tr>
-          <tr> <td><strong> Payment Date:</strong></td></tr>
-          <tr>
+          <tr> 
+            <td><strong> Payment Date:</strong></td>
+            <td>{{paymentDate}}</td>
+          </tr>
+          <!-- <tr>
             <td ><strong>Tax:(12.00%)</strong></td>
             <td></td>
-          </tr>
+          </tr> -->
           <tr>
-            <td ><strong>Total</strong></td>
+            <td ><strong>Sum Assured</strong></td>
+            <td>{{sumAssured}}</td>
           </tr>
           <br>
           <button onclick="window.print()" class="btn btn-danger">Print</button>

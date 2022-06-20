@@ -26,13 +26,14 @@ export class InsuranceTypesComponent implements OnInit {
 
   getInsuranceTypes(){
     this.insuranceService.getInsuranceTypes().subscribe((result)=>{
-      console.log(result)
+      // console.log(result)
       this.insuranceTypes = result;
     })
   }
 
   getInsurancePlans(){
     this.insuranceService.getInsurancePlans().subscribe((result)=>{
+      console.log(result)
       this.insurancePlans = result;
     })
   }

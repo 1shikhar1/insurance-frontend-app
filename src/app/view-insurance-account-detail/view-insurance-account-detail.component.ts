@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { PolicyService } from '../services/policy.service';
 
 @Component({
   selector: 'view-insurance-account-detail',
@@ -7,17 +8,21 @@ import { Router } from '@angular/router';
   styleUrls: ['./view-insurance-account-detail.component.css']
 })
 export class ViewInsuranceAccountDetailComponent implements OnInit {
-  title:string = "View Insurance Account Details"
-  accountNo : string = "";
-  insuranceType: string = "";
-  insuranceScheme: string = "";
-  dateCreate:string = "";
-  maturityDate:string="";
-  premiumType:string = "";
-  totalPremiumAmount = "";
-  profitRatio:string="";
-  sumAssured:string="";
-  constructor(private route : Router) { }
+  title:string = "Poliices Details"
+
+  policies:any = []
+
+  constructor(private route : Router, private policyService: PolicyService) {
+    this.setData();
+   }
+
+   setData(){
+    this.policyService.getPolicies().subscribe((result)=>{
+      this.policies = result;
+      console.log(result)
+    })
+  }
+
 
   ngOnInit(): void {
   }
@@ -26,4 +31,5 @@ export class ViewInsuranceAccountDetailComponent implements OnInit {
     localStorage.clear();
     this.route.navigate(['/app-home'])
   }
+
 }

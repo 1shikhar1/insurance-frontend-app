@@ -18,7 +18,7 @@ export class AdminDashboardComponent implements OnInit {
   customerDocRecords:number=0;
   noOfInsuranceTypes:number=0;
   noOfInsurancePlans:number=0;
-  noOfInsuranceAccounts:number=0;
+  noOfPolicies:number=0;
   policyPaymentRecords:number=0;
   policyClaimRecords:number=0;
   commissionRecords:number=0;
@@ -34,6 +34,13 @@ export class AdminDashboardComponent implements OnInit {
     this.getInsuranceTypeCounts();
     this.getInsurancePlanCounts();
     this.getFeedbackCount();
+    this.getPolicyCounts();
+   }
+
+   getPolicyCounts(){
+    this.adminService.getPolicies().subscribe((result)=>{
+      this.noOfPolicies = result.length;
+    })
    }
 
    getEmployeeCounts(){

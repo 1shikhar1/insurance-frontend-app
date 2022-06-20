@@ -36,7 +36,7 @@
     <li>
         <h3>{{insuranceType.name}}</h3>
         <ul *ngFor="let insurancePlan of insurancePlans">
-                <li>
+                <li *ngIf="insuranceType.name==insurancePlan.insuranceTypeName">
                     <a style="cursor: pointer;" routerLink="/insurancePlanCalculator" (click)="setData(insurancePlan)">{{insurancePlan.name}}</a>
                 </li>
         </ul>

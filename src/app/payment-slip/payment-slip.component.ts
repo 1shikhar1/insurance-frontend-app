@@ -9,7 +9,21 @@ import { DataSharingService } from '../service/data-sharing.service';
 })
 export class PaymentSlipComponent implements OnInit {
 
-  constructor(private route: Router, private dataSharingService: DataSharingService) { }
+  insurancePlan:any
+  installmentAmount: any
+  premiumType:any
+  paymentDate:any
+  sumAssured:any
+
+
+  
+  constructor(private route: Router, private dataSharingService: DataSharingService) {
+    this.insurancePlan = dataSharingService.data.insurancePlan;
+    this.installmentAmount = dataSharingService.data.installmentAmount;
+    this.premiumType = dataSharingService.data.premiumType;
+    this.paymentDate = dataSharingService.data.dateCreated;
+    this.sumAssured = dataSharingService.data.sumAssured;
+   }
 
   ngOnInit(): void {
   }

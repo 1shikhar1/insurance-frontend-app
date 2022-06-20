@@ -9,6 +9,16 @@ export class AdminService {
 
   constructor(private http: HttpClient, private router: Router) { }
 
+  getPolicies(){
+    var token = "Bearer " + localStorage.getItem("token");
+    let url = "http://localhost:8080/api/v1/policy";
+    return this.http.get<any[]>(url, {
+     headers: new HttpHeaders({
+        'Authorization': token
+      })
+    })
+  }
+
   getEmployees() {
     var token = "Bearer " + localStorage.getItem("token");
     let url = "http://localhost:8080/api/v1/employee";
@@ -17,8 +27,6 @@ export class AdminService {
         'Authorization': token
       })
     })
-  
-
   }
 
 

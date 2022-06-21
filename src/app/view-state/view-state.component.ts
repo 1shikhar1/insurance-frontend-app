@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./view-state.component.css']
 })
 export class ViewStateComponent implements OnInit {
-  title:string = "VIEW STATE RECORDS"
+  title:string = "State Records"
   state: string="";
    status : string = "";
    action: string = "";

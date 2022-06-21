@@ -67,7 +67,7 @@
             <tr *ngFor="let doc of documents">
               <td>{{documentType}}</td>
              <td>
-              <a style="cursor: pointer; color:blue;"  (click)="openPdf(doc.url)">View</a>
+              <a style="cursor: pointer; color:blue;"  href={{doc.url}}>View</a>
              </td>
                 
                 </tr>

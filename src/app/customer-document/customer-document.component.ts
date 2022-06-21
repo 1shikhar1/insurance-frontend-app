@@ -47,9 +47,6 @@ export class CustomerDocumentComponent implements OnInit {
     fd.append('image',this.selectedFile, this.selectedFile.name);
     
     this.documentService.addDocument(fd).subscribe((result)=>{
-      console.log("inside upload document-->");
-      // console.log(result);
-
       this.documents.push(result);
     })
 
@@ -70,6 +67,7 @@ export class CustomerDocumentComponent implements OnInit {
         
       console.log(data);
     });
+
 }
 
 }

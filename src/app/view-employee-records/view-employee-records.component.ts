@@ -8,7 +8,7 @@ import { EmployeeService } from '../services/employee.service';
   styleUrls: ['./view-employee-records.component.css']
 })
 export class ViewEmployeeRecordsComponent implements OnInit {
-  title:string="View Employee Records"
+  title:string="Employee Records"
   employees: any[] = [];
   
 

@@ -8,7 +8,7 @@ import { CustomerService } from '../services/customer.service';
   styleUrls: ['./view-policy-payment-for-agent.component.css']
 })
 export class ViewPolicyPaymentForAgentComponent implements OnInit {
-  title:string = "View Policy Payment"
+  title:string = "Policy Payment"
 
   customerTransactions:any[] = []
 

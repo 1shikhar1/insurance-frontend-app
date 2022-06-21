@@ -8,7 +8,7 @@ import { InsuranceService } from '../services/insurance.service';
   styleUrls: ['./view-insurance-type.component.css']
 })
 export class ViewInsuranceTypeComponent implements OnInit {
-  title:string="View Insurance Type"
+  title:string="Insurance Types"
   insuranceTypes: any[] = []
 
   constructor(private insuranceService: InsuranceService, private route: Router) {

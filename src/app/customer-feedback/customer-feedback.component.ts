@@ -17,13 +17,16 @@ export class CustomerFeedbackComponent implements OnInit {
   }
 
   ngOnInit(): void {}
+
   sendFeedback(data: any) {
     console.log(data);
     this.service.sendFeedback(data).subscribe(resp=>{
       console.log(resp);
       alert("feed back send successfully");
+      this.route.navigate(['/customer-dashboard'])
     });
   }
+
   logOut(){
     localStorage.clear();
     this.route.navigate(['/app-home'])
